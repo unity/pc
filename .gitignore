@@ -21,4 +21,4 @@ PlexConnect.log
 
 *.suo
 
-/assets/fanartcache/*.jpg
+/assets/fanartcache/*.png
