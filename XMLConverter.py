@@ -15,7 +15,7 @@ http://trailers.apple.com/appletv/us/nav.xml
 ->browse:       http://trailers.apple.com/appletv/us/browse.xml
 """
 
-
+import re
 import os
 import sys
 import traceback
@@ -316,26 +316,42 @@ def XML_PMS2aTV(PMS_address, path, options):
             tokenDict['PlexHome'] = g_ATVSettings.getSetting(UDID, 'plexhome_auth')
         PlexAPI.discoverPMS(UDID, g_param['CSettings'], g_param['IP_self'], tokenDict)
         
-        # sanitize aTV settings from not-working combinations
-        # fanart only with PIL/pillow installed, only with iOS>=6.0  # watch out: this check will make trouble with iOS10
-        if not PILBackgrounds.isPILinstalled() or \
-           not options['aTVFirmwareVersion'] >= '6.0':
-            dprint(__name__, 2, "disable fanart (PIL not installed or aTVFirmwareVersion<6.0)")
-            g_ATVSettings.setSetting(UDID, 'fanart', 'Hide')
-        
         return XML_Error('PlexConnect', 'Discover!')  # not an error - but aTV won't care anyways.
-    
+        
+    elif cmd.startswith('purgeFanart'): 
+        import PILBackgrounds 
+        PILBackgrounds.purgeFanart()   
+        #opt = cmd[len('purgeFanart:'):]  # cut command: 
+        #parts = opt.split('+') 
+        #XMLtemplate = parts[1] + ".xml" 
+        dprint(__name__, 1, 'purging: {0}', "Fanart Cache")  # Debug  
+        path = ''  # clear path - we don't need PMS-XML   
+
+        
     elif path.find('serviceSearch') != -1 or (path.find('video') != -1 and path.lower().find('search') != -1):
         XMLtemplate = 'Channels/VideoSearchResults.xml'
     
     elif path.find('SearchResults') != -1:
         XMLtemplate = 'Channels/VideoSearchResults.xml'
-
-    # Special case scanners
+        
+        # Special case scanners
+    if cmd=='S_-_BABS':
+        dprint(__name__, 1, "Found S - BABS.")
     if cmd=='S_-_BABS' or cmd=='BABS':
         dprint(__name__, 1, "Found S - BABS / BABS")
         dir = 'TVShow'
         cmd = 'NavigationBar'
+        
+    # Overview case scanners
+    if cmd.find('Overview') != -1:
+        dprint(__name__, 1, "Overview scanner found, updating command.")
+        if cmd.find('Series') != -1: dir = 'TVShow'
+        elif cmd.find('Movie') != -1: dir = 'Movie'
+        elif cmd.find('Video') != -1: dir = 'HomeVideo'
+        elif cmd.find('Premium_Music') != -1: dir = 'Music'
+        elif cmd.find('Music') != -1 or cmd.find('iTunes') != -1: dir ='Music'
+        cmd = 'Overview'
+        
     elif cmd.find('Scanner') != -1:
         dprint(__name__, 1, "Found Scanner.")
         if cmd.find('Series') != -1: dir = 'TVShow'
@@ -344,7 +360,8 @@ def XML_PMS2aTV(PMS_address, path, options):
         elif cmd.find('Premium_Music') != -1: dir = 'Music'
         elif cmd.find('Music') != -1 or cmd.find('iTunes') != -1: dir ='Music'
         cmd = 'NavigationBar'
-    # Not a special command so split it 
+        
+    # Not a special command so split it
     elif cmd.find('_') != -1:
         parts = cmd.split('_', 1)
         dir = parts[0]
@@ -731,8 +748,13 @@ class CCommandCollection(CCommandHelper):
     # XML TREE modifier commands
     # add new commands to this list!
     def TREE_COPY(self, elem, child, src, srcXML, param):
-        tag, param_enbl = self.getParam(src, param)
-
+        
+        # is MULTICOPY?
+        tags=param.split(',')
+        if len(tags) > 1:
+            tag, param_enbl = self.getParam(src, tags[0])
+        else:
+            tag, param_enbl = self.getParam(src, param)
         src, srcXML, tag = self.getBase(src, srcXML, tag)        
         
         # walk the src path if neccessary
@@ -746,9 +768,20 @@ class CCommandCollection(CCommandHelper):
             if el==child:
                 break
         
-        # duplicate child and add to tree
+        #get all requested tags
+        itemrange = src.findall(tag)
+        # is MULTICOPY?
+        for i in range(len(tags)):
+            if i > 0:
+                itemrange=itemrange+src.findall(tags[i])
+        
+        # sort by addedAt (updatedAt?)
+        if len(tags) > 1:
+            itemrange = sorted(itemrange, key=lambda x: x.attrib.get('addedAt'), reverse=True)
+        
         cnt = 0
-        for elemSRC in src.findall(tag):
+        
+        for elemSRC in itemrange:
             key = 'COPY'
             if param_enbl!='':
                 key, leftover, dfltd = self.getKey(elemSRC, srcXML, param_enbl)
@@ -842,6 +875,12 @@ class CCommandCollection(CCommandHelper):
         # remove template child
         elem.remove(child)
         return True  # tree modified, nodes updated: restart from 1st elem
+    
+
+        # remove template child
+        elem.remove(child)
+        return True  # tree modified, nodes updated: restart from 1st elem
+    
     
     def TREE_CUT(self, elem, child, src, srcXML, param):
         key, leftover, dfltd = self.getKey(src, srcXML, param)
@@ -1321,8 +1360,28 @@ class CCommandCollection(CCommandHelper):
         else:
             return PMS_name
     
+    def ATTRIB_getBackground(self, src, srcXML, param):
+        import PILBackgrounds
+        conf = PILBackgrounds.ImageBackground(eval(param))
+        res = conf.generate()
+        return res
+
     def ATTRIB_BACKGROUNDURL(self, src, srcXML, param):
         key, leftover, dfltd = self.getKey(src, srcXML, param)
+        gradientTemplate, leftover = self.getParam(src, leftover)
+        titleText, leftover = self.getParam(src, leftover)
+        subtitleText, leftover = self.getParam(src, leftover)
+        titleSize, leftover = self.getParam(src, leftover)
+        subtitleSize, leftover = self.getParam(src, leftover)
+        textColor, leftover = self.getParam(src, leftover)
+        align, leftover = self.getParam(src, leftover)
+        valign, leftover = self.getParam(src, leftover)
+        offsetx, leftover = self.getParam(src, leftover)
+        offsety, leftover = self.getParam(src, leftover)
+        lineheight, leftover = self.getParam(src, leftover)
+        blurStart, leftover = self.getParam(src, leftover)
+        blurEnd, leftover = self.getParam(src, leftover)
+        statusText, leftover = self.getParam(src, leftover)
         
         if key.startswith('/'):  # internal full path.
             key = self.PMS_baseURL + key
@@ -1335,11 +1394,19 @@ class CCommandCollection(CCommandHelper):
         
         dprint(__name__, 0, "Background (Source): {0}", key)
         res = g_param['baseURL']  # base address to PlexConnect
-        res = res + PILBackgrounds.generate(self.PMS_uuid, key, auth_token, self.options['aTVScreenResolution'], g_ATVSettings.getSetting(self.ATV_udid, 'fanart_blur'))
+
+        res = res + PILBackgrounds.generate(self.PMS_uuid, key, auth_token, self.options['aTVScreenResolution'], g_ATVSettings.getSetting(self.ATV_udid, 'fanart_blur'), gradientTemplate, titleText, subtitleText, titleSize, subtitleSize, textColor, align, valign, offsetx, offsety, lineheight, blurStart, blurEnd, statusText)
         dprint(__name__, 0, "Background: {0}", res)
         return res
 
-
+    def ATTRIB_FanartCOUNT(self, src, srcXML, param):
+        isfile = os.path.isfile
+        join = os.path.join
+        
+        directory = sys.path[0]+"/assets/fanartcache" 
+        res = sum(1 for item in os.listdir(directory) if isfile(join(directory, item)))
+        
+        return str(res)
 
 if __name__=="__main__":
     cfg = Settings.CSettings()

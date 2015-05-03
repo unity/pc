@@ -2,28 +2,59 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
     <script src="{{URL(:/js/selectAudioAndSubs.js)}}" />
+    <script src="{{URL(:/js/settings.js)}}" />
   </head>
 
+{{ADDXML(TVShow::/library/metadata/{{VAL(Video/grandparentRatingKey)}})}}
+
   <body>
-    <itemDetail id="com.apple.trailer" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_PrePlay)}}')">
-      <title>{{VAL(Video/index)}}. {{VAL(Video/title)}}</title>
-      <subtitle>{{VAL(Video/studio)}}</subtitle>
+    <itemDetailWithImageHeader id="com.apple.trailer" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_PrePlay)}}')">
+    <styles>
+          <color name="titleColor">#{{VAL($tabletitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}</color>
+          <color name="metadataColor">#{{VAL($metadatacolor::White=fafafa|Grey=878787)}}</color>
+        </styles>
+       <header>
+	    <imageHeader>
+	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=690)}}, 0" required="true">
+	      {{URL(:/fanartcache/{{getBackground({{EVAL({\
+              'template'    : 'Plex',\
+              'title'       : "{{EVAL(quote_plus("{{VAL(Video/grandparentTitle)}}"))}}",\
+              'subtitle'    : "{{EVAL(quote_plus("{{VAL(Video/index)}}. {{VAL(Video/title)}}"))}}",\
+              'image'       : "{{IMAGEURL(Video/art:::)}}",\
+              'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
+              'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
+              'imageBlur'   : "{{VAL($fanartblur::1=1|2=2|3=3|0=)}}",\
+              'titleSize'   : '50',\
+              'subtitleSize' : '30',\
+              'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+              'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+              'anchorX'     : 'right',\
+              'anchorY'     : 'top',\
+              'offsetX'     : '50',\
+              'offsetY'     : '20',\
+              'lineheight'  : '175',\
+              'layers': ["PlexPrePlay{{VAL($fanarttint::On=Text|Off=)}}","PlexPrePlayLineTV"]\
+              })}})}})}}	      
+	    </image>
+	    </imageHeader>
+	  </header>
+	  
       <rating>{{contentRating(Video/contentRating)}}</rating>
       <summary>{{VAL(Video/summary)}}</summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
       <summary>{{VAL(Video/summary)}}</summary>{{CUT(Video/viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
       <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(Video/viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
-      <image style="sixteenByNinePoster">{{IMAGEURL(Video/thumb::768)}}</image>
-      <defaultImage>resource://16x9.png</defaultImage>
+      <image style="moviePoster">{{IMAGEURL(Video/parentThumb::768)}}</image>
+      
 
       <table>
         <columnDefinitions>
-          <columnDefinition width="30" alignment="left">
+          <columnDefinition width="35" alignment="left">
             <title>{{TEXT(Details)}}</title>
           </columnDefinition>
-          <columnDefinition width="30" alignment="left">
+          <columnDefinition width="35" alignment="left">
             <title>{{TEXT(Directors)}}</title>
           </columnDefinition>
-          <columnDefinition width="30" alignment="left">
+          <columnDefinition width="35" alignment="left">
             <title>{{TEXT(Writers)}}</title>
           </columnDefinition>
         </columnDefinitions>
@@ -34,27 +65,38 @@
             <label>{{VAL(Video/Writer/tag)}}</label>
           </row>
           <row>
-            <label>{{VAL(Video/Media/videoResolution:Unknown:1080=1080p|720=720p|576=SD|480=SD|sd=SD)}} {{VAL(Video/Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Video/Media/audioChannels:Unknown:2=Stereo|6=5.1|8=7.1)}}</label>{{CUT(^aTVFirmwareVersion:CUT:=|6=CUT)}}
-            <mediaBadges />{{MEDIABADGES(Video/Media)}}{{CUT(^aTVFirmwareVersion::=CUT|6=)}}
+            <label>{{VAL(@TVShow/Directory/studio)}}</label>
             <label>{{VAL(Video/Director[2]/tag)}}</label>
             <label>{{VAL(Video/Writer[2]/tag)}}</label>
           </row>
           <row>
-            <starRating hasUserSetRating="true">
+            <label>{{VAL(Video/Media/videoResolution:Unknown:1080=1080p|720=720p|576=SD|480=SD|sd=SD)}} {{VAL(Video/Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Video/Media/audioChannels:Unknown:2=Stereo|6=5.1|8=7.1)}}</label>{{CUT(^aTVFirmwareVersion:CUT:=|6=CUT)}}
+            <mediaBadges />{{MEDIABADGES(Video/Media)}}{{CUT(^aTVFirmwareVersion::=CUT|6=)}}
+            <label>{{VAL(Video/Director[3]/tag)}}</label>
+            <label>{{VAL(Video/Writer[3]/tag)}}</label>           
+          </row>
+          
+          <row>
+          <starRating hasUserSetRating="true">
               <percentage>{{EVAL({{VAL(Video/userRating:0)}} * 10)}}</percentage>
             </starRating>{{CUT(Video/userRating:CUT:0=)}}
             <starRating>
               <percentage>{{EVAL({{VAL(Video/rating:0)}} * 10)}}</percentage>
             </starRating>{{CUT(Video/userRating::0=CUT)}}
-            <label>{{VAL(Video/Director[3]/tag)}}</label>
-            <label>{{VAL(Video/Writer[3]/tag)}}</label>
-          </row>
-          <row>
-            <label />
             <label>{{VAL(Video/Director[4]/tag)}}</label>
             <label>{{VAL(Video/Writer[4]/tag)}}</label>
           </row>
-        </rows>
+          
+          <row>
+          <progressBar percentage="0"/>{{CUT(Video/viewCount)}}{{CUT(Video/viewOffset)}}
+          <progressBar percentage="{{EVAL({{VAL(Video/viewOffset:0)}} * 100 / {{VAL(Video/duration:1)}})}}"/>{{CUT(Video/viewOffset:CUT:=)}}
+          <progressBar percentage="100"/>{{CUT(Video/viewCount:CUT:=)}}{{CUT(Video/viewOffset)}}
+            <label></label>
+            <label></label>
+            <label></label>
+            <label></label>
+          </row>{{CUT(^aTVFirmwareVersion::=CUT|6.0=)}}
+         </rows>
       </table>
 
       <centerShelf>
@@ -87,12 +129,20 @@
               </stash>
               
               <items>
-                <actionButton id="play" onSelect="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(Video/ratingKey)}})}}')"
-                                        onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(Video/ratingKey)}})}}')">
+                <actionButton id="play" onSelect="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(Video/ratingKey)}})}}')"
+                                        onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(Video/ratingKey)}})}}')">
                   <title>{{TEXT(Play)}}</title>
                   <image>resource://Play.png</image>
                   <focusedImage>resource://PlayFocused.png</focusedImage>
                 </actionButton>
+                <actionButton id="scrobbleMenu" 
+                				onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=Scrobble_WatchStatus')">
+                  <title>{{TEXT(Watch Status)}}</title>
+                  <image>resource://More.png</image>
+                  <focusedImage>resource://MoreFocused.png</focusedImage>
+                  <!--<badge></badge>-->
+                </actionButton>
+                
                 <actionButton id="selectAudioAndSubs"
                               onHoldSelect="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')"
                               onSelect="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')"
@@ -103,6 +153,13 @@
                   <image>resource://Queue.png</image>
                   <focusedImage>resource://QueueFocused.png</focusedImage>
                 </actionButton>
+                
+               <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings_Main')">
+                  <title>{{TEXT(Settings)}}</title>
+                  <image>resource://WishList.png</image>
+                  <focusedImage>resource://WishListFocused.png</focusedImage>
+                </actionButton>{{CUT($showpreplay_settings::Hide=CUT|Show=)}}
+                
               </items>
             </shelfSection>
           </sections>
@@ -111,7 +168,7 @@
 
       <divider>
         <smallCollectionDivider alignment="left">
-          <title>Episodes</title>
+          <title>All Episodes</title>
         </smallCollectionDivider>
       </divider>
       {{ADDXML(parent:Video/parentKey)}}
@@ -124,7 +181,7 @@
               <items>
                 <sixteenByNinePoster related="true" alwaysShowTitles="true" id="{{URL(ratingKey)}}" 
                                      onSelect="atv.loadAndSwapURL('{{URL(key:::PlexConnect=TVShow_PrePlay)}}')"
-                                     onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')">
+                                     onPlay="atv.loadURL('{{URL(key:::PlexConnect=PlayVideo_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')">
                   {{COPY(@parentEpisodes/Video)}}
                   <title>{{VAL(index)}}. {{VAL(title)}}</title>
                   <image>{{IMAGEURL(thumb::384)}}</image>
@@ -136,6 +193,6 @@
         </shelf>
       </bottomShelf>
 
-    </itemDetail>
-  </body>
+		</itemDetailWithImageHeader>
+	</body>
 </atv>

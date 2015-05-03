@@ -10,69 +10,95 @@ from Debug import *  # dprint()
 
 
 options = { \
-    'playlistsview'             :('List', 'Tabbed List', 'Hide'), \
-    'libraryview'               :('List', 'Grid', 'Bookcase', 'Hide'), \
-    'sharedlibrariesview'       :('List', 'Grid', 'Bookcase', 'Hide'), \
-    'channelview'               :('List', 'Tabbed List', 'Grid', 'Bookcase', 'Hide'), \
-    'globalsearch'              :('Show', 'Hide'), \
-    'movieview'                 :('Grid', 'List', 'Detailed List'), \
-    'homevideoview'             :('Grid', 'List', 'Detailed List'), \
-    'actorview'                 :('Movies', 'Portrait'), \
-    'showview'                  :('List', 'Detailed List', 'Grid', 'Bookcase'), \
-    'flattenseason'             :('False', 'True'), \
-    'seasonview'                :('List', 'Coverflow'), \
-    'durationformat'            :('Hours/Minutes', 'Minutes'), \
-    'postertitles'              :('Highlighted Only', 'Show All'), \
-    'fanart'                    :('Hide', 'Show'), \
-    'fanart_blur'               :('0', '5', '10', '15', '20'), \
-    'moviepreplay_bottomshelf'  :('Extras', 'Related Movies'), \
-    'movies_navbar_ondeck'      :('checked', 'unchecked'), \
-    'movies_navbar_unwatched'   :('checked', 'unchecked'), \
-    'movies_navbar_byfolder'    :('checked', 'unchecked'), \
-    'movies_navbar_collections' :('checked', 'unchecked'), \
-    'movies_navbar_genres'      :('checked', 'unchecked'), \
-    'movies_navbar_decades'     :('checked', 'unchecked'), \
-    'movies_navbar_directors'   :('checked', 'unchecked'), \
-    'movies_navbar_actors'      :('checked', 'unchecked'), \
-    'movies_navbar_more'        :('checked', 'unchecked'), \
-    'homevideos_navbar_ondeck'      :('checked', 'unchecked'), \
-    'homevideos_navbar_unwatched'   :('checked', 'unchecked'), \
-    'homevideos_navbar_byfolder'    :('checked', 'unchecked'), \
-    'homevideos_navbar_collections' :('checked', 'unchecked'), \
-    'homevideos_navbar_genres'      :('checked', 'unchecked'), \
-    'music_navbar_recentlyadded'    :('checked', 'unchecked'), \
-    'music_navbar_genre'            :('checked', 'unchecked'), \
-    'music_navbar_decade'           :('checked', 'unchecked'), \
-    'music_navbar_year'             :('checked', 'unchecked'), \
-    'music_navbar_more'             :('checked', 'unchecked'), \
-    'tv_navbar_ondeck'          :('checked', 'unchecked'), \
-    'tv_navbar_unwatched'       :('checked', 'unchecked'), \
-    'tv_navbar_genres'          :('checked', 'unchecked'), \
-    'tv_navbar_more'            :('checked', 'unchecked'), \
-    'transcodequality'  :('1080p 40.0Mbps', \
-                          '480p 2.0Mbps', \
-                          '720p 3.0Mbps', '720p 4.0Mbps', \
-                          '1080p 8.0Mbps', '1080p 10.0Mbps', '1080p 12.0Mbps', '1080p 20.0Mbps'), \
-    'transcoderaction'  :('Auto', 'DirectPlay', 'Transcode'), \
-    'remotebitrate'     :('720p 3.0Mbps', '720p 4.0Mbps', \
-                          '1080p 8.0Mbps', '1080p 10.0Mbps', '1080p 12.0Mbps', '1080p 20.0Mbps', '1080p 40.0Mbps', \
-                          '480p 2.0Mbps'), \
-    'phototranscoderaction'     :('Auto', 'Transcode'), \
-    'subtitlerenderer'  :('Auto', 'iOS, PMS', 'PMS'), \
-    'subtitlesize'      :('100', '125', '150', '50', '75'), \
-    'audioboost'        :('100', '175', '225', '300'), \
-    'showunwatched'     :('True', 'False'), \
-    'showsynopsis'      :('Hide', 'Show'), \
-    'showplayerclock'   :('True', 'False'), \
-    'overscanadjust'    :('0', '1', '2', '3', '-3', '-2', '-1'), \
-    'clockposition'     :('Center', 'Right', 'Left'), \
-    'showendtime'       :('True', 'False'), \
-    'timeformat'        :('24 Hour', '12 Hour'), \
-    'myplex_user'       :('', ), \
-    'myplex_auth'       :('', ), \
-    'plexhome_enable'   :('False', 'True'), \
-    'plexhome_user'     :('', ), \
-    'plexhome_auth'     :('', ), \
+    'playlistsview'                     :('List', 'Tabbed List', 'Hide'), \
+    'libraryview'                       :('Grid', 'List', 'Hide'), \
+    'sharedlibrariesview'               :('List', 'Grid', 'Hide'), \
+    'channelview'                       :('Grid', 'List', 'Tabbed List', 'Hide'), \
+    'sectionsposition'                  :('Flow', 'Top'), \
+    'movieview'                         :('Artwork', 'List', 'Detailed List'), \
+    'homevideoview'                     :('Grid', 'List', 'Detailed List'), \
+    'showview'                          :('Artwork', 'List'), \
+    'globalsearch'                      :('Show', 'Hide'), \
+    'movie_extras'                      :('Show', 'Hide'), \
+    'moviepreplay_settings'             :('Show', 'Hide'), \
+    'showpreplay_settings'              :('Show', 'Hide'), \
+    'moviepreplay_bottomshelf'          :('Extras', 'Related Movies'), \
+    'episodeview'                       :('List', 'Grid'), \
+    'seasonview'                        :('Coverflow', 'Artwork', 'List'), \
+    'sectionicons'                      :('Basic', 'Fanart', 'Custom'), \
+    'shared_sectionicons'               :('Basic', 'Fanart'), \
+    'libraryfanart'                     :('Hide', 'Show'), \
+    'library_search'                    :('Hide', 'Show'), \
+    'libraryremote_search'              :('Hide', 'Show'), \
+    'library_ondeck'                    :('checked', 'unchecked'), \
+    'library_recentlyadded'             :('checked', 'unchecked'), \
+    'sharedlibrary_ondeck'              :('checked', 'unchecked'), \
+    'sharedlibrary_recentlyadded'       :('checked', 'unchecked'), \
+    'showtitles_library'                :('Show All', 'Highlighted Only'), \
+    'actorview'                         :('Movies', 'Portrait'), \
+    'flattenseason'                     :('False', 'True'), \
+    'durationformat'                    :('Hours/Minutes', 'Minutes'), \
+    'postertitles'                      :('Show All', 'Highlighted Only'), \
+    'movies_navbar_ondeck'              :('checked', 'unchecked'), \
+    'movies_navbar_unwatched'           :('unchecked', 'checked'), \
+    'movies_navbar_byfolder'            :('unchecked', 'checked'), \
+    'movies_navbar_collections'         :('unchecked', 'checked'), \
+    'movies_navbar_genres'              :('unchecked', 'checked'), \
+    'movies_navbar_decades'             :('unchecked', 'checked'), \
+    'movies_navbar_directors'           :('unchecked', 'checked'), \
+    'movies_navbar_actors'              :('unchecked', 'checked'), \
+    'movies_navbar_more'                :('unchecked', 'checked'), \
+    'homevideos_navbar_ondeck'          :('checked', 'unchecked'), \
+    'homevideos_navbar_unwatched'       :('unchecked', 'checked'), \
+    'homevideos_navbar_byfolder'        :('unchecked', 'checked'), \
+    'homevideos_navbar_collections'     :('unchecked', 'checked'), \
+    'homevideos_navbar_genres'          :('unchecked', 'checked'), \
+    'music_navbar_recentlyadded'        :('checked', 'unchecked'), \
+    'music_navbar_genre'                :('unchecked', 'checked'), \
+    'music_navbar_decade'               :('unchecked', 'checked'), \
+    'music_navbar_year'                 :('unchecked', 'checked'), \
+    'music_navbar_more'                 :('unchecked', 'checked'), \
+    'tv_navbar_ondeck'                  :('checked', 'unchecked'), \
+    'tv_navbar_unwatched'               :('unchecked', 'checked'), \
+    'tv_navbar_genres'                  :('unchecked', 'checked'), \
+    'tv_navbar_more'                    :('unchecked', 'checked'), \
+    'transcodequality'                  :('1080p 40.0Mbps', \
+                                          '480p 2.0Mbps', \
+                                          '720p 3.0Mbps', '720p 4.0Mbps', \
+                                          '1080p 8.0Mbps', '1080p 10.0Mbps', '1080p 12.0Mbps', '1080p 20.0Mbps'), \
+    'transcoderaction'                  :('Transcode', 'DirectPlay', 'Auto'), \
+    'remotebitrate'                     :('720p 3.0Mbps', '720p 4.0Mbps', \
+                                          '1080p 8.0Mbps', '1080p 10.0Mbps', '1080p 12.0Mbps', '1080p 20.0Mbps', '1080p 40.0Mbps', \
+                                          '480p 2.0Mbps'), \
+    'phototranscoderaction'             :('Auto', 'Transcode'), \
+    'subtitlerenderer'                  :('Auto', 'iOS, PMS', 'PMS'), \
+    'subtitlesize'                      :('100', '125', '150', '50', '75'), \
+    'audioboost'                        :('100', '175', '225', '300'), \
+    'showunwatched'                     :('True', 'False'), \
+    'showsynopsis'                      :('Show', 'Hide'), \
+    'showplayerclock'                   :('True', 'False'), \
+    'overscanadjust'                    :('0', '1', '2', '3', '-3', '-2', '-1'), \
+    'clockposition'                     :('Right', 'Center', 'Left'), \
+    'showendtime'                       :('False', 'True'), \
+    'timeformat'                        :('24 Hour', '12 Hour'), \
+    'myplex_user'                       :('', ), \
+    'myplex_auth'                       :('', ), \
+    'plexhome_enable'                   :('False', 'True'), \
+    'plexhome_user'                     :('', ), \
+    'plexhome_auth'                     :('', ), \
+#   template options
+    'subtitlecolor'                     :('Grey', 'White', 'Plex Orange', 'Apple Blue'), \
+    'titlecolor'                        :('White', 'Grey', 'Plex Orange',  'Apple Blue'), \
+    'tabletitlecolor'                   :('Grey', 'White', 'Plex Orange', 'Apple Blue'), \
+    'metadatacolor'                     :('White', 'Grey'), \
+    'fanartblur'                        :('0', '1', '2', '3'), \
+    'fanart_blur'                       :('0', '5', '10', '15', '20'), \
+    'fanarttint'                        :('On', 'Off'), \
+    'gridtint'                          :('Off', 'On'), \
+    'listtint'                          :('Off', 'On'), \
+    'paradelisttint'                    :('Off', 'On'), \
+    'menuhint'                          :('Off', 'On'), \
+    'menubackground'                    :('Default Black', 'PHT Grey', 'Plex Orange', 'Apple Blue', 'Android Green'), \
     }
 
 
