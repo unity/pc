@@ -85,14 +85,21 @@
               </horizontalDivider>
             </header>
             <items>
+            
+              <oneLineMenuItem id="Movies_NavBar_Overview" onSelect="toggleSettings('Movies_NavBar_Overview', 'Settings_Movies')">
+                <label>{{TEXT(Overview)}}</label>
+                <accessories>
+                  <checkMark/>
+                </accessories>{{CUT($movies_navbar_overview::unchecked=CUT|checked=)}}
+                </oneLineMenuItem>
 
               <oneLineMenuItem id="Movies_NavBar_OnDeck" onSelect="toggleSettings('Movies_NavBar_OnDeck', 'Settings_Movies')">
                 <label>{{TEXT(On Deck)}}</label>
                 <accessories>
                   <checkMark/>
-                </accessories>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}
-                
+                </accessories>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}                
               </oneLineMenuItem>
+              
               <oneLineMenuItem id="Movies_NavBar_Unwatched" onSelect="toggleSettings('Movies_NavBar_Unwatched', 'Settings_Movies')">
                 <label>{{TEXT(Unwatched)}}</label>
                 <accessories>

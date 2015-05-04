@@ -39,29 +39,31 @@ options = { \
     'flattenseason'                     :('False', 'True'), \
     'durationformat'                    :('Hours/Minutes', 'Minutes'), \
     'postertitles'                      :('Show All', 'Highlighted Only'), \
-    'movies_navbar_ondeck'              :('checked', 'unchecked'), \
-    'movies_navbar_unwatched'           :('unchecked', 'checked'), \
+    'movies_navbar_ondeck'              :('unchecked', 'checked'), \
+    'movies_navbar_overview'            :('checked', 'unchecked'), \
+    'movies_navbar_unwatched'           :('checked', 'unchecked'), \
     'movies_navbar_byfolder'            :('unchecked', 'checked'), \
     'movies_navbar_collections'         :('unchecked', 'checked'), \
     'movies_navbar_genres'              :('unchecked', 'checked'), \
     'movies_navbar_decades'             :('unchecked', 'checked'), \
     'movies_navbar_directors'           :('unchecked', 'checked'), \
     'movies_navbar_actors'              :('unchecked', 'checked'), \
-    'movies_navbar_more'                :('unchecked', 'checked'), \
-    'homevideos_navbar_ondeck'          :('checked', 'unchecked'), \
+    'movies_navbar_more'                :('checked', 'unchecked'), \
+    'homevideos_navbar_ondeck'          :('unchecked', 'checked'), \
     'homevideos_navbar_unwatched'       :('unchecked', 'checked'), \
     'homevideos_navbar_byfolder'        :('unchecked', 'checked'), \
     'homevideos_navbar_collections'     :('unchecked', 'checked'), \
     'homevideos_navbar_genres'          :('unchecked', 'checked'), \
-    'music_navbar_recentlyadded'        :('checked', 'unchecked'), \
-    'music_navbar_genre'                :('unchecked', 'checked'), \
+    'music_navbar_recentlyadded'        :('unchecked', 'checked'), \
+    'music_navbar_genre'                :('checked', 'unchecked'), \
     'music_navbar_decade'               :('unchecked', 'checked'), \
     'music_navbar_year'                 :('unchecked', 'checked'), \
-    'music_navbar_more'                 :('unchecked', 'checked'), \
-    'tv_navbar_ondeck'                  :('checked', 'unchecked'), \
-    'tv_navbar_unwatched'               :('unchecked', 'checked'), \
+    'music_navbar_more'                 :('checked', 'unchecked'), \
+    'tv_navbar_ondeck'                  :('unchecked', 'checked'), \
+    'tv_navbar_overview'            :('checked', 'unchecked'), \
+    'tv_navbar_unwatched'               :('checked', 'unchecked'), \
     'tv_navbar_genres'                  :('unchecked', 'checked'), \
-    'tv_navbar_more'                    :('unchecked', 'checked'), \
+    'tv_navbar_more'                    :('checked', 'unchecked'), \
     'transcodequality'                  :('1080p 40.0Mbps', \
                                           '480p 2.0Mbps', \
                                           '720p 3.0Mbps', '720p 4.0Mbps', \

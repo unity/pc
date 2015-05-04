@@ -97,6 +97,13 @@
               </horizontalDivider>
             </header>
             <items>
+            
+            <oneLineMenuItem id="TV_NavBar_Overview" onSelect="toggleSettings('TV_NavBar_Overview', 'Settings_TVShows')">
+                <label>{{TEXT(Overview)}}</label>
+                <accessories>
+                  <checkMark/>
+                </accessories>{{CUT($tv_navbar_overview::unchecked=CUT|checked=)}}
+              </oneLineMenuItem>
 
               <oneLineMenuItem id="TV_NavBar_OnDeck" onSelect="toggleSettings('TV_NavBar_OnDeck', 'Settings_TVShows')">
                 <label>{{TEXT(On Deck)}}</label>
