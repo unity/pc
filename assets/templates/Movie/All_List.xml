@@ -5,6 +5,7 @@
 
   <body>
     <itemCollectionWithImageHeader id="Movie_List">
+
      <header>
 	    <imageHeader>
 	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=552|1080=828)}}, 0" required="true">

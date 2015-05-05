@@ -7,7 +7,7 @@
       {{ADDXML(OnDeck::/library/sections/{{VAL(librarySectionID)}}/onDeck?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=20)}}
       {{VAR(items:NoKey:FALSE)}}
       
-    <scroller id="Show_Overview" volatile="true">
+    <scroller id="Show_Grid" volatile="true">
       <header>          
           <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=550|1080=825)}}, 0" required="true">

@@ -15,12 +15,12 @@
 				<navigationItem id="1">
 					<title>{{TEXT(All TV Shows)}}</title>
 					<url>{{URL(key::/all:PlexConnect=TVShow_All_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}})}}</url>
-				</navigationItem>{{CUT($tv_navbar_ondeck::unchecked=CUT|checked=)}}{{CUT($tv_navbar_overview::checked=CUT|unchecked=)}}
+				</navigationItem>{{CUT($tv_navbar_ondeck::unchecked=CUT|checked=)}}
 
 				<navigationItem id="2">
 					<title>{{TEXT(On Deck)}}</title>
 					<url>{{URL(key:::PlexConnect=TVShow_OnDeck_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}})}}</url>
-				</navigationItem>{{CUT($tv_navbar_ondeck::unchecked=CUT|checked=)}}{{CUT($tv_navbar_overview::checked=CUT|unchecked=)}}
+				</navigationItem>{{CUT($tv_navbar_ondeck::unchecked=CUT|checked=)}}
 
                 <navigationItem id="3">
 					<title>{{TEXT(Unwatched)}}</title>

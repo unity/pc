@@ -6,7 +6,7 @@
 
 	<body>
 		<viewWithNavigationBar id="PlexConnect_Navigation" onNavigate="loadItem(event)" volatile="true" onVolatileReload="updatePage('{{URL(:::PlexConnect=Plex_Movie_Scanner)}}');">
-			<navigation currentIndex="{{VAL($movies_navbar_ondeck:0:unchecked=0|checked=0)}}">
+			<navigation currentIndex="{{VAL($movies_navbar_ondeck:0:unchecked=0|checked=1)}}">
 
                 <navigationItem id="0">
 					<title>{{TEXT(Overview)}}</title>
@@ -16,13 +16,13 @@
 				<navigationItem id="1">
 					<title>{{TEXT(All Movies)}}</title>
 					<url>{{URL(key::/all:PlexConnect=Movie_All_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}</url>
-				</navigationItem>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}{{CUT($movies_navbar_overview::unchecked=|checked=CUT)}}
+				</navigationItem>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}
 				
 				<navigationItem id="2">
 					<title>{{TEXT(On Deck)}}</title>
 					<url>{{URL(key:::PlexConnect=Movie_OnDeck_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}</url>
-				</navigationItem>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}{{CUT($movies_navbar_overview::unchecked=|checked=CUT)}}
-
+				</navigationItem>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}
+				
 				<navigationItem id="3">
 					<title>{{TEXT(Unwatched)}}</title>
 					<url>{{URL(key::/unwatched:PlexConnect=Movie_Unwatched_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}</url>
