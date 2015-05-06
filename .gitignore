@@ -21,10 +21,6 @@ PlexConnect.log
 
 *.suo
 
-/assets/fanartcache/*.png
-
 /assets/thumbnails/Plex/images/custom/flow/*.png
 
 /assets/thumbnails/Plex/images/custom/top/*.png
-
-assets/fanartcache/tmp.png
