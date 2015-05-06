@@ -26,8 +26,8 @@
         <sections>
           <menuSection>
             <items>
-              <oneLineMenuItem id="unwatched" onPlay="atv.loadURL('{{URL(key::/unwatched:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}')"
-																							onSelect="atv.loadURL('{{URL(key::/unwatched:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}')">
+              <oneLineMenuItem id="unwatched" onPlay="atv.loadURL('{{URL(key::/unwatched:PlexConnect=Movie_Unwatched)}}')"
+																							onSelect="atv.loadURL('{{URL(key::/unwatched:PlexConnect=Movie_Unwatched)}}')">
                 <label>{{TEXT(Unwatched)}}</label>
                 <preview>
                   <link>{{URL(key::/unwatched:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>

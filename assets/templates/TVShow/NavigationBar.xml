@@ -14,7 +14,7 @@
 				
 				<navigationItem id="1">
 					<title>{{TEXT(All TV Shows)}}</title>
-					<url>{{URL(key::/all:PlexConnect=TVShow_All_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}})}}</url>
+					<url>{{URL(key::/all:PlexConnect=TVShow_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}})}}</url>
 				</navigationItem>{{CUT($tv_navbar_ondeck::unchecked=CUT|checked=)}}
 
 				<navigationItem id="2">
@@ -24,7 +24,7 @@
 
                 <navigationItem id="3">
 					<title>{{TEXT(Unwatched)}}</title>
-					<url>{{URL(key::/unwatched:PlexConnect=TVShow_Unwatched_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}})}}</url>
+					<url>{{URL(key::/unwatched:PlexConnect=TVShow_Unwatched)}}</url>
 				</navigationItem>{{CUT($tv_navbar_unwatched::unchecked=CUT|checked=)}}
 
 				<navigationItem id="4">

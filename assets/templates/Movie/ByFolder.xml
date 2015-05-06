@@ -63,7 +63,7 @@
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-  </body>{{CUT($movieview::Detailed=CUT|Grid=CUT|List=|Artwork=CUT)}}
+  </body>{{CUT($movieview::Detailed=CUT|List=|Artwork=CUT)}}
   
   <body>
     <itemCollectionWithImageHeader id="Movie_DetailedList" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=Movie_ByFolder)}}')">
@@ -138,7 +138,7 @@
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-  </body>{{CUT($movieview::Detailed=|Grid=CUT|List=CUT|Artwork=CUT)}}
+  </body>{{CUT($movieview::Detailed=|List=CUT|Artwork=CUT)}}
 
 
    <body>
@@ -186,5 +186,5 @@
         </grid>
       </items>
     </scroller>
-  </body>{{CUT($movieview::Detailed=CUT|Grid=CUT|List=CUT|Artwork=)}}
+  </body>{{CUT($movieview::Detailed=CUT|List=CUT|Artwork=)}}
 </atv>

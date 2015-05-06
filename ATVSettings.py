@@ -23,7 +23,6 @@ options = { \
     'moviepreplay_settings'             :('Show', 'Hide'), \
     'showpreplay_settings'              :('Show', 'Hide'), \
     'moviepreplay_bottomshelf'          :('Extras', 'Related Movies'), \
-    'episodeview'                       :('List'), \
     'seasonview'                        :('Coverflow', 'List'), \
     'sectionicons'                      :('Basic', 'Fanart', 'Custom'), \
     'shared_sectionicons'               :('Basic', 'Fanart'), \
@@ -60,7 +59,7 @@ options = { \
     'music_navbar_year'                 :('unchecked', 'checked'), \
     'music_navbar_more'                 :('checked', 'unchecked'), \
     'tv_navbar_ondeck'                  :('unchecked', 'checked'), \
-    'tv_navbar_overview'            :('checked', 'unchecked'), \
+    'tv_navbar_overview'                :('checked', 'unchecked'), \
     'tv_navbar_unwatched'               :('checked', 'unchecked'), \
     'tv_navbar_genres'                  :('unchecked', 'checked'), \
     'tv_navbar_more'                    :('checked', 'unchecked'), \
