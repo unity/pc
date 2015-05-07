@@ -21,7 +21,7 @@
               </horizontalDivider>
             </header>
             <items>{{VAR(cut:NoKey:CUT)}}  <!--this sets the var to CUT-->
-              <twoLineEnhancedMenuItem id="{{VAL(key)}}"                                                             
+              <twoLineMenuItem id="{{VAL(key)}}"                                                             
                           onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                           onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay)}}')">
                 {{COPY(Video:type::=|movie=COPY|movie =)}}
@@ -33,7 +33,7 @@
                 </accessories>{{CUT(Media/videoResolution:CUT:480=CUT|576=CUT|720=|1080=|SD=CUT)}}
                 <image>{{IMAGEURL(thumb::384)}}</image>
                 <defaultImage>resource://Poster.png</defaultImage>
-              </twoLineEnhancedMenuItem>
+              </twoLineMenuItem>
             </items>
           </menuSection>{{CUT(#cut)}}
           </__COPY__>
