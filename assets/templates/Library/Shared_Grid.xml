@@ -133,8 +133,8 @@
               
               <items>
                 <fourByThreePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_library::Highlighted Only=false|Show All=true)}}"
-                            onPlay="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List)}})}}')"
-                            onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List)}})}}')"
+                            onPlay="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_Track)}})}}')"
+                            onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_Track)}})}}')"
                             onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuWatch)}}')">
                   {{COPY(Video,Directory)}}        
                   {{VAR(items:NoKey:TRUE)}} <!--within COPY this sets the var to TRUE-->
