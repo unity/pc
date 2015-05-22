@@ -181,7 +181,7 @@
               <items>
                 <sixteenByNinePoster related="true" alwaysShowTitles="true" id="{{URL(ratingKey)}}" 
                                      onSelect="atv.loadAndSwapURL('{{URL(key:::PlexConnect=TVShow_PrePlay)}}')"
-                                     onPlay="atv.loadURL('{{URL(key:::PlexConnect=PlayVideo_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')">
+                                     onPlay="atv.loadURL('{{URL(:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')">
                   {{COPY(@parentEpisodes/Video)}}
                   <title>{{VAL(index)}}. {{VAL(title)}}</title>
                   <image>{{IMAGEURL(thumb::384)}}</image>
