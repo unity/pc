@@ -260,7 +260,7 @@
                   <title>{{VAL(type::movie={{VAL(title)}}|episode={{VAL(title)}}|season={{VAL(title)}}|album={{VAL(parentTitle)}})}}</title>
                   <subtitle>{{VAL(type::movie={{VAL(year)}}|episode={{VAL(parentTitle)}}|season={{VAL(parentTitle)}}|album={{VAL(title)}})}}</subtitle>
                   <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
-                  <image>{{IMAGEURL(thumb::384)}}</image>episode={{VAL(parentTitle)}}|season={{VAL(parentTitle)}}        
+                  <image>{{IMAGEURL(thumb::384)}}</image>        
                   <defaultImage>resource://Poster.png</defaultImage>
                 </fourByThreePoster>
               </items>
