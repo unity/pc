@@ -64,6 +64,10 @@
                 <label>{{TEXT(Movie View)}}</label>
                 <rightLabel>{{SETTING(movieview)}}</rightLabel>
               </oneLineMenuItem>
+              <oneLineMenuItem id="Movies_Artwork" onSelect="toggleSettings('Movies_Artwork', 'Settings_Movies')">
+                  <label>{{TEXT(Overview View)}}</label>
+                  <rightLabel>{{SETTING(movies_artwork)}}</rightLabel>
+              </oneLineMenuItem>
               <oneLineMenuItem id="ActorView" onSelect="toggleSettings('ActorView', 'Settings_Movies')">
                 <label>{{TEXT(Actor View)}}</label>
                 <rightLabel>{{SETTING(actorview)}}</rightLabel>
