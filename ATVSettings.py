@@ -18,8 +18,6 @@ options = { \
     'movieview'                         :('Artwork', 'List', 'Detailed List'), \
     'homevideoview'                     :('Grid', 'List', 'Detailed List'), \
     'showview'                          :('Artwork', 'List'), \
-    'shows_artwork'                     :('On Deck', 'Recently Added', 'Recently Released'), \
-    'movies_artwork'                    :('Recently Added', 'On Deck', 'Recently Released'), \
     'globalsearch'                      :('Show', 'Hide'), \
     'movie_extras'                      :('Show', 'Hide'), \
     'moviepreplay_settings'             :('Show', 'Hide'), \
