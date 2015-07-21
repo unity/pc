@@ -29,7 +29,7 @@
         
         <navigationItem id="SharedLibraries">
           <title>{{TEXT(Shared Libraries)}}</title>
-          <url>{{URL(:/PMS(shared)/library/sections::PlexConnect=Library_ViewShared)}}</url>
+          <url>{{URL(:/PMS(shared)/library/sections::PlexConnect=Library_View)}}</url>
         </navigationItem>{{CUT($myplex_auth:CUT:=CUT| =)}}{{CUT($sharedlibrariesview:CUT:=|Hide=CUT|Hide =)}}
         
         <navigationItem id="Search">

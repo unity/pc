@@ -31,7 +31,7 @@
                'layers'      : ["PlexGridUser{{VAL($gridtint::On=Text|Off=)}}"]\
                })}})}})}}
            </image>
-           </imageHeader>{{CUT($sectionsposition::Top=|Flow=CUT))}}{{CUT($libraryfanart::Show=CUT|Hide=))}}
+           </imageHeader>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}{{CUT($libraryfanart::Show=CUT|Hide=))}}
            
            <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=630|1080=945)}}, 0" required="true">
@@ -49,7 +49,7 @@
                'layers'      : ["PlexGridUser{{VAL($fanarttint::On=Text|Off=)}}"]\
                })}})}})}}
            </image>
-           </imageHeader>{{CUT($sectionsposition::Top=|Flow=CUT))}}{{CUT($libraryfanart::Show=|Hide=CUT))}}
+           </imageHeader>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}{{CUT($libraryfanart::Show=|Hide=CUT))}}
            
            <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=630|1080=905)}}, 0" required="true">
@@ -66,7 +66,7 @@
                'layers'      : ["PlexLibraryFlowUser{{VAL($gridtint::On=Text|Off=)}}"]\
                })}})}})}}
            </image>
-	   </imageHeader>{{CUT($sectionsposition::Top=CUT|Flow=))}}{{CUT($libraryfanart::Show=CUT|Hide=))}}
+	   </imageHeader>{{CUT(@main/size:CUT:0=CUT|1=|1 =CUT)}}{{CUT($libraryfanart::Show=CUT|Hide=))}}
 	   
 	   <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=630|1080=905)}}, 0" required="true">
@@ -83,12 +83,13 @@
                'layers'      : ["PlexLibraryFlowUser{{VAL($fanarttint::On=Text|Off=)}}"]\
                })}})}})}}
            </image>
-	   </imageHeader>{{CUT($sectionsposition::Top=CUT|Flow=))}}{{CUT($libraryfanart::Show=|Hide=CUT))}}
+	   </imageHeader>{{CUT(@main/size:CUT:0=CUT|1=|1 =CUT)}}{{CUT($libraryfanart::Show=|Hide=CUT))}}
       </header>
       
       
       
       <items>
+      
        <showcase accessibilityLabel="Showcase movies" id="showcase_1" >
         <initialSelection>
           <indexPath>
@@ -96,6 +97,7 @@
           </indexPath>
         </initialSelection>{{COPY(Server:@main/size::0=|1=COPY)}}
         <items>
+        
           {{COPY(Server:@main/size::0=|1=COPY)}}
           
           <showcasePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}"
@@ -159,15 +161,16 @@
           </showcasePoster>         
            
         </items>
-      </showcase>{{CUT($sectionsposition::Top=CUT|Flow=))}}         
+      </showcase>{{CUT(@main/size:CUT:0=CUT|1=|1 =CUT)}}
+      
 
         <!-- servers -->
         <__COPY__>  
         {{COPY(Server:@main/size::0=|1=COPY)}}
         <collectionDivider alignment="center" accessibilityLabel="Library">
             <title>{{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>
-        </collectionDivider>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}{{CUT($sectionsposition::Top=|Flow=CUT)}}
-
+        </collectionDivider>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}
+        
         <shelf id="shelf_0" columnCount="5">
             <sections>                             
             <!-- local servers -->
@@ -204,12 +207,12 @@
                 </items>
               </shelfSection>
             </sections>
-          </shelf> {{CUT($sectionsposition::Top=|Flow=CUT))}}
+          </shelf>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}
         </__COPY__>  
         
         <collectionDivider alignment="left" accessibilityLabel="Library">
         <title></title>
-       </collectionDivider>{{CUT($sectionsposition::Top=|Flow=CUT)}}
+       </collectionDivider>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}
 
             
     <__COPY__> 

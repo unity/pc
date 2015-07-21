@@ -60,10 +60,10 @@
               </horizontalDivider>
             </header>
             <items>
-              <oneLineMenuItem id="SectionsPosition" onSelect="toggleSettings('SectionsPosition', 'Settings_Library')">
+              <!--<oneLineMenuItem id="SectionsPosition" onSelect="toggleSettings('SectionsPosition', 'Settings_Library')">
                 <label>{{TEXT(Library Sections)}}</label>
                 <rightLabel>{{SETTING(sectionsposition)}}</rightLabel>
-              </oneLineMenuItem>              
+              </oneLineMenuItem>-->              
               <oneLineMenuItem id="SectionIcons" onSelect="toggleSettings('SectionIcons', 'Settings_Library')">
                 <label>{{TEXT(Library Icons)}}</label>
                 <rightLabel>{{SETTING(sectionicons)}}</rightLabel>
@@ -97,7 +97,7 @@
             </items>
           </menuSection>
                            
-              <menuSection>
+              <!--<menuSection>
              <header>
               <horizontalDivider alignment="left">
                 <title>{{TEXT(Shared Libraries)}}</title>
@@ -109,9 +109,9 @@
                 <rightLabel>{{SETTING(shared_sectionicons)}}</rightLabel>
               </oneLineMenuItem>
               </items>
-          </menuSection>
+          </menuSection>-->
               
-              <menuSection>
+              <!--<menuSection>
            <header>
               <horizontalDivider alignment="left">
                 <title>{{TEXT(Shared Libraries Extras)}}</title>
@@ -131,7 +131,7 @@
                 </accessories>{{CUT($sharedlibrary_recentlyadded::unchecked=CUT|checked=)}}
               </oneLineMenuItem>                    
             </items>
-          </menuSection>
+          </menuSection>-->
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
