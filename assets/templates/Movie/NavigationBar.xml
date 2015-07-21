@@ -10,7 +10,7 @@
 
                 <navigationItem id="0">
 					<title>{{TEXT(Overview)}}</title>
-					<url>{{URL(key::/all:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}</url>
+					<url>{{URL(key::/all:PlexConnect=Movie_OverView)}}</url>
 				</navigationItem>{{CUT($movies_navbar_overview::unchecked=CUT|checked=)}}{{CUT($movies_navbar_ondeck::unchecked=|checked=CUT)}}
 				
 				<navigationItem id="1">

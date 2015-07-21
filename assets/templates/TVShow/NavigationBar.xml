@@ -9,7 +9,7 @@
 
 				<navigationItem id="0">
 					<title>{{TEXT(Overview)}}</title>
-					<url>{{URL(key::/all:PlexConnect=TVShow_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}})}}</url>
+					<url>{{URL(key::/all:PlexConnect=TVShow_OverView)}}</url>
 				</navigationItem>{{CUT($tv_navbar_overview::checked=|unchecked=CUT)}}{{CUT($tv_navbar_ondeck::unchecked=|checked=CUT)}}
 				
 				<navigationItem id="1">
