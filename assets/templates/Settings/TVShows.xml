@@ -68,6 +68,10 @@
                 <label>{{TEXT(Season View)}}</label>
                 <rightLabel>{{SETTING(seasonview)}}</rightLabel>
               </oneLineMenuItem>
+              <oneLineMenuItem id="Shows_Artwork" onSelect="toggleSettings('Shows_Artwork', 'Settings_TVShows')">
+                  <label>{{TEXT(Overview View)}}</label>
+                  <rightLabel>{{SETTING(shows_artwork)}}</rightLabel>
+              </oneLineMenuItem>
               <oneLineMenuItem id="ShowUnwatched" onSelect="toggleSettings('ShowUnwatched', 'Settings_TVShows')">
                 <label>{{TEXT(Show Unwatched Count)}}</label>
                 <rightLabel>{{SETTING(showunwatched)}}</rightLabel>
