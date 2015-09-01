@@ -80,8 +80,9 @@ options = { \
     'showunwatched'                     :('True', 'False'), \
     'showsynopsis'                      :('Show', 'Hide'), \
     'showplayerclock'                   :('True', 'False'), \
+    'showplayinfos'                     :('True', 'False'), \
     'overscanadjust'                    :('0', '1', '2', '3', '-3', '-2', '-1'), \
-    'clockposition'                     :('Right', 'Center', 'Left'), \
+    'clockposition'                     :('Left', 'Center', 'Right'), \
     'showendtime'                       :('False', 'True'), \
     'timeformat'                        :('24 Hour', '12 Hour'), \
     'myplex_user'                       :('', ), \

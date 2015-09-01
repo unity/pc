@@ -33,7 +33,7 @@
 								onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')"
                                 onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')" 
                                 onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuSeason)}}')">
-                  {{COPY(Directory)}}
+                  {{COPY(Directory:title::All=|Season=COPY)}}
                   <title>{{VAL(title)}}</title>
                   <image>{{IMAGEURL(thumb::768)}}</image>{{CUT(thumb:CUT:=CUT| =)}}
                   <image>{{IMAGEURL(#parentThumb::768)}}</image>{{CUT(thumb:: =CUT)}}

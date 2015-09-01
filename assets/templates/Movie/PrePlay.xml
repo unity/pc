@@ -20,7 +20,7 @@
 	      {{URL(:/fanartcache/{{getBackground({{EVAL({\
               'template'    : 'Plex',\
               'title'       : "{{EVAL(quote_plus("{{VAL(Video/title)}}"))}}",\
-              'subtitle'    : "{{EVAL(quote_plus("{{VAL(Video/year)}} / {{VAL(Video/studio)}}"))}}",\
+              'subtitle'    : "{{EVAL(quote_plus("{{VAL(Video/year)}} {{VAL(Video/studio)}}"))}}",\
               'image'       : "{{IMAGEURL(Video/art:::)}}",\
               'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\

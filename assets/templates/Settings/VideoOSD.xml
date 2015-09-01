@@ -68,18 +68,15 @@
                 <label>{{TEXT(Show End Time)}}</label>
                 <rightLabel>{{SETTING(showendtime)}}</rightLabel>
               </oneLineMenuItem>
-              <!--<oneLineMenuItem id="ShowPlayInfos" onSelect="toggleSettings('ShowPlayInfos', 'Settings_VideoOSD')">
+              <oneLineMenuItem id="ShowPlayInfos" onSelect="toggleSettings('ShowPlayInfos', 'Settings_VideoOSD')">
                 <label>{{TEXT(Show Infos)}}</label>
                 <rightLabel>{{SETTING(showplayinfos)}}</rightLabel>
-              </oneLineMenuItem>-->
+              </oneLineMenuItem>
               <oneLineMenuItem id="TimeFormat" onSelect="toggleSettings('TimeFormat', 'Settings_VideoOSD')">
                 <label>{{TEXT(Time Format)}}</label>
                 <rightLabel>{{SETTING(timeformat)}}</rightLabel>
               </oneLineMenuItem>
-              <oneLineMenuItem id="ClockPosition" onSelect="toggleSettings('ClockPosition', 'Settings_VideoOSD')">
-                <label>{{TEXT(Clock Position)}}</label>
-                <rightLabel>{{SETTING(clockposition)}}</rightLabel>
-              </oneLineMenuItem>
+            
               <oneLineMenuItem id="OverscanAdjust" onSelect="toggleSettings('OverscanAdjust', 'Settings_VideoOSD')">
                 <label>{{TEXT(Overscan Adjust)}}</label>
                 <rightLabel>{{SETTING(overscanadjust)}}</rightLabel>
