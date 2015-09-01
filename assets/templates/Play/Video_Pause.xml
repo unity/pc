@@ -1,92 +1,76 @@
 <atv>
-    <body>
-        <videoPlayer id="com.sample.video-player">
-            <httpFileVideoAsset id="{{VAL(^PlexConnectRatingKey)}}">
-                {{COPY(Video:ratingKey::=|{{VAL_QUOTED(^PlexConnectRatingKey)}}=COPY|{{VAL_QUOTED(^PlexConnectRatingKey)}} =)}}
-                
-                <mediaURL>{{VIDEOURL()}}</mediaURL>
-                
-               <!-- <description>{{VAL(summary)}}</description>-->
-                <bookmarkTime>{{EVAL({{VAL(viewOffset:0)}} / 1000)}}</bookmarkTime>
-               <!-- <image>{{IMAGEURL(thumb::384)}}</image>-->
-                
-                <videoPlayerSettings>
-                    <!-- PMS, OSD settings, ... -->
-                    <baseURL>{{VAL(%baseURL)}}</baseURL>
-                    <accessToken>{{VAL(%accesstoken)}}</accessToken>
-                    
-                    <showInfos>{{VAL($showplayinfos)}}</showInfos>
-                    <showClock>{{VAL($showplayerclock)}}</showClock>
-                    <timeFormat>{{VAL($timeformat)}}</timeFormat>
-                    <clockPosition>{{VAL($clockposition)}}</clockPosition>
-                    <overscanAdjust>{{VAL($overscanadjust)}}</overscanAdjust>
-                    <showEndtime>{{VAL($showendtime)}}</showEndtime>
-                    
-                    <subtitleSize>{{VAL($subtitlesize)}}</subtitleSize>
-                </videoPlayerSettings>
+  <body>
+    <videoPlayer id="com.sample.video-player">
+      <httpFileVideoAsset id="{{VAL(^PlexConnectRatingKey)}}">
+      {{COPY(Video:ratingKey::=|{{VAL_QUOTED(^PlexConnectRatingKey)}}=COPY|{{VAL_QUOTED(^PlexConnectRatingKey)}} =)}}
+        
+        <mediaURL>{{VIDEOURL()}}</mediaURL>
+        <title>{{VAL(title)}}</title>
+        <description>{{VAL(summary)}}</description>
+        <bookmarkTime>{{EVAL({{VAL(viewOffset:0)}} / 1000)}}</bookmarkTime>
+        <image>{{IMAGEURL(thumb::384)}}</image>
+        
+        <videoPlayerSettings>
+            <!-- PMS, OSD settings, ... -->
+            <baseURL>{{VAL(%baseURL)}}</baseURL>
+            <accessToken>{{VAL(%accesstoken)}}</accessToken>
+            
+            <showInfos>True</showInfos>
+            <showClock>{{VAL($showplayerclock)}}</showClock>
+            <timeFormat>{{VAL($timeformat)}}</timeFormat>
+            <clockPosition>{{VAL($clockposition)}}</clockPosition>
+            <overscanAdjust>{{VAL($overscanadjust)}}</overscanAdjust>
+            <showEndtime>{{VAL($showendtime)}}</showEndtime>
+             
+            <subtitleSize>{{VAL($subtitlesize)}}</subtitleSize>
+        </videoPlayerSettings>
+        
+        <myMetadata>
+            <key>{{VAL(key)}}</key>
+            <ratingKey>{{VAL(ratingKey)}}</ratingKey>
+            <duration>{{VAL(duration)}}</duration>
+            <partDuration>{{VAL(Media/Part/duration)}}</partDuration>
+            <videoSubtitle>{{VAL(type::movie={{VAL(title)}}|episode={{VAL(title)}})}}</videoSubtitle>
+            <videoTitle>{{VAL(type::movie={{VAL(year)}}. {{VAL(studio)}}|episode={{VAL(grandparentTitle)}} - {{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} )}} </videoTitle>
+            <poster>{{IMAGEURL({{VAL(type::movie=thumb|episode=parentThumb)}}::384)}}</poster>
+            
+            
+            <!-- subtitle -->
+            <__COPY__><!--needed as {{COPY}} doesn't work completely clean. Todo: ExpandTree needs to "finish" current element...-->
+            {{COPY(Media/Part/Stream:streamType::=|3=COPY|3 =)}}
+              <subtitleURL> <!-- id="{{VAL(id)}}" key="{{VAL(key)}}" codec="{{VAL(codec)}}"--><!--.srt only -->
+              {{CUT(selected:CUT:0=CUT|1=)}}
+                {{URL(key:::PlexConnect=Subtitle&amp;PlexConnectSubtitleFormat={{VAL(format)}})}}
+              </subtitleURL>
+            </__COPY__>
+        </myMetadata>
+        
+        <playlistData>
+        <__COPY__>
+        {{COPY_PLAYLIST(@main/Video:^PlexConnectPlayType:Single:^PlexConnectRatingKey::ratingKey:)}}
+            
+            <httpFileVideoAsset id="{{VAL(key)}}">
+            {{VAR(partIndex::-1)}}  <!--dirty hack: VAR is evaluated before VAL, VIDEOURL; so #partIndex is +1-->
+            {{COPY(Media/Part)}}  <!-- stacked media -->
+                <mediaURL>{{VIDEOURL(@copy_Video:#partIndex)}}</mediaURL>
+                {{VAR(partIndex::{{EVAL({{VAL(#partIndex)}}+1)}})}}
+                <title>{{VAL(@copy_Video/title)}}</title>
+                <description>{{VAL(@copy_Video/summary)}}</description>
+                <!--bookmarkTime>{{EVAL({{VAL(@main/Video/viewOffset:0)}} / 1000)}}</bookmarkTime-->
+                <image>{{IMAGEURL(@copy_Video/thumb::384)}}</image>
                 
                 <myMetadata>
-                    <key>{{VAL(key)}}</key>
-                    <ratingKey>{{VAL(ratingKey)}}</ratingKey>
-                    <duration>{{VAL(duration)}}</duration>
-                    <partDuration>{{VAL(Media/Part/duration)}}</partDuration>
-                    <show>{{VAL(type::movie={{VAL(title)}}|episode={{VAL(title)}} )}}</show>
-                    <show2>{{VAL(type::movie={{VAL(studio)}}|episode={{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} )}}</show2>
-                    <show3>{{VAL(type::movie={{VAL(tagline)}}|episode={{VAL(grandparentTitle)}} )}}</show3>
-                    <show4>{{TEXT(Director)}}</show4>
-                    <show5>{{TEXT({{VAL(type::movie=Genre|episode=Aired)}} )}}</show5>
-                    <show6>{{VAL(type::movie={{VAL(year)}}|episode={{VAL(studio)}} )}}</show6>
-                    <show7>{{TEXT({{VAL(type::movie=Producer|episode=Writer)}})}}</show7>
-                    <show8>{{VAL(type::movie={{VAL(Producer/tag)}}|episode={{VAL(Writer/tag)}} )}}</show8>
-                    <show9>{{VAL(Director/tag)}} </show9>
-                    <show10>{{TEXT({{VAL(type::movie=Cast|episode=)}} )}}</show10>
-                    <show11>{{VAL(type::movie={{VAL(Genre/tag)}}{{VAL(Genre[2]/tag::=, )}}{{VAL(Genre[2]/tag)}}|episode={{VAL(originallyAvailableAt)}} )}}</show11>
-                    <show12>{{VAL(type::movie={{VAL(Role/tag)}}|episode=)}}</show12>
-                    <show13>{{VAL(type::movie={{VAL(Role[2]/tag)}}|episode=)}}</show13>
-                    <show14>{{VAL(type::movie={{VAL(Role[3]/tag)}}|episode=)}}</show14>
-                    <show15>{{TEXT(Rating:)}} {{VAL(contentRating)}}</show15>
-                    <show16>{{durationToString(NoKey:Video:duration)}}</show16>
-                    <show17>{{VAL(Media/videoResolution:Unknown:1080=1080p|720=720p|576=SD|480=SD|sd=SD)}}  {{VAL(Media/audioChannels:Unknown:2=Stereo|6=5.1|8=7.1)}}  {{VAL(Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}}</show17>
-                    <summary>{{VAL(summary)}}</summary>
-                    <epsThumb>{{IMAGEURL({{VAL(type::movie=|episode=thumb)}}::384)}}</epsThumb>
-                    <poster>{{IMAGEURL({{VAL(type::movie=thumb|episode=parentThumb)}}::384)}}</poster>
-
-                    <!-- subtitle -->
-                    <__COPY__><!--needed as {{COPY}} doesn't work completely clean. Todo: ExpandTree needs to "finish" current element...-->
-                               {{COPY(Media/Part/Stream:streamType::=|3=COPY|3 =)}}
-                               <subtitleURL> <!-- id="{{VAL(id)}}" key="{{VAL(key)}}" codec="{{VAL(codec)}}"--><!--.srt only -->
-                    {{CUT(selected:CUT:0=CUT|1=)}}
-                    {{URL(key)}}&amp;PlexConnect=Subtitle&amp;PlexConnectSubtitleFormat={{VAL(format)}}
-                    </subtitleURL>
-                </__COPY__>
-            </myMetadata>
-            
-            <playlistData>
-                <__COPY__>
-                    {{COPY_PLAYLIST(@main/Video:^PlexConnectPlayType::^PlexConnectRatingKey::ratingKey:)}}
-                    
-                    <httpFileVideoAsset id="{{VAL(key)}}">
-                        {{VAR(partIndex::-1)}}  <!--dirty hack: VAR is evaluated before VAL, VIDEOURL; so #partIndex is +1-->
-                        {{COPY(Media/Part)}}  <!-- stacked media -->
-                        <mediaURL>{{VIDEOURL(@copy_Video:#partIndex)}}</mediaURL>
-                        {{VAR(partIndex::{{EVAL({{VAL(#partIndex)}}+1)}})}}
-                        <title>{{VAL(@copy_Video/title)}}</title>
-                        <description>{{VAL(@copy_Video/summary)}}</description>
-                        <!--bookmarkTime>{{EVAL({{VAL(@main/Video/viewOffset:0)}} / 1000)}}</bookmarkTime-->
-                        <image>{{IMAGEURL(@copy_Video/thumb::384)}}</image>
-                        
-                        <myMetadata>
-                            <key>{{VAL(@copy_Video/key)}}</key>
-                            <ratingKey>{{VAL(@copy_Video/ratingKey)}}</ratingKey>
-                            <duration>{{VAL(@copy_Video/duration)}}</duration>
-                            <startTime>0<!--(determined by willStartPlaying())--></startTime>
-                        </myMetadata>
-                        
-                    </httpFileVideoAsset>
-                </__COPY__>
-            </playlistData>
-            
-        </httpFileVideoAsset>
+                    <key>{{VAL(@copy_Video/key)}}</key>
+                    <ratingKey>{{VAL(@copy_Video/ratingKey)}}</ratingKey>
+                    <duration>{{VAL(@copy_Video/duration)}}</duration>
+                    <partDuration>{{VAL(duration)}}</partDuration>
+                </myMetadata>
+                
+            </httpFileVideoAsset>
+        </__COPY__>
+        </playlistData>
+        
+      </httpFileVideoAsset>
     </videoPlayer>
 </body>
 </atv>
