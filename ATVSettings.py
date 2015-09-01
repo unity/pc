@@ -82,7 +82,7 @@ options = { \
     'showplayerclock'                   :('True', 'False'), \
     'showplayinfos'                     :('True', 'False'), \
     'overscanadjust'                    :('0', '1', '2', '3', '-3', '-2', '-1'), \
-    'clockposition'                     :('Left', 'Center', 'Right'), \
+    'clockposition'                     :('Right', 'Center', 'Left'), \
     'showendtime'                       :('False', 'True'), \
     'timeformat'                        :('24 Hour', '12 Hour'), \
     'myplex_user'                       :('', ), \
