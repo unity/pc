@@ -30,8 +30,9 @@
             <ratingKey>{{VAL(ratingKey)}}</ratingKey>
             <duration>{{VAL(duration)}}</duration>
             <partDuration>{{VAL(Media/Part/duration)}}</partDuration>
-            <videoSubtitle>{{VAL(type::movie={{VAL(title)}}|episode={{VAL(title)}})}}</videoSubtitle>
-            <videoTitle>{{VAL(type::movie={{VAL(year)}}. {{VAL(studio)}}|episode={{VAL(grandparentTitle)}} - {{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} )}} </videoTitle>
+            <videoSubtitle>{{VAL(title)}}</videoSubtitle>{{CUT(type:CUT:episode=CUT|movie=)}}
+            <videoSubtitle>{{VAL(title)}}</videoSubtitle>{{CUT(type:CUT:episode=|movie=CUT)}}
+            <videoTitle>{{VAL(type::movie={{VAL(studio)}} ({{VAL(year)}})|episode={{VAL(grandparentTitle)}} - {{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} )}} </videoTitle>
             <poster>{{IMAGEURL({{VAL(type::movie=thumb|episode=parentThumb)}}::384)}}</poster>
             
             
