@@ -263,7 +263,9 @@
                   {{VAR(items:NoKey:TRUE)}} <!--within COPY this sets the var to TRUE-->
                   <title>{{VAL(title)}}</title>{{CUT(type:CUT:album=CUT|season=|episode=|movie=)}}
                   <title>{{VAL(grandparentTitle)}}</title>{{CUT(type::album=|season=CUT|episode=CUT|movie=CUT)}}
-                  <subtitle>{{VAL(type::movie={{VAL(year)}}|episode={{VAL(parentTitle)}}|season={{VAL(parentTitle)}}|album={{VAL(title)}})}}</subtitle>
+                  <subtitle>{{VAL(year)}}</subtitle>{{CUT(type:CUT:album=CUT|season=CUT|episode=CUT|movie=)}}
+                  <subtitle>{{VAL(title)}}</subtitle>{{CUT(type:CUT:album=|season=CUT|episode=CUT|movie=CUT)}}
+                  <subtitle>{{VAL(parentTitle)}}</subtitle>{{CUT(type::album=CUT|season=|episode=|movie=CUT)}}
                   <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
                   <image>{{IMAGEURL(thumb::384)}}</image>        
                   <defaultImage>resource://Poster.png</defaultImage>
