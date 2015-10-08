@@ -154,11 +154,11 @@ class MyHandler(BaseHTTPRequestHandler):
             if "a1.phobos.apple.com" in self.headers['Host']:
                 resource = self.headers['Host']+self.path
                 try:
-                    if self.path.endswith("iMovieTheatre@1080.png"):
+                    if self.path.endswith("com.apple.imovietheatre.appletv@1080.png"):
                         resource = './assets/icons/icon@1080.png'
                         dprint(__name__, 1, "serving "+self.headers['Host']+self.path+" with "+resource)
                         r = open(resource, "rb")
-                    elif self.path.endswith("iMovieTheatre@720.png"):
+                    elif self.path.endswith("com.apple.imovietheatre.appletv@720.png.png"):
                         resource = './assets/icons/icon@720.png'
                         dprint(__name__, 1, "serving "+self.headers['Host']+self.path+" with "+resource)
                         r = open(resource, "rb")
