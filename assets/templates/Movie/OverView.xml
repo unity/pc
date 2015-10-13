@@ -28,11 +28,10 @@
       
        <items>
        
-          <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-              <title>{{TEXT(Recently Added)}}</title>
-          </collectionDivider>{{CUT(@recentlyAdded/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
-          
-          <shelf id="shelf_0" columnCount="7">
+            <collectionDivider alignment="left" accessibilityLabel="Recently Added">
+             <title>{{TEXT(Recently Added)}}</title>
+            </collectionDivider>{{CUT(@recentlyAdded/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}          
+             <shelf id="shelf_0" columnCount="7">
               {{CUT(@recentlyAdded/size:CUT:0=CUT|1=)}}
               <sections>
                   <shelfSection>
@@ -49,15 +48,16 @@
                               <defaultImage>resource://Poster.png</defaultImage>
                           </fourByThreePoster>
                       </items>
-                  </shelfSection>
-              </sections>
-          </shelf>{{CUT($movies_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
-                
-                <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-                    <title>{{TEXT(Recently Added)}}</title>
-                </collectionDivider>{{CUT(@recentlyAdded/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
-                
-                
+                   </shelfSection>
+                 </sections>
+                </shelf>{{CUT($movies_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}                
+              <collectionDivider alignment="left" accessibilityLabel="Recently Added">
+               <title></title>
+              </collectionDivider>{{CUT(@recentlyAdded/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
+          
+              <collectionDivider alignment="left" accessibilityLabel="Recently Added">
+               <title>{{TEXT(On Ddeck)}}</title>
+              </collectionDivider>{{CUT(@OnDeck/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}                      
                 <shelf id="shelf_0" columnCount="7">
                     {{CUT(@OnDeck/size:CUT:0=CUT|1=)}}
                     <sections>
@@ -77,13 +77,14 @@
                             </items>
                         </shelfSection>
                     </sections>
-                </shelf>{{CUT($movies_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}
+                </shelf>{{CUT($movies_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}                
+               <collectionDivider alignment="left" accessibilityLabel="Recently Added">
+                <title></title>
+               </collectionDivider>{{CUT(@OnDeck/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}
                 
-                <collectionDivider alignment="left" accessibilityLabel="Recently Released">
-                    <title>{{TEXT(Recently Released)}}</title>
-                </collectionDivider>{{CUT(@newest/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
-                
-                
+               <collectionDivider alignment="left" accessibilityLabel="Recently Released">
+                <title>{{TEXT(Recently Released)}}</title>
+               </collectionDivider>{{CUT(@newest/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}                                
                 <shelf id="shelf_0" columnCount="7">
                     {{CUT(@newest/size:CUT:0=CUT|1=)}}
                     <sections>
@@ -104,9 +105,12 @@
                         </shelfSection>
                     </sections>
                 </shelf>{{CUT($movies_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
+               <collectionDivider alignment="left" accessibilityLabel="Recently Released">
+                <title></title>
+               </collectionDivider>{{CUT(@newest/size:CUT:0=CUT|1=)}}{{CUT($movies_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
           
           <collectionDivider alignment="left" accessibilityLabel="Movies">
-              <title></title>
+              <title>All Movies</title>
           </collectionDivider>
           
           <grid columnCount="5" id="grid_0">
