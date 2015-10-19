@@ -22,3 +22,5 @@ PlexConnect.log
 *.suo
 
 assets/templates/Library/Bookcase.xml
+
+*.png

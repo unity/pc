@@ -5,7 +5,7 @@
     <script src="{{URL(:/js/settings.js)}}" />
   </head>
 
-{{ADDXML(TVShow::/library/metadata/{{VAL(Video/grandparentRatingKey)}})}}
+  {{ADDXML(TVShow::/library/metadata/{{VAL(Video/grandparentRatingKey)}})}}
 
   <body>
     <itemDetailWithImageHeader id="com.apple.trailer" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_PrePlay)}}')">
