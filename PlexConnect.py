@@ -77,7 +77,7 @@ def startup():
     dprint('PlexConnect', 0, "Commit Date: {0}", __COMMIT__)
     dprint('PlexConnect', 0, "Python: {0}", sys.version)
     dprint('PlexConnect', 0, "Host OS: {0}", sys.platform)
-    dprint('PlexConnect', 0, "PILBackgrounds: Is PIL installed? {0}", isPILinstalled())
+    dprint('PlexConnect', 0, "Fanart Support: PIL installed? {0}", isPILinstalled())
     
     # more Settings
     param['IP_self'] = getIP_self()

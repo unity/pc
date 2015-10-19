@@ -345,7 +345,7 @@ def Run(cmdPipe, param):
     
     dprint(__name__, 0, "***")
     dprint(__name__, 0, "DNSServer: Serving DNS on {0} port {1}.", cfg_IP_self, cfg_Port_DNSServer)
-    dprint(__name__, 1, "intercept: {0} => {1}", intercept, cfg_IP_self)
+    dprint(__name__, 1, "HostToIntercept: {0} => {1}", intercept, cfg_IP_self)
     dprint(__name__, 1, "restrain: {0} => 127.0.0.1", restrain)
     dprint(__name__, 1, "forward other to higher level DNS: "+cfg_IP_DNSMaster)
     dprint(__name__, 0, "***")
@@ -442,6 +442,6 @@ if __name__ == '__main__':
     
     param['IP_self'] = '192.168.178.20'  # IP_self?
     param['baseURL'] = 'http://'+ param['IP_self'] +':'+ cfg.getSetting('port_webserver')
-    param['HostToIntercept'] = 'trailers.apple.com'
+    param['HostToIntercept'] = 'www.icloud.com'
     
     Run(cmdPipe[1], param)
