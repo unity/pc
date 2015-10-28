@@ -8,4 +8,4 @@ Version.py
 
 # Version string - globally available
 __VERSION__ = '0.5-dev'
-__COMMIT__ = '19 Oct 2015'
+__COMMIT__ = '102015'
