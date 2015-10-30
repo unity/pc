@@ -30,7 +30,6 @@
           <summary>PlexConnect Theme Dev.</summary>
           <metadataKeys>
             <label>{{TEXT(Version)}}</label>
-            <label>{{TEXT(Commit Date)}}</label>
             <label>{{TEXT(Authors)}}</label>
             <label>{{TEXT(Designer)}}</label>
             <label>{{TEXT(Wiki/Docs)}}</label>
@@ -39,7 +38,6 @@
           </metadataKeys>
           <metadataValues>
             <label>{{EVAL(__VERSION__)}}</label>
-            <label>{{EVAL(__COMMIT__)}}</label>
             <label>Baa, roidy</label>
             <label>CyberGhost84</label>
             <label>f00b4r, meltman</label>
