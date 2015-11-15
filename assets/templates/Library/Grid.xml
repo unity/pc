@@ -256,7 +256,7 @@
               
               <items>
                 <fourByThreePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_library::Highlighted Only=false|Show All=true)}}"
-                            onPlay="atv.loadAndSwapURL('{{URL(:/library/metadata/:{{VAL(ratingKey)}}:includeExtras=1&amp;includeRelated=1&amp;includePopularLeaves=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_ArtistInfo)}})}}')"
+                            onPlay="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_Track)}})}}')"
                             onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_Track)}})}}')"
                             onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_WatchStatus)}}')">
                   {{COPY(Video,Directory)}}        
