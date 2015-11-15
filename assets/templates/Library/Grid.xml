@@ -256,13 +256,13 @@
               
               <items>
                 <fourByThreePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="{{VAL($showtitles_library::Highlighted Only=false|Show All=true)}}"
-                            onPlay="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_ArtistInfo)}})}}')"
-                            onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_Directory)}})}}')"
+                            onPlay="atv.loadAndSwapURL('{{URL(:/library/metadata/:{{VAL(ratingKey)}}:includeExtras=1&amp;includeRelated=1&amp;includePopularLeaves=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_ArtistInfo)}})}}')"
+                            onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::episode=TVShow_PrePlay|movie=Movie_PrePlay|season=TVShow_Episode_List|album=Music_Track)}})}}')"
                             onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_WatchStatus)}}')">
                   {{COPY(Video,Directory)}}        
                   {{VAR(items:NoKey:TRUE)}} <!--within COPY this sets the var to TRUE-->
                   <title>{{VAL(title)}}</title>{{CUT(type:CUT:album=CUT|season=|episode=|movie=)}}
-                  <title>{{VAL(grandparentTitle)}}</title>{{CUT(type::album=|season=CUT|episode=CUT|movie=CUT)}}
+                  <title>{{VAL(parentTitle)}}</title>{{CUT(type::album=|season=CUT|episode=CUT|movie=CUT)}}
                   <subtitle>{{VAL(year)}}</subtitle>{{CUT(type:CUT:album=CUT|season=CUT|episode=CUT|movie=)}}
                   <subtitle>{{VAL(title)}}</subtitle>{{CUT(type:CUT:album=|season=CUT|episode=CUT|movie=CUT)}}
                   <subtitle>{{VAL(parentTitle)}}</subtitle>{{CUT(type::album=CUT|season=|episode=|movie=CUT)}}

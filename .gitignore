@@ -24,3 +24,5 @@ PlexConnect.log
 assets/templates/Library/Bookcase.xml
 
 *.png
+
+assets/fanartcache/tmp.png
