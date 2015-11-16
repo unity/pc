@@ -36,7 +36,7 @@
                 <defaultImage>resource://Poster.png</defaultImage>
                 <preview>
                   <crossFadePreview>
-                    <image>{{URL(:/thumbnails/Folder.png)}}</image>
+                    <image>{{URL(:/thumbnails/Plex/images/Folder.png)}}</image>
                   </crossFadePreview>
                 </preview>
               </twoLineEnhancedMenuItem>

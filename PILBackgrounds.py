@@ -158,7 +158,7 @@ class ImageBackground():
         layerrange = range(0, len(self.cfg['layers']))
         for layercounter in layerrange:
             if self.cfg['layers'][layercounter] != None:
-                layer = Image.open(stylepath+"/images/"+self.cfg['layers'][layercounter]+".png")
+                layer = Image.open(stylepath+"/images/layers/"+self.cfg['layers'][layercounter]+".png")
                 layer = layer.resize((width, height), Image.ANTIALIAS)
                 im.paste(layer, ( 0, 0),layer)
     
@@ -276,7 +276,7 @@ class ImageBackground():
                     bgfile = urllib2.urlopen(url)
                 except urllib2.URLError, e:
                     dprint(__name__, 1, 'error: {0}', str(e.code)+" "+e.msg+" // url:"+ url )  # Debug
-                    background = Image.open(stylepath+"/images/blank.jpg")
+                    background = Image.open(stylepath+"/images/layers/blank.png")
                 else:
                     dprint(__name__, 1, 'Fetting Remote Image.')  # Debug
                     output = open(cachepath+"/tmp.png",'wb')
@@ -302,7 +302,7 @@ class ImageBackground():
             dprint(__name__, 1, 'Cachefile  generated.')  # Debug
             return cachefile+".png"
 
-
+    # OverView Background
 def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate, titleText, subtitleText, titleSize, subtitleSize, textColor, align, valign, offsetx, offsety, lineheight, blurStart, blurEnd, statusText):
     cachepath = sys.path[0]+"/assets/fanartcache"
     stylepath = sys.path[0]+"/assets/thumbnails/Plex"
@@ -315,7 +315,8 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         cachefile = urllib.quote_plus(PMS_uuid +"_"+ id['ratingKey'] +"_"+ id['fileId'] +"_"+ resolution +"_"+ blurRadius) + titleText + subtitleText + gradientTemplate + ".png"
     else:
         fileid = posixpath.basename(urlparse.urlparse(url).path)
-        cachefile = urllib.quote_plus(PMS_uuid +"_"+ fileid +"_"+ resolution +"_"+ blurRadius) + titleText + subtitleText + gradientTemplate + ".png"  # quote: just to make sure...
+        cachefile = urllib.quote_plus(PMS_uuid +"_"+ fileid +"_"+ resolution +"_"+ blurRadius) + titleText + subtitleText + gradientTemplate + ".png"  
+        # quote: just to make sure...
     
     # Already created?
     dprint(__name__, 1, 'Check for Cachefile.')  # Debug
@@ -335,13 +336,13 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         background = Image.open(io.BytesIO(response))
     except urllib2.URLError as e:
         dprint(__name__, 0, 'URLError: {0} // url: {1}', e.reason, url)
-        return "/thumbnails/Plex/images/Background_blank_" + resolution + ".jpg"
+        return "/thumbnails/Plex/images/layers/blank.png"
     except urllib2.HTTPError as e:
         dprint(__name__, 0, 'HTTPError: {0} {1} // url: {2}', str(e.code), e.msg, url)
-        return "/thumbnails/Plex/images/Background_blank_" + resolution + ".jpg"
+        return "/thumbnails/Plex/images/layers/blank.png"
     except IOError as e:
         dprint(__name__, 0, 'IOError: {0} // url: {1}', str(e), url)
-        return "/thumbnails/Plex/images/Background_blank_" + resolution + ".jpg"
+        return "/thumbnails/Plex/images/layers/blank.png"
     
     blurRadius = int(blurRadius)
     
@@ -354,7 +355,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         blurEnd = (1080/100) * int(blurEnd)
         blurRegion = (0, blurStart, 1920, blurEnd)
         # FT: get Background based on last Parameter
-        layer = Image.open(stylepath + "/images/" + gradientTemplate + "_1080.png")
+        layer = Image.open(stylepath + "/images/layers/" + gradientTemplate + "_1080.png")
     else:
         width = 1280
         height = 720
@@ -362,7 +363,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         blurEnd = (720/100) * int(blurEnd)
         blurRegion = (0, blurStart, 1280, blurEnd)
         blurRadius = int(blurRadius / 1.5)
-        layer = Image.open(stylepath + "/images/" + gradientTemplate + "_720.png")
+        layer = Image.open(stylepath + "/images/layers/" + gradientTemplate + "_720.png")
     
     # Set background resolution and merge layers
     try:
@@ -384,7 +385,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
 
     except:
         dprint(__name__, 0, 'Error - Failed to modify image')
-        return "/thumbnails/Plex/images/Background_blank_" + resolution + ".jpg"
+        return "/thumbnails/Plex/images/layers/Background_blank_" + resolution + ".png"
 
     background = textToImage(stylepath, background, resolution, titleText, titleSize, textColor, align, valign, offsetx, offsety)
 
@@ -412,7 +413,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         background.save(cachepath+"/"+cachefile)
     except:
         dprint(__name__, 0, 'Error - Failed to save image file')
-        return "/thumbnails/Background_blank_" + resolution + ".jpg"
+        return "/thumbnails/Plex/images/layers/Background_blank_" + resolution + ".png"
     
     dprint(__name__, 1, 'Cachefile  generated.')  # Debug
     return "/fanartcache/"+cachefile
