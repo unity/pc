@@ -80,8 +80,8 @@ class ImageBackground():
             renderwidth = 768
             renderheight = 432
         elif str(res)=="flow":
-            renderwidth = 768
-            renderheight= 256
+            renderwidth = 771
+            renderheight= 282
         elif str(res)=="square":
             renderwidth = 768
             renderheight = 768
