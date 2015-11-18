@@ -5,10 +5,12 @@
       {{COPY(Video:ratingKey::=|{{VAL_QUOTED(^PlexConnectRatingKey)}}=COPY|{{VAL_QUOTED(^PlexConnectRatingKey)}} =)}}
         
         <mediaURL>{{VIDEOURL()}}</mediaURL>
-        <title>{{VAL(title)}}</title>
-        <description>{{VAL(summary)}}</description>
+        <title>{{VAL(title)}} ({{VAL(year)}}) </title>{{CUT(type:CUT:episode=CUT|movie=)}}
+        <title>{{VAL(grandparentTitle)}} / {{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} </title>{{CUT(type::episode=|movie=CUT)}}      
+        <description>{{VAL(title)}} : {{VAL(summary)}}</description>{{CUT(type::episode=|movie=CUT)}}
+        <description>{{VAL(summary)}}</description>{{CUT(type:CUT:episode=CUT|movie=)}}
         <bookmarkTime>{{EVAL({{VAL(viewOffset:0)}} / 1000)}}</bookmarkTime>
-        <image>{{IMAGEURL(thumb::384)}}</image>
+        <image>{{IMAGEURL({{VAL(type::movie=thumb|episode=parentThumb)}}::384)}}</image>
         
         <videoPlayerSettings>
             <!-- PMS, OSD settings, ... -->
@@ -32,7 +34,8 @@
             <partDuration>{{VAL(Media/Part/duration)}}</partDuration>
             <videoSubtitle>{{VAL(title)}}</videoSubtitle>{{CUT(type:CUT:episode=CUT|movie=)}}
             <videoSubtitle>{{VAL(title)}}</videoSubtitle>{{CUT(type:CUT:episode=|movie=CUT)}}
-            <videoTitle>{{VAL(type::movie={{VAL(studio)}} ({{VAL(year)}})|episode={{VAL(grandparentTitle)}} - {{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} )}} </videoTitle>
+            <videoTitle>{{VAL(studio)}} ({{VAL(year)}}) </videoTitle>{{CUT(type:CUT:episode=CUT|movie=)}}
+            <videoTitle>{{VAL(grandparentTitle)}} / {{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} </videoTitle>{{CUT(type::episode=|movie=CUT)}}
             <poster>{{IMAGEURL({{VAL(type::movie=thumb|episode=parentThumb)}}::384)}}</poster>
             
             
