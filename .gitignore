@@ -1,2 +1,23 @@
+*.pyc
 
-*.cfg
+/ATVSettings.cfg
+
+/Settings.cfg
+
+PlexConnect.log
+
+*.cer
+
+*.key
+
+*.pem
+
+*.der
+
+*.pyproj
+
+*.sln
+
+*.suo
+
+/assets/fanartcache/*.png
