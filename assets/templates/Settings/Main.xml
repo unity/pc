@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atv>
+  <head>
+    <script src="{{URL(:/js/utils.js)}}" />
+    <script src="{{URL(:/js/settings.js)}}" />
+  </head>
+  <body>
+    <itemCollectionWithImageHeader id="SettingsPage">
+         <header>
+        <imageHeader>
+          <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=552|1080=828)}}, 0" required="true">
+              {{URL(:/fanartcache/{{getBackground({{EVAL({\
+              'template'    : 'Plex',\
+              'title'       : "{{EVAL(quote_plus("{{TEXT(Settings)}}"))}}",\
+              'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
+              'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
+              'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
+              'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+              'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+              'layers'      : ["PlexList{{VAL($listtint::On=Text|Off=)}}"]\
+              })}})}})}}
+          </image>
+        </imageHeader>
+      </header>
+      
+      <preview>
+        <keyedPreview>
+          <title>&#x00AD;<!--soft-hyphen--></title>
+          <summary>PlexConnect Theme Dev.</summary>
+          <metadataKeys>
+            <label>{{TEXT(Version)}}</label>
+            <label>{{TEXT(Authors)}}</label>
+            <label>{{TEXT(Designer)}}</label>
+            <label>{{TEXT(Wiki/Docs)}}</label>
+            <label>{{TEXT(Homepage)}}</label>
+            <label>{{TEXT(Forum)}}</label>
+          </metadataKeys>
+          <metadataValues>
+            <label>{{EVAL(__VERSION__)}}</label>
+            <label>Baa, roidy</label>
+            <label>CyberGhost84</label>
+            <label>f00b4r, meltman</label>
+            <label>https://github.com/ibaa/plexconnect</label>
+            <label>http://forums.plexapp.com/...plexconnect</label>
+          </metadataValues>
+          <image>{{URL(:/thumbnails/Plex/images/PlexConnectLogo.png)}}</image>
+        </keyedPreview>
+      </preview>
+      
+      <menu>
+        <sections>
+          
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Plex Media Server)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>
+              <oneLineMenuItem id="discover" onSelect="discover('discover', 'Settings_Main')">
+                <label>{{TEXT(Discover)}}</label>
+                <rightLabel>Plex Media Servers: {{PMSCOUNT()}}</rightLabel>
+              </oneLineMenuItem>
+              
+              <oneLineMenuItem id="MyPlexSignInOut" onSelect="myPlexSignInOut()">{{CUT($myplex_auth::=| =CUT)}}
+                <label>{{TEXT(MyPlex Sign In)}}</label>
+                <rightLabel></rightLabel>
+                <accessories>
+                  <arrow/>
+                </accessories>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="MyPlexSignInOut" onSelect="myPlexSignInOut()">{{CUT($myplex_auth:CUT:=CUT| =)}}
+                <label>{{TEXT(MyPlex Sign Out)}}</label>
+                <rightLabel>{{SETTING(myplex_user)}}</rightLabel>
+                <accessories></accessories>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="PlexHomeUser" dimmed="true">{{CUT($myplex_auth::=| =CUT)}}
+                <label>{{TEXT(Switch Home User)}}</label>
+                <rightLabel></rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="PlexHomeUser" onSelect="plexHomeUser('{{URL(:/PMS(plex.tv)/api/home/users::PlexConnect=Settings_PlexHome)}}')">{{CUT($myplex_auth:CUT:=CUT| =)}}
+                <label>{{TEXT(Switch Home User)}}</label>
+                <rightLabel>{{TEXT(Off)}}</rightLabel>{{CUT($plexhome_enable::False=|True=CUT)}}
+                <rightLabel></rightLabel>{{CUT($plexhome_enable:CUT:False=CUT|True=)}}{{CUT($plexhome_auth::=| =CUT)}}
+                <rightLabel>{{SETTING(plexhome_user)}}</rightLabel>{{CUT($plexhome_enable:CUT:False=CUT|True=)}}{{CUT($plexhome_auth:CUT:=CUT| =)}}
+              </oneLineMenuItem>                            
+              <oneLineMenuItem id="TrancoderView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Transcoder)}}')">
+                <label>{{TEXT(PMS Transcoder Options)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>               
+              </oneLineMenuItem>      
+            </items>
+          </menuSection>          
+              <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Appearance)}}</title>
+              </horizontalDivider>
+            </header> 
+              <items>
+              <oneLineMenuItem id="Precache" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_TopLevel)}}')">
+                <label>{{TEXT(General Appearance)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>            
+              </oneLineMenuItem>
+              <oneLineMenuItem id="Precache" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Sections)}}')">
+                <label>{{TEXT(Section Options)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="DurationFormat" onSelect="toggleSettings('DurationFormat', 'Settings_Main')">
+                <label>{{TEXT(Duration Format)}}</label>
+                <rightLabel>{{SETTING(durationformat)}}</rightLabel>
+              </oneLineMenuItem>
+            </items>
+          </menuSection>         
+        </sections>
+      </menu>
+    </itemCollectionWithImageHeader>
+  </body>
+</atv>

@@ -1,0 +1,139 @@
+<atv>
+  <head>
+    <script src="{{URL(:/js/utils.js)}}" />
+  </head>
+
+  <body>
+    <searchResults id="searchResults">
+      <menu>
+        <sections>
+
+        <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Movies)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>{{VAR(cut:NoKey:CUT)}}  <!--this sets the var to CUT-->
+              <twoLineMenuItem id="{{VAL(key)}}"
+                             onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
+                             onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay)}}')">
+                {{COPY(Video:type::=|movie=COPY|movie =)}}
+                {{VAR(cut:NoKey:)}}  <!--this sets the var to None-->
+                <label>{{VAL(title)}}</label>
+                <label2>{{durationToString(NoKey:Video:duration)}}</label2>
+                <accessories>
+                  <unplayedDot/>{{CUT(viewCount)}}{{CUT(viewOffset)}}
+                  <partiallyPlayedDot/>{{CUT(viewOffset:CUT:=)}}
+                </accessories>{{CUT(^aTVFirmwareVersion::=|6.0=CUT)}}
+                <accessories>
+                <HD/>{{CUT(Media/videoResolution:CUT:480=CUT|576=CUT|720=|1080=|SD=CUT)}}{{CUT(viewCount)}}{{CUT(viewOffset)}}
+                <progressBar percentage="{{EVAL({{VAL(viewOffset:0)}} * 100 / {{VAL(duration:1)}})}}"/>{{CUT(viewOffset:CUT:=)}}
+                <HD/>{{CUT(Media/videoResolution:CUT:480=CUT|576=CUT|720=|1080=|SD=CUT)}}{{CUT(viewCount:CUT:=)}}{{CUT(viewOffset)}}
+                </accessories>{{CUT(^aTVFirmwareVersion:CUT:=CUT|6.0=)}}
+                <image>{{IMAGEURL(thumb::384)}}</image>
+                <defaultImage>resource://Poster.png</defaultImage>
+              </twoLineMenuItem>
+            </items>
+          </menuSection>{{CUT(#cut)}}
+
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Shows)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>{{VAR(cut:NoKey:CUT)}}  <!--this sets the var to CUT-->
+              <twoLineEnhancedMenuItem id="{{VAL(key)}}"
+                             onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Season)}}')"
+                             onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Season)}}')">
+                {{COPY(Directory:type::=|show=COPY|show =)}}
+                {{VAR(cut:NoKey:)}}  <!--this sets the var to None-->
+                <label>{{VAL(title)}}</label>
+                <accessories>
+                  <unplayedDot/>{{CUT(viewCount)}}{{CUT(viewOffset)}}
+                  <partiallyPlayedDot/>{{CUT(viewOffset:CUT:=)}}
+                </accessories>{{CUT(^aTVFirmwareVersion::=|6.0=CUT)}}
+                <accessories>
+                  <progressBar percentage="{{EVAL({{VAL(viewOffset:0)}} * 100 / {{VAL(duration:1)}})}}"/>{{CUT(viewOffset:CUT:=)}}
+                  <progressBar percentage="100"/>{{CUT(viewCount:CUT:=)}}{{CUT(viewOffset)}}
+                </accessories>{{CUT(^aTVFirmwareVersion:CUT:=CUT|6.0=)}}
+                <image>{{IMAGEURL(thumb::384)}}</image>
+                <defaultImage>resource://Poster.png</defaultImage>
+              </twoLineEnhancedMenuItem>
+            </items>
+          </menuSection>{{CUT(#cut)}}
+
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Episodes)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>{{VAR(cut:NoKey:CUT)}}  <!--this sets the var to CUT-->
+              <twoLineEnhancedMenuItem id="{{VAL(key)}}"
+                             onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
+                             onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=TVShow_PrePlay)}}')">
+                {{COPY(Video:type::=|episode=COPY|episode =)}}
+                {{VAR(cut:NoKey:)}}  <!--this sets the var to None-->
+                <label>{{VAL(title)}}</label>
+                <label2>{{VAL(grandparentTitle)}} - {{durationToString(NoKey:Video:duration)}}</label2>
+                <accessories>
+                  <unplayedDot/>{{CUT(viewCount)}}{{CUT(viewOffset)}}
+                  <partiallyPlayedDot/>{{CUT(viewOffset:CUT:=)}}
+                </accessories>{{CUT(^aTVFirmwareVersion::=|6.0=CUT)}}
+                <accessories>
+                <HD/>{{CUT(Media/videoResolution:CUT:480=CUT|576=CUT|720=|1080=|SD=CUT)}}{{CUT(viewCount)}}{{CUT(viewOffset)}}
+                <progressBar percentage="{{EVAL({{VAL(viewOffset:0)}} * 100 / {{VAL(duration:1)}})}}"/>{{CUT(viewOffset:CUT:=)}}
+                <HD/>{{CUT(Media/videoResolution:CUT:480=CUT|576=CUT|720=|1080=|SD=CUT)}}{{CUT(viewCount:CUT:=)}}{{CUT(viewOffset)}}
+                </accessories>{{CUT(^aTVFirmwareVersion:CUT:=CUT|6.0=)}}
+                <image>{{IMAGEURL(thumb::384)}}</image>
+                <defaultImage>resource://Poster.png</defaultImage>
+              </twoLineEnhancedMenuItem>
+            </items>
+          </menuSection>{{CUT(#cut)}}
+
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Albums)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>{{VAR(cut:NoKey:CUT)}}  <!--this sets the var to CUT-->
+              <twoLineEnhancedMenuItem id="{{VAL(key)}}"
+                             onPlay="atv.loadURL('{{URL(key:::PlexConnect=Music_Track)}}')"
+                             onSelect="atv.loadURL('{{URL(key:::PlexConnect=Music_Track)}}')">
+                {{COPY(Directory:type::=|album=COPY|album =)}}
+                {{VAR(cut:NoKey:)}}  <!--this sets the var to None-->
+                <label>{{VAL(title)}}</label>
+                <label2>{{VAL(parentTitle)}}</label2>
+                <image>{{IMAGEURL(thumb::384)}}</image>
+                <defaultImage>resource://Poster.png</defaultImage>
+              </twoLineEnhancedMenuItem>
+            </items>
+          </menuSection>{{CUT(#cut)}}
+
+          <menuSection>
+            <header>
+              <horizontalDivider alignment="left">
+                <title>{{TEXT(Artists)}}</title>
+              </horizontalDivider>
+            </header>
+            <items>{{VAR(cut:NoKey:CUT)}}  <!--this sets the var to CUT-->
+              <twoLineEnhancedMenuItem id="{{VAL(key)}}"
+                             onPlay="atv.loadURL('{{URL(key:::PlexConnect=Music_Directory)}}')"
+                             onSelect="atv.loadURL('{{URL(key:::PlexConnect=Music_Directory)}}')">
+                {{COPY(Directory:type::=|artist=COPY|artist =)}}
+                {{VAR(cut:NoKey:)}}  <!--this sets the var to None-->
+                <label>{{VAL(title)}}</label>
+                <image>{{IMAGEURL(thumb::384)}}</image>
+                <defaultImage>resource://Poster.png</defaultImage>
+              </twoLineEnhancedMenuItem>
+            </items>
+          </menuSection>{{CUT(#cut)}}
+
+        </sections>
+      </menu>
+    </searchResults>
+  </body>
+</atv>

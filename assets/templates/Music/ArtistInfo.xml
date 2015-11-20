@@ -1,0 +1,110 @@
+<atv>
+  <head>
+    <script src="{{URL(:/js/utils.js)}}" />
+  </head>
+
+  <body>
+    <itemDetailWithImageHeader layout="compact" id="com.apple.trailer" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=Music_ArtistInfo)}}')">
+      <styles>
+          <color name="titleColor">#{{VAL($tabletitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}</color>
+          <color name="metadataColor">#{{VAL($metadatacolor::White=fafafa|Grey=878787)}}</color>
+        </styles>
+	   <header>
+	    <imageHeader>
+            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=425|1080=640)}}, 0" required="true">
+                {{URL(:/fanartcache/{{getBackground({{EVAL({\
+                'template'    : 'Plex',\
+                'title'       : "{{EVAL(quote_plus("{{VAL(Directory/title)}}"))}}",\
+                'image'       : "{{IMAGEURL(Directory/art:::)}}",\
+                'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
+                'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
+                'imageBlur'   : "{{VAL($fanartblur::1=1|2=2|3=3|0=)}}",\
+                'titleSize' : '50',\
+                'subtitleSize' : '30',\
+                'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+                'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+                'anchorX' : 'right',\
+                'anchorY' : 'top',\
+                'offsetX' : '50',\
+                'offsetY' : '20',\
+                'lineheight' : '175',\
+                'layers': ["PlexMusic{{VAL($fanarttint::On=Text|Off=)}}"]\
+                })}})}})}}                
+	      </image>        
+	      </imageHeader>
+      </header>
+      
+      <summary>{{VAL(Directory/summary)}}</summary>
+      <image style="moviePoster">{{IMAGEURL(Directory/thumb::768)}}</image>
+      <defaultImage>resource://Poster.png</defaultImage>
+            
+      <centerShelf>
+        <shelf id="centerShelf" columnCount="3" center="true">
+          <sections>
+            <shelfSection>
+              <items>
+                <actionButton id="more" accessibilityLabel="More info" onSelect="atv.showMoreInfo();" onPlay="atv.showMoreInfo();">
+                  <title>{{TEXT(More)}}</title>
+                  <image>resource://More.png</image>
+                  <focusedImage>resource://MoreFocused.png</focusedImage>
+                </actionButton>
+              </items>
+            </shelfSection>
+          </sections>
+        </shelf>
+      </centerShelf>
+      
+      <divider>
+        <smallCollectionDivider alignment="left">
+          <title>{{TEXT(Similar Artists)}}</title>
+        </smallCollectionDivider>
+      </divider>{{CUT(Directory/Related/Hub/Directory/ratingKey:CUT:=)}}
+
+      <bottomShelf>
+        <shelf id="bottomShelf" columnCount="5">
+          <sections>
+            <shelfSection>
+              <items>
+                <moviePoster related="true" alwaysShowTitles="true" id="shelf_item_1" 
+                             onSelect="atv.loadAndSwapURL('{{URL(:/library/metadata/:{{VAL(ratingKey)}}:includeExtras=1&amp;includeRelated=1&amp;includePopularLeaves=1&amp;PlexConnect=Music_ArtistInfo)}}')">
+                  {{COPY(Directory/Related/Hub/Directory)}}
+                  <title>{{VAL(title)}}</title>
+                  <image>{{IMAGEURL(thumb::384)}}</image>
+                  <defaultImage>resource://16x9.png</defaultImage>
+                </moviePoster>
+              </items>
+            </shelfSection>
+          </sections>
+        </shelf>
+      </bottomShelf>{{CUT(Directory/Related/Hub/Directory/ratingKey:CUT:=)}}
+
+      <moreInfo>{{VAR(cut:NoKey:CUT)}}  <!--this sets the var to CUT-->
+        <listScrollerSplit id="com.sample.list-scroller-split">
+          <menu>
+            <sections>
+              <menuSection>
+                <items>
+                  <oneLineMenuItem id="list_1">
+                    <label>{{TEXT(Albums)}}</label>
+                    <preview>
+                      <link>{{URL(:/library/metadata/:{{VAL(Directory/ratingKey)}}/children:PlexConnect=Music_AlbumPreview)}}</link>
+                    </preview>
+                  </oneLineMenuItem>
+ 
+                  <oneLineMenuItem id="list_2">
+                    <label>{{TEXT(Music Videos)}}</label>
+                    <preview>
+                      <link>{{URL(:/library/metadata/:{{VAL(Directory/ratingKey)}}:includeExtras=1&amp;PlexConnect=Music_VideoPreview)}}</link>
+                    </preview>
+                  </oneLineMenuItem>{{CUT(Directory/Extras/Video/ratingKey:CUT:=)}}
+                </items>
+              </menuSection>
+
+            </sections>
+          </menu>
+        </listScrollerSplit>
+      </moreInfo>
+
+    </itemDetailWithImageHeader>
+	</body>
+</atv>

@@ -1,0 +1,56 @@
+<atv>
+  <head>
+    <script src="{{URL(:/js/utils.js)}}" />
+  </head>
+  
+  <body>
+    <scroller id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Season_Coverflow)}}')">
+      <header>
+        <imageHeader>
+           <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=360|1080=600)}}, 0" required="true">
+           {{URL(:/fanartcache/{{getBackground({{EVAL({\
+              'template'    : 'Plex',\
+              'title'       : "{{EVAL(quote_plus("{{VAL(title2)}}"))}}",\
+              'subtitle'    : "{{EVAL(quote_plus("{{VAL(title1)}}"))}}",\
+              'image'       : "{{IMAGEURL(art:::)}}",\
+              'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
+              'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
+              'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+              'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+              'imageBlur'   : "{{VAL($fanartblur::1=1|2=2|3=3|0=)}}",\
+              'layers'      : ["PlexSubGrid{{VAL($fanarttint::On=Text|Off=)}}"]\
+              })}})}})}}
+              </image>
+        </imageHeader>
+      </header>
+      {{VAR(parentThumb:thumb)}}
+      <items>
+              <shelf id="coverflow" columnCount="{{EVAL(min({{VAL(size:0)}},4))}}">
+          <sections>
+            <shelfSection>
+              <items>
+                <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
+								onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')"
+                                onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')" 
+                                onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuSeason)}}')">
+                  {{COPY(Directory)}}
+                  <title>{{VAL(title)}}</title>
+                  <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
+                  <image>{{IMAGEURL(thumb::768)}}</image>{{CUT(thumb:CUT:=CUT| =)}}
+                  <image>{{IMAGEURL(#parentThumb::768)}}</image>{{CUT(thumb:: =CUT)}}
+                  <defaultImage>resource://Poster.png</defaultImage>
+                </goldenPoster>{{CUT(Directory/title:CUT:=)}}
+                
+                <goldenPoster id="none">
+              <title>{{TEXT(No Unwatched Shows)}}</title>
+              <defaultImage>resource://Poster.png</defaultImage>
+            </goldenPoster>{{CUT(Directory/title::=CUT)}}
+              </items>
+            </shelfSection>
+          </sections>
+        </shelf>
+        
+      </items>
+    </scroller>
+  </body>
+</atv>
