@@ -13,7 +13,8 @@ options = { \
     'playlistsview'                     :('List', 'Tabbed List', 'Hide'), \
     'libraryview'                       :('Grid', 'List', 'Hide'), \
     'sharedlibrariesview'               :('List', 'Grid', 'Hide'), \
-    'channelview'                       :('Grid', 'List', 'Tabbed List', 'Hide'), \
+    'channelview'                       :('Grid', 'List', 'Tabbed List', 'Bookcase', 'Hide'), \
+    'sharedchannelsview'                :('Grid', 'List', 'Tabbed List', 'Bookcase', 'Hide'), \
     'sectionsposition'                  :('Flow', 'Top'), \
     'movieview'                         :('Artwork', 'List', 'Detailed List'), \
     'homevideoview'                     :('Grid', 'List', 'Detailed List'), \
