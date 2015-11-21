@@ -111,10 +111,13 @@
                   <arrow/>
                 </accessories>
               </oneLineMenuItem>
-              <oneLineMenuItem id="DurationFormat" onSelect="toggleSettings('DurationFormat', 'Settings_Main')">
-                <label>{{TEXT(Duration Format)}}</label>
-                <rightLabel>{{SETTING(durationformat)}}</rightLabel>
+              <oneLineMenuItem id="Precache" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Theme)}}')">
+                <label>{{TEXT(Theme Options)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>
               </oneLineMenuItem>
+              
             </items>
           </menuSection>         
         </sections>

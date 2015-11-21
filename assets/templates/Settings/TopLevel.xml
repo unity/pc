@@ -74,14 +74,13 @@
                 <label>{{TEXT(Channels)}}</label>
                 <rightLabel>{{SETTING(channelview)}}</rightLabel>
               </oneLineMenuItem>
+              <oneLineMenuItem id="SharedChannelsView" onSelect="toggleSettings('SharedChannelsView', 'Settings_TopLevel')">
+                <label>{{TEXT(Shared Channels)}}</label>
+                <rightLabel>{{SETTING(sharedchannelsview)}}</rightLabel>
+              </oneLineMenuItem>
               <oneLineMenuItem id="GlobalSearch" onSelect="toggleSettings('GlobalSearch', 'Settings_TopLevel')">
                 <label>{{TEXT(Search)}}</label>
                 <rightLabel>{{SETTING(globalsearch)}}</rightLabel>
-              </oneLineMenuItem>
-
-              <oneLineMenuItem id="PosterTitles" onSelect="toggleSettings('PosterTitles', 'Settings_TopLevel')">
-                <label>{{TEXT(Poster Titles)}}</label>
-                <rightLabel>{{SETTING(postertitles)}}</rightLabel>
               </oneLineMenuItem>
 
             </items>
@@ -90,76 +89,39 @@
           <menuSection>
             <header>
               <horizontalDivider alignment="left">
-                <title>{{TEXT(Menu Background)}}</title>
+                <title>{{TEXT(Miscellaneous)}}</title>
               </horizontalDivider>
             </header>
             <items>
-              <oneLineMenuItem id="MenuBackground" onSelect="toggleTemplateSettings('MenuBackground', 'Settings_TopLevel')">
-                <label>{{TEXT(Menu Background)}}</label>
-                <rightLabel>{{SETTING(menubackground)}}</rightLabel>
+            
+              <oneLineMenuItem id="PosterTitles" onSelect="toggleSettings('PosterTitles', 'Settings_TopLevel')">
+                <label>{{TEXT(Poster Titles)}}</label>
+                <rightLabel>{{SETTING(postertitles)}}</rightLabel>
               </oneLineMenuItem>
-              <oneLineMenuItem id="GridTint" onSelect="toggleSettings('GridTint', 'Settings_TopLevel')">
-                <label>{{TEXT(Grid Tint)}}</label>
-                <rightLabel>{{SETTING(gridtint)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="ListTint" onSelect="toggleTemplateSettings('ListTint', 'Settings_TopLevel')">
-                <label>{{TEXT(List Tint)}}</label>
-                <rightLabel>{{SETTING(listtint)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="ParadeListTint" onSelect="toggleSettings('ParadeListTint', 'Settings_TopLevel')">
-                <label>{{TEXT(Parade List Tint)}}</label>
-                <rightLabel>{{SETTING(paradelisttint)}}</rightLabel>
-              </oneLineMenuItem>
-               </items>
-          </menuSection>
-          
-          <menuSection>
-            <header>
-              <horizontalDivider alignment="left">
-                <title>{{TEXT(Text Color)}}</title>
-              </horizontalDivider>
-            </header>
-            <items>
-             <oneLineMenuItem id="TitleColor" onSelect="toggleTemplateSettings('TitleColor', 'Settings_TopLevel')">
-                <label>{{TEXT(Title Color)}}</label>
-                <rightLabel>{{SETTING(titlecolor)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="SubtitleColor" onSelect="toggleTemplateSettings('SubtitleColor', 'Settings_TopLevel')">
-                <label>{{TEXT(Subtitle Color)}}</label>
-                <rightLabel>{{SETTING(subtitlecolor)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="TableTitleColor" onSelect="toggleTemplateSettings('TableTitleColor', 'Settings_TopLevel')">
-                <label>{{TEXT(Tabletitle Color)}}</label>
-                <rightLabel>{{SETTING(tabletitlecolor)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="MetadataColor" onSelect="toggleTemplateSettings('MetadataColor', 'Settings_TopLevel')">
-                <label>{{TEXT(Metadata Color)}}</label>
-                <rightLabel>{{SETTING(metadatacolor)}}</rightLabel>
-              </oneLineMenuItem>
-              </items>
-          </menuSection>
-          
-          <menuSection>
-            <header>
-              <horizontalDivider alignment="left">
-                <title>{{TEXT(Fanart)}}</title>
-              </horizontalDivider>
-            </header>
-            <items>              
+            
               <oneLineMenuItem id="FanartBlur" onSelect="toggleSettings('FanartBlur', 'Settings_TopLevel')">
                 <label>{{TEXT(Fanart Blur)}}</label>
                 <rightLabel>{{SETTING(fanartblur)}}</rightLabel>
               </oneLineMenuItem>
+              
               <oneLineMenuItem id="FanartTint" onSelect="toggleSettings('FanartTint', 'Settings_TopLevel')">
                 <label>{{TEXT(Fanart Tint)}}</label>
                 <rightLabel>{{SETTING(fanarttint)}}</rightLabel>
               </oneLineMenuItem>
+              
               <oneLineMenuItem id="purgeFanart" onSelect="purgeFanart('plex','Settings_TopLevel')">
                 <label>{{TEXT(Purge Fanart)}}</label>
                 <rightLabel>Files: {{FanartCOUNT()}}</rightLabel>
               </oneLineMenuItem>
+              
+              <oneLineMenuItem id="DurationFormat" onSelect="toggleSettings('DurationFormat', 'Settings_TopLevel')">
+                <label>{{TEXT(Duration Format)}}</label>
+                <rightLabel>{{SETTING(durationformat)}}</rightLabel>
+              </oneLineMenuItem>
+          
                </items>
           </menuSection>
+          
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
