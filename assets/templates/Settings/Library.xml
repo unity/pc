@@ -24,7 +24,7 @@
           </image>
         </imageHeader>
       </header>
-      
+
       <preview>
         <keyedPreview>
           <title>&#x00AD;<!--soft-hyphen--></title>
@@ -61,7 +61,7 @@
               <!--<oneLineMenuItem id="SectionsPosition" onSelect="toggleSettings('SectionsPosition', 'Settings_Library')">
                 <label>{{TEXT(Library Sections)}}</label>
                 <rightLabel>{{SETTING(sectionsposition)}}</rightLabel>
-              </oneLineMenuItem>-->              
+              </oneLineMenuItem>-->
               <oneLineMenuItem id="SectionIcons" onSelect="toggleSettings('SectionIcons', 'Settings_Library')">
                 <label>{{TEXT(Library Icons)}}</label>
                 <rightLabel>{{SETTING(sectionicons)}}</rightLabel>
@@ -72,7 +72,7 @@
               </oneLineMenuItem>
               </items>
           </menuSection>
-              
+
               <menuSection>
            <header>
               <horizontalDivider alignment="left">
@@ -80,21 +80,37 @@
               </horizontalDivider>
             </header>
             <items>
-              <oneLineMenuItem id="Library_OnDeck" onSelect="toggleSettings('Library_OnDeck', 'Settings_Library')">
-                <label>{{TEXT(On Deck)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($library_ondeck::unchecked=CUT|checked=)}}
+              <oneLineMenuItem id="Library_ContinueWatch" onSelect="toggleSettings('Library_ContinueWatch', 'Settings_Library')">
+                <label>{{TEXT(Continue Watching)}}</label>
+                <rightLabel>{{SETTING(library_continuewatch)}}</rightLabel>
               </oneLineMenuItem>
-              <oneLineMenuItem id="Library_RecentlyAdded" onSelect="toggleSettings('Library_RecentlyAdded', 'Settings_Library')">
+              <oneLineMenuItem id="Library_OnDeck" onSelect="toggleSettings('Library_OnDeck', 'Settings_Library');atv.unloadPage();">
+                <label>{{TEXT(On Deck)}}</label>
+                <rightLabel>{{SETTING(library_ondeck)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="OnDeck" dimmed="true">{{CUT($library_ondeck::Hide=|Show=CUT)}}
+                <label>{{TEXT(On Deck View)}}</label>
+                <rightLabel></rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="OnDeck" onSelect="toggleSettings('OnDeck', 'Settings_Library')">{{CUT($library_ondeck::Hide=CUT|Show=)}}
+                <label>{{TEXT(On Deck View)}}</label>
+                <rightLabel>{{SETTING(ondeck)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="Library_RecentlyAdded" onSelect="toggleSettings('Library_RecentlyAdded', 'Settings_Library');atv.unloadPage();">
                 <label>{{TEXT(Recently Added)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($library_recentlyadded::unchecked=CUT|checked=)}}
-              </oneLineMenuItem>              
+                <rightLabel>{{SETTING(library_recentlyadded)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="RecentlyAddded" dimmed="true">{{CUT($library_recentlyadded::Hide=|Show=CUT)}}
+                <label>{{TEXT(On Deck View)}}</label>
+                <rightLabel></rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="RecentlyAdded" onSelect="toggleSettings('RecentlyAdded', 'Settings_Library')">{{CUT($library_recentlyadded::Hide=CUT|Show=)}}
+                <label>{{TEXT(Recently Added View)}}</label>
+                <rightLabel>{{SETTING(recentlyadded)}}</rightLabel>
+              </oneLineMenuItem>
             </items>
           </menuSection>
-                           
+
               <!--<menuSection>
              <header>
               <horizontalDivider alignment="left">
@@ -108,7 +124,7 @@
               </oneLineMenuItem>
               </items>
           </menuSection>-->
-              
+
               <!--<menuSection>
            <header>
               <horizontalDivider alignment="left">
@@ -127,7 +143,7 @@
                 <accessories>
                   <checkMark/>
                 </accessories>{{CUT($sharedlibrary_recentlyadded::unchecked=CUT|checked=)}}
-              </oneLineMenuItem>                    
+              </oneLineMenuItem>
             </items>
           </menuSection>-->
         </sections>

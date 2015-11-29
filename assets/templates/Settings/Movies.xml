@@ -24,7 +24,7 @@
           </image>
         </imageHeader>
       </header>
-      
+
       <preview>
         <keyedPreview>
           <title>&#x00AD;<!--soft-hyphen--></title>
@@ -57,7 +57,7 @@
                 <title>{{TEXT(Movies)}}</title>
               </horizontalDivider>
             </header>
-            <items>      
+            <items>
             <oneLineMenuItem id="MovieView" onSelect="toggleSettings('MovieView', 'Settings_Movies')">
                 <label>{{TEXT(Movie View)}}</label>
                 <rightLabel>{{SETTING(movieview)}}</rightLabel>
@@ -73,14 +73,14 @@
               <oneLineMenuItem id="MoviePrePlay_BottomShelf" onSelect="toggleSettings('MoviePrePlay_BottomShelf', 'Settings_Movies')">
                 <label>{{TEXT(PrePlay Bottom Shelf)}}</label>
                 <rightLabel>{{SETTING(moviepreplay_bottomshelf)}}</rightLabel>
-              </oneLineMenuItem>             
+              </oneLineMenuItem>
               <oneLineMenuItem id="MoviePrePlay_Settings" onSelect="toggleSettings('MoviePrePlay_Settings', 'Settings_Movies')">
                 <label>{{TEXT(PrePlay Settings Button)}}</label>
                 <rightLabel>{{SETTING(moviepreplay_settings)}}</rightLabel>
               </oneLineMenuItem>
               </items>
           </menuSection>
-          
+
 
           <menuSection>
             <header>
@@ -89,7 +89,7 @@
               </horizontalDivider>
             </header>
             <items>
-            
+
               <oneLineMenuItem id="Movies_NavBar_Overview" onSelect="toggleSettings('Movies_NavBar_Overview', 'Settings_Movies')">
                 <label>{{TEXT(Overview)}}</label>
                 <accessories>
@@ -101,23 +101,23 @@
                 <label>{{TEXT(On Deck)}}</label>
                 <accessories>
                   <checkMark/>
-                </accessories>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}                
+                </accessories>{{CUT($movies_navbar_ondeck::unchecked=CUT|checked=)}}
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="Movies_NavBar_Unwatched" onSelect="toggleSettings('Movies_NavBar_Unwatched', 'Settings_Movies')">
                 <label>{{TEXT(Unwatched)}}</label>
                 <accessories>
                   <checkMark/>
                 </accessories>{{CUT($movies_navbar_unwatched::unchecked=CUT|checked=)}}
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="Movies_NavBar_ByFolder" onSelect="toggleSettings('Movies_NavBar_ByFolder', 'Settings_Movies')">
                 <label>{{TEXT(By Folder)}}</label>
                 <accessories>
                   <checkMark/>
                 </accessories>{{CUT($movies_navbar_byfolder::unchecked=CUT|checked=)}}
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="Movies_NavBar_Collections" onSelect="toggleSettings('Movies_NavBar_Collections', 'Settings_Movies')">
                 <label>{{TEXT(Collections)}}</label>
                 <accessories>

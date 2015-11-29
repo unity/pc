@@ -22,7 +22,7 @@
           </image>
         </imageHeader>
       </header>
-      
+
       <preview>
         <keyedPreview>
           <title>&#x00AD;<!--soft-hyphen--></title>
@@ -46,10 +46,10 @@
           <image>{{URL(:/thumbnails/Plex/images/PlexConnectLogo.png)}}</image>
         </keyedPreview>
       </preview>
-      
+
       <menu>
         <sections>
-          
+
           <menuSection>
             <header>
               <horizontalDivider alignment="left">
@@ -61,7 +61,7 @@
                 <label>{{TEXT(Discover)}}</label>
                 <rightLabel>Plex Media Servers: {{PMSCOUNT()}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="MyPlexSignInOut" onSelect="myPlexSignInOut()">{{CUT($myplex_auth::=| =CUT)}}
                 <label>{{TEXT(MyPlex Sign In)}}</label>
                 <rightLabel></rightLabel>
@@ -83,27 +83,27 @@
                 <rightLabel>{{TEXT(Off)}}</rightLabel>{{CUT($plexhome_enable::False=|True=CUT)}}
                 <rightLabel></rightLabel>{{CUT($plexhome_enable:CUT:False=CUT|True=)}}{{CUT($plexhome_auth::=| =CUT)}}
                 <rightLabel>{{SETTING(plexhome_user)}}</rightLabel>{{CUT($plexhome_enable:CUT:False=CUT|True=)}}{{CUT($plexhome_auth:CUT:=CUT| =)}}
-              </oneLineMenuItem>                            
+              </oneLineMenuItem>
               <oneLineMenuItem id="TrancoderView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Transcoder)}}')">
                 <label>{{TEXT(PMS Transcoder Options)}}</label>
                 <accessories>
                   <arrow/>
-                </accessories>               
-              </oneLineMenuItem>      
+                </accessories>
+              </oneLineMenuItem>
             </items>
-          </menuSection>          
+          </menuSection>
               <menuSection>
             <header>
               <horizontalDivider alignment="left">
                 <title>{{TEXT(Appearance)}}</title>
               </horizontalDivider>
-            </header> 
+            </header>
               <items>
               <oneLineMenuItem id="Precache" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_TopLevel)}}')">
                 <label>{{TEXT(General Appearance)}}</label>
                 <accessories>
                   <arrow/>
-                </accessories>            
+                </accessories>
               </oneLineMenuItem>
               <oneLineMenuItem id="Precache" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Sections)}}')">
                 <label>{{TEXT(Section Options)}}</label>
@@ -117,9 +117,9 @@
                   <arrow/>
                 </accessories>
               </oneLineMenuItem>
-              
+
             </items>
-          </menuSection>         
+          </menuSection>
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
