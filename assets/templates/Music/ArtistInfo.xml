@@ -15,6 +15,7 @@
                 {{URL(:/fanartcache/{{getBackground({{EVAL({\
                 'template'    : 'Plex',\
                 'title'       : "{{EVAL(quote_plus("{{VAL(Directory/title)}}"))}}",\
+                'subtitle'    : "{{EVAL(quote_plus("{{TEXT(Artist)}}"))}}",\
                 'image'       : "{{IMAGEURL(Directory/art:::)}}",\
                 'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
                 'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
@@ -29,15 +30,15 @@
                 'offsetY' : '20',\
                 'lineheight' : '175',\
                 'layers': ["PlexMusic{{VAL($fanarttint::On=Text|Off=)}}"]\
-                })}})}})}}                
-	      </image>        
+                })}})}})}}
+	      </image>
 	      </imageHeader>
       </header>
-      
+
       <summary>{{VAL(Directory/summary)}}</summary>
       <image style="moviePoster">{{IMAGEURL(Directory/thumb::768)}}</image>
       <defaultImage>resource://Poster.png</defaultImage>
-            
+
       <centerShelf>
         <shelf id="centerShelf" columnCount="3" center="true">
           <sections>
@@ -53,7 +54,7 @@
           </sections>
         </shelf>
       </centerShelf>
-      
+
       <divider>
         <smallCollectionDivider alignment="left">
           <title>{{TEXT(Similar Artists)}}</title>
@@ -65,7 +66,7 @@
           <sections>
             <shelfSection>
               <items>
-                <moviePoster related="true" alwaysShowTitles="true" id="shelf_item_1" 
+                <moviePoster related="true" alwaysShowTitles="true" id="shelf_item_1"
                              onSelect="atv.loadAndSwapURL('{{URL(:/library/metadata/:{{VAL(ratingKey)}}:includeExtras=1&amp;includeRelated=1&amp;includePopularLeaves=1&amp;PlexConnect=Music_ArtistInfo)}}')">
                   {{COPY(Directory/Related/Hub/Directory)}}
                   <title>{{VAL(title)}}</title>
@@ -90,7 +91,7 @@
                       <link>{{URL(:/library/metadata/:{{VAL(Directory/ratingKey)}}/children:PlexConnect=Music_AlbumPreview)}}</link>
                     </preview>
                   </oneLineMenuItem>
- 
+
                   <oneLineMenuItem id="list_2">
                     <label>{{TEXT(Music Videos)}}</label>
                     <preview>
