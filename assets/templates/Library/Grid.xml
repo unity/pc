@@ -93,7 +93,7 @@
       {{COPY(@OnDeckWatch/Server:size::0=|1=COPY)}}
 
       <collectionDivider alignment="left" accessibilityLabel="On Deck">
-       <title>{{TEXT(Continue Watching)}}</title>
+       <title>{{TEXT(Continue Watching)}} on {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
      </collectionDivider>{{CUT(@OnDeckWatch/Server/size:CUT:0=CUT|1=)}}{{CUT($library_continuewatch::Show=|Hide=CUT)}}
 
       <shelf id="shelf_1" columnCount="3">
@@ -246,7 +246,7 @@
        {{COPY(@OnDeck/Server:size::0=|1=COPY)}}
 
        <collectionDivider alignment="left" accessibilityLabel="On Deck">
-        <title>{{TEXT(On Deck Movies)}}</title>
+        <title>{{TEXT(On Deck Movies)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
       </collectionDivider>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}{{CUT($ondeck::Separated=|Combined=CUT)}}{{CUT($library_ondeck::Show=|Hide=CUT)}}
 
        <shelf id="shelf_1" columnCount="7">
@@ -275,7 +275,7 @@
       {{COPY(@OnDeck/Server:size::0=|1=COPY)}}
 
       <collectionDivider alignment="left" accessibilityLabel="On Deck">
-       <title>{{TEXT(On Deck)}}</title>
+       <title>{{TEXT(On Deck)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
      </collectionDivider>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}{{CUT($ondeck::Separated=CUT|Combined=)}}{{CUT($library_ondeck::Show=|Hide=CUT)}}
 
       <shelf id="shelf_1" columnCount="7">
@@ -304,7 +304,7 @@
         {{COPY(@OnDeck/Server:size::0=|1=COPY)}}
 
         <collectionDivider alignment="left" accessibilityLabel="On Deck">
-         <title>{{TEXT(On Deck Televison)}}</title>
+         <title>{{TEXT(On Deck Televison)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
        </collectionDivider>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}{{CUT($ondeck::Separated=|Combined=CUT)}}{{CUT($library_ondeck::Show=|Hide=CUT)}}
 
         <shelf id="shelf_1" columnCount="7">
@@ -333,7 +333,7 @@
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
          <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added Movies)}}</title>
+          <title>{{TEXT(Recently Added Movies)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($recentlyadded::Separated=|Combined=CUT)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
         <shelf id="shelf_2" columnCount="7">
@@ -361,7 +361,7 @@
          {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
          <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added)}}</title>
+          <title>{{TEXT(Recently Added)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($recentlyadded::Separated=CUT|Combined=)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
         <shelf id="shelf_2" columnCount="7">
@@ -393,7 +393,7 @@
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
          <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added TV Shows)}}</title>
+          <title>{{TEXT(Recently Added TV Shows)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($recentlyadded::Separated=|Combined=CUT)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
         <shelf id="shelf_2" columnCount="7">
@@ -422,7 +422,7 @@
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
         <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added Music)}}</title>
+          <title>{{TEXT(Recently Added Music)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($recentlyadded::Separated=|Combined=CUT)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
         <shelf id="shelf_2" columnCount="7">
