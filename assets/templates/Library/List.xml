@@ -53,7 +53,7 @@
           {{COPY(Server:@main/size::0=|1=COPY)}}
             <header>
               <horizontalDivider alignment="left">
-                <title>{{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
+                <title>{{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
               </horizontalDivider>
             </header>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}
             <items>

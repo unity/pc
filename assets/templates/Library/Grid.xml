@@ -93,8 +93,8 @@
       {{COPY(@OnDeckWatch/Server:size::0=|1=COPY)}}
 
       <collectionDivider alignment="left" accessibilityLabel="On Deck">
-       <title>{{TEXT(Continue Watching)}} on {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
-     </collectionDivider>{{CUT(@OnDeckWatch/Server/size:CUT:0=CUT|1=)}}{{CUT($library_continuewatch::Show=|Hide=CUT)}}
+       <title>{{TEXT(Continue Watching)}} on {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
+     </collectionDivider>{{CUT(@OnDeckWatch/Server/size:CUT:0=CUT|1=)}}{{CUT($library_continuewatch::Show=|Hide=CUT)}}{{CUT($continuewatch_position::Top=|Center=CUT)}}
 
       <shelf id="shelf_1" columnCount="3">
         <sections>
@@ -115,7 +115,7 @@
               </items>
             </shelfSection>
           </sections>
-        </shelf>{{CUT(@OnDeckWatch/Server/size:CUT:0=CUT|1=)}}{{CUT($library_continuewatch::Show=|Hide=CUT)}}
+        </shelf>{{CUT(@OnDeckWatch/Server/size:CUT:0=CUT|1=)}}{{CUT($library_continuewatch::Show=|Hide=CUT)}}{{CUT($continuewatch_position::Top=|Center=CUT)}}
         </__COPY__>
 
 
@@ -197,7 +197,7 @@
         <__COPY__>
         {{COPY(Server:@main/size::0=|1=COPY)}}
         <collectionDivider alignment="left" accessibilityLabel="Library">
-            <title>{{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>
+            <title>{{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
         </collectionDivider>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}
 
         <shelf id="shelf_0" columnCount="5">
@@ -243,10 +243,39 @@
        </collectionDivider>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}
 
        <__COPY__>
+       {{COPY(@OnDeckWatch/Server:size::0=|1=COPY)}}
+
+       <collectionDivider alignment="left" accessibilityLabel="On Deck">
+        <title>{{TEXT(Continue Watching)}} on {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
+      </collectionDivider>{{CUT(@OnDeckWatch/Server/size:CUT:0=CUT|1=)}}{{CUT($library_continuewatch::Show=|Hide=CUT)}}{{CUT($continuewatch_position::Top=CUT|Center=)}}
+
+       <shelf id="shelf_1" columnCount="3">
+         <sections>
+           <shelfSection>
+             <items>
+                 <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
+                             onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')"
+                             onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect={{VAL(type::movie=Movie_|episode=TVShow_)}}PrePlay)}}')"
+                             onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
+                   {{COPY(Video)}}
+                   {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
+                   <title>{{VAL(title)}}</title>{{CUT(type:CUT:episode=CUT|movie=)}}
+                   <title>{{VAL(grandparentTitle)}}</title>{{CUT(type::episode=|movie=CUT)}}
+                   <subtitle>{{VAL(type::movie={{VAL(year)}}|episode={{VAL(index)}}. {{VAL(title)}})}}</subtitle>
+                   <image>{{IMAGEURL({{VAL(type::movie=art|episode=art)}}::800)}}</image>
+                   <defaultImage>resource://Poster.png</defaultImage>
+                 </moviePoster>
+               </items>
+             </shelfSection>
+           </sections>
+         </shelf>{{CUT(@OnDeckWatch/Server/size:CUT:0=CUT|1=)}}{{CUT($library_continuewatch::Show=|Hide=CUT)}}{{CUT($continuewatch_position::Top=CUT|Center=)}}
+         </__COPY__>
+
+       <__COPY__>
        {{COPY(@OnDeck/Server:size::0=|1=COPY)}}
 
        <collectionDivider alignment="left" accessibilityLabel="On Deck">
-        <title>{{TEXT(On Deck Movies)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
+        <title>{{TEXT(On Deck Movies)}} - {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
       </collectionDivider>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}{{CUT($ondeck::Separated=|Combined=CUT)}}{{CUT($library_ondeck::Show=|Hide=CUT)}}
 
        <shelf id="shelf_1" columnCount="7">
@@ -275,7 +304,7 @@
       {{COPY(@OnDeck/Server:size::0=|1=COPY)}}
 
       <collectionDivider alignment="left" accessibilityLabel="On Deck">
-       <title>{{TEXT(On Deck)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
+       <title>{{TEXT(On Deck)}} - {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
      </collectionDivider>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}{{CUT($ondeck::Separated=CUT|Combined=)}}{{CUT($library_ondeck::Show=|Hide=CUT)}}
 
       <shelf id="shelf_1" columnCount="7">
@@ -304,7 +333,7 @@
         {{COPY(@OnDeck/Server:size::0=|1=COPY)}}
 
         <collectionDivider alignment="left" accessibilityLabel="On Deck">
-         <title>{{TEXT(On Deck Televison)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
+         <title>{{TEXT(On Deck Televison)}} - {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
        </collectionDivider>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}{{CUT($ondeck::Separated=|Combined=CUT)}}{{CUT($library_ondeck::Show=|Hide=CUT)}}
 
         <shelf id="shelf_1" columnCount="7">
@@ -333,7 +362,7 @@
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
          <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added Movies)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
+          <title>{{TEXT(Recently Added Movies)}} - {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($recentlyadded::Separated=|Combined=CUT)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
         <shelf id="shelf_2" columnCount="7">
@@ -361,7 +390,7 @@
          {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
          <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
+          <title>{{TEXT(Recently Added)}} - {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($recentlyadded::Separated=CUT|Combined=)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
         <shelf id="shelf_2" columnCount="7">
@@ -393,7 +422,7 @@
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
          <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added TV Shows)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
+          <title>{{TEXT(Recently Added TV Shows)}} - {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($recentlyadded::Separated=|Combined=CUT)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
         <shelf id="shelf_2" columnCount="7">
@@ -422,7 +451,7 @@
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
         <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added Music)}} - {{VAL(name)}}{{VAL(local::0= ({{TEXT(SharedServer)}})|0 =)}}</title>
+          <title>{{TEXT(Recently Added Music)}} - {{VAL(name)}}{{VAL(local::0= &quot;{{TEXT(remote)}}&quot;|0 =)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($recentlyadded::Separated=|Combined=CUT)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
         <shelf id="shelf_2" columnCount="7">

@@ -81,8 +81,12 @@
             </header>
             <items>
               <oneLineMenuItem id="Library_ContinueWatch" onSelect="toggleSettings('Library_ContinueWatch', 'Settings_Library')">
-                <label>{{TEXT(Continue Watching)}}</label>
+                <label>{{TEXT("Continue Watching")}}</label>
                 <rightLabel>{{SETTING(library_continuewatch)}}</rightLabel>
+              </oneLineMenuItem>
+              <oneLineMenuItem id="ContinueWatch_Position" onSelect="toggleSettings('ContinueWatch_Position', 'Settings_Library')">
+                <label>{{TEXT("Continue Watching" Position)}}</label>
+                <rightLabel>{{SETTING(continuewatch_position)}}</rightLabel>
               </oneLineMenuItem>
               <oneLineMenuItem id="Library_OnDeck" onSelect="toggleSettings('Library_OnDeck', 'Settings_Library');atv.unloadPage();">
                 <label>{{TEXT(On Deck)}}</label>
@@ -101,7 +105,7 @@
                 <rightLabel>{{SETTING(library_recentlyadded)}}</rightLabel>
               </oneLineMenuItem>
               <oneLineMenuItem id="RecentlyAddded" dimmed="true">{{CUT($library_recentlyadded::Hide=|Show=CUT)}}
-                <label>{{TEXT(On Deck View)}}</label>
+                <label>{{TEXT(Recently Added View)}}</label>
                 <rightLabel></rightLabel>
               </oneLineMenuItem>
               <oneLineMenuItem id="RecentlyAdded" onSelect="toggleSettings('RecentlyAdded', 'Settings_Library')">{{CUT($library_recentlyadded::Hide=CUT|Show=)}}

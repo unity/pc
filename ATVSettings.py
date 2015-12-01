@@ -34,6 +34,7 @@ options = { \
     'library_ondeck'                    :('Show', 'Hide'), \
     'ondeck'                            :('Combined', 'Separated'), \
     'library_continuewatch'             :('Show', 'Hide'), \
+    'continuewatch_position'            :('Top', 'Center'), \
     'library_recentlyadded'             :('Show', 'Hide'), \
     'recentlyadded'                     :('Combined', 'Separated'), \
     'sharedlibrary_ondeck'              :('checked', 'unchecked'), \
