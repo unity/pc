@@ -6,7 +6,7 @@
   <body>
       {{ADDXML(recentlyAdded::/library/sections/{{VAL(librarySectionID)}}/recentlyAdded?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=20)}}
       {{VAR(items:NoKey:FALSE)}}
-      
+
     <scroller id="Movie_Unwatched">
       <header>
           <imageHeader>
@@ -20,13 +20,13 @@
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexSubGrid{{VAL($gridtint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexSubGrid"]\
               })}})}})}}
           </image>
           </imageHeader>
       </header>
-      
-       <items>       
+
+       <items>
           <grid columnCount="5" id="grid_0">
               <items>
                   <goldenPoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
@@ -39,10 +39,10 @@
                       <defaultImage>resource://Poster.png</defaultImage>
                   </goldenPoster>
               </items>
-          </grid>         
+          </grid>
       </items>
     </scroller>
-    
+
     <!--No Items Available-->
     <dialog id="com.sample.error-dialog">
     {{CUT(size::0=|1=CUT)}}
@@ -50,7 +50,7 @@
       <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
     </dialog>
   </body>{{CUT($movieview::Detailed=CUT|List=CUT|Artwork=)}}
-  
+
   <body>
     <itemCollectionWithImageHeader id="Movie_List">
     {{CUT(size:CUT:0=CUT|1=)}}
@@ -103,15 +103,15 @@
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-    
+
     <!--No Items Available-->
     <dialog id="com.sample.error-dialog">
     {{CUT(size::0=|1=CUT)}}
       <title>PlexConnect</title>
       <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
-    </dialog>    
+    </dialog>
   </body>{{CUT($movieview::Detailed=CUT|List=|Artwork=CUT)}}
-  
+
   <body>
     <itemCollectionWithImageHeader id="Movie_DetailedList">
     {{CUT(size:CUT:0=CUT|1=)}}
@@ -172,13 +172,13 @@
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-    
+
     <!--No Items Available-->
     <dialog id="com.sample.error-dialog">
     {{CUT(size::0=|1=CUT)}}
       <title>PlexConnect</title>
       <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
-    </dialog>    
+    </dialog>
   </body>{{CUT($movieview::Detailed=|List=CUT|Artwork=CUT)}}
-  
+
 </atv>

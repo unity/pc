@@ -2,7 +2,7 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
   </head>
-  
+
   <body>
     <scroller id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Season_Coverflow)}}')">
       <header>
@@ -31,8 +31,8 @@
               <items>
                 <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
 								onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')"
-                                onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')" 
-                                onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuSeason)}}')">
+                                onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')"
+                                onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_Menu)}}')">
                   {{COPY(Directory)}}
                   <title>{{VAL(title)}}</title>
                   <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
@@ -40,7 +40,7 @@
                   <image>{{IMAGEURL(#parentThumb::768)}}</image>{{CUT(thumb:: =CUT)}}
                   <defaultImage>resource://Poster.png</defaultImage>
                 </goldenPoster>{{CUT(Directory/title:CUT:=)}}
-                
+
                 <goldenPoster id="none">
               <title>{{TEXT(No Unwatched Shows)}}</title>
               <defaultImage>resource://Poster.png</defaultImage>
@@ -49,7 +49,7 @@
             </shelfSection>
           </sections>
         </shelf>
-        
+
       </items>
     </scroller>
   </body>

@@ -29,7 +29,7 @@
                 'offsetX' : '50',\
                 'offsetY' : '20',\
                 'lineheight' : '175',\
-                'layers': ["PlexMusic{{VAL($fanarttint::On=Text|Off=)}}"]\
+                'layers': ["PlexMusic"]\
                 })}})}})}}
 	      </image>
 	      </imageHeader>

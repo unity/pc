@@ -22,7 +22,7 @@
                'offsetX'     : '70',\
                'offsetY'     : '35',\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexListUser{{VAL($paradelisttint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexListUser"]\
               })}})}})}}
               </image>
 	    </imageHeader>{{CUT($libraryfanart::Show=CUT|Hide=))}}

@@ -3,7 +3,7 @@
     <script src="{{URL(:/js/utils.js)}}" />
     <script src="{{URL(:/js/myPlexHome.js)}}" />
   </head>
-  
+
    <body>
     <itemCollectionWithImageHeader id="SettingsPage_PlexHome">
       <header>
@@ -18,12 +18,12 @@
               'font'         : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'   : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor' : "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'       : ["PlexSubList{{VAL($listtint::On=Text|Off=)}}"]\
+              'layers'       : ["PlexSubList"]\
             })}})}})}}
           </image>
         </imageHeader>
       </header>
-      
+
       <preview>
         <keyedPreview>
           <title>&#x00AD;<!--soft-hyphen--></title>

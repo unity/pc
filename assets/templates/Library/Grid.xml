@@ -29,7 +29,7 @@
                'offsetX'     : '70',\
                'offsetY'     : '35',\
                'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-               'layers'      : ["PlexGridUser{{VAL($gridtint::On=Text|Off=)}}"]\
+               'layers'      : ["PlexGridUser"]\
                })}})}})}}
            </image>
           </imageHeader>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}{{CUT($libraryfanart::Show=CUT|Hide=))}}
@@ -64,7 +64,7 @@
                'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                'offsetX'     : '70',\
                'offsetY'     : '35',\
-               'layers'      : ["PlexLibraryFlowUser{{VAL($gridtint::On=Text|Off=)}}"]\
+               'layers'      : ["PlexGridUser"]\
                })}})}})}}
            </image>
 	        </imageHeader>{{CUT(@main/size:CUT:0=CUT|1=|1 =CUT)}}{{CUT($libraryfanart::Show=CUT|Hide=))}}
@@ -81,7 +81,7 @@
                'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                'offsetX'     : '70',\
                'offsetY'     : '35',\
-               'layers'      : ["PlexLibraryFlowUser{{VAL($fanarttint::On=Text|Off=)}}"]\
+               'layers'      : ["PlexGridUser{{VAL($fanarttint::On=Text|Off=)}}"]\
                })}})}})}}
            </image>
 	        </imageHeader>{{CUT(@main/size:CUT:0=CUT|1=|1 =CUT)}}{{CUT($libraryfanart::Show=|Hide=CUT))}}

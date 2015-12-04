@@ -2,10 +2,10 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
   </head>
-  
+
   <body>
     {{VAR(items:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
-    
+
     <!-- List -->
     <itemCollectionWithImageHeader id="Playlist_Audio_List">
     {{CUT(size:CUT:0=CUT|1=)}}
@@ -19,15 +19,15 @@
               'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexList{{VAL($paradelisttint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexList"]\
               })}})}})}}
               </image>
 	    </imageHeader>
       </header>
-      
+
       <menu>
         <sections>
-          
+
           <menuSection>
             <items>
               <!-- shuffle -->
@@ -69,14 +69,14 @@
 
             </items>
           </menuSection>
-          
+
           <menuSection>
             <header>
               <horizontalDivider alignment="left">
                 <title />
               </horizontalDivider>
             </header>
-            
+
             <!-- tracks -->
             <items>
               <oneLineMenuItem id="{{VAL(key)}}"
@@ -97,17 +97,17 @@
               </oneLineMenuItem>
             </items>
           </menuSection>
-          
+
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-    
+
     <!--No Items Available-->
     <dialog id="com.sample.error-dialog">
     {{CUT(#items::FALSE=|TRUE=CUT)}}
       <title>PlexConnect</title>
       <description>{{TEXT(Video Playlist: No Items Available)}}</description>
     </dialog>
-    
+
   </body>
 </atv>

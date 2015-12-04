@@ -17,7 +17,7 @@
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexSubList{{VAL($paradelisttint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexSubList"]\
               })}})}})}}
 	      </image>
 	    </imageHeader>
@@ -54,13 +54,13 @@
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-    
+
     <!--No Items Available-->
     <dialog id="com.sample.error-dialog">
     {{CUT(size::0=|1=CUT)}}
       <title>PlexConnect</title>
       <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
     </dialog>
-    
+
   </body>
 </atv>

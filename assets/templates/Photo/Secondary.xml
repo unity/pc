@@ -17,7 +17,7 @@
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexSubList{{VAL($paradelisttint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexSubList"]\
               })}})}})}}
 	      </image>
 	    </imageHeader>
@@ -46,28 +46,28 @@
                   <link>{{URL(key::/aperture:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="Shutter Speed" onPlay="atv.loadURL('{{URL(key::/exposure:PlexConnect=Photo_DirectoryWithPreview)}}')" onSelect="atv.loadURL('{{URL(key::/exposure:PlexConnect=Photo_DirectoryWithPreview)}}')">
                 <label>{{TEXT(Shutter Speed)}}</label>
                 <preview>
                   <link>{{URL(key::/exposure:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="ISO" onPlay="atv.loadURL('{{URL(key::/iso:PlexConnect=Photo_DirectoryWithPreview)}}')" onSelect="atv.loadURL('{{URL(key::/iso:PlexConnect=Photo_DirectoryWithPreview)}}')">
                 <label>{{TEXT(ISO)}}</label>
                 <preview>
                   <link>{{URL(key::/iso:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="Lens" onPlay="atv.loadURL('{{URL(key::/lens:PlexConnect=Photo_DirectoryWithPreview)}}')" onSelect="atv.loadURL('{{URL(key::/lens:PlexConnect=Photo_DirectoryWithPreview)}}')">
                 <label>{{TEXT(Lens)}}</label>
                 <preview>
                   <link>{{URL(key::/lens:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
               </oneLineMenuItem>
-              
+
             </items>
           </menuSection>
         </sections>

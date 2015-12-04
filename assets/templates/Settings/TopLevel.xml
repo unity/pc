@@ -19,12 +19,12 @@
               'font'         : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'   : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor' : "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'       : ["PlexSubList{{VAL($listtint::On=Text|Off=)}}"]\
+              'layers'       : ["PlexSubList"]\
             })}})}})}}
           </image>
         </imageHeader>
       </header>
-      
+
       <preview>
         <keyedPreview>
           <title>&#x00AD;<!--soft-hyphen--></title>
@@ -85,7 +85,7 @@
 
             </items>
           </menuSection>
-          
+
           <menuSection>
             <header>
               <horizontalDivider alignment="left">
@@ -93,35 +93,35 @@
               </horizontalDivider>
             </header>
             <items>
-            
+
               <oneLineMenuItem id="PosterTitles" onSelect="toggleSettings('PosterTitles', 'Settings_TopLevel')">
                 <label>{{TEXT(Poster Titles)}}</label>
                 <rightLabel>{{SETTING(postertitles)}}</rightLabel>
               </oneLineMenuItem>
-            
+
               <oneLineMenuItem id="FanartBlur" onSelect="toggleSettings('FanartBlur', 'Settings_TopLevel')">
                 <label>{{TEXT(Fanart Blur)}}</label>
                 <rightLabel>{{SETTING(fanartblur)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="FanartTint" onSelect="toggleSettings('FanartTint', 'Settings_TopLevel')">
                 <label>{{TEXT(Fanart Tint)}}</label>
                 <rightLabel>{{SETTING(fanarttint)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="purgeFanart" onSelect="purgeFanart('plex','Settings_TopLevel')">
                 <label>{{TEXT(Purge Fanart)}}</label>
                 <rightLabel>Files: {{FanartCOUNT()}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="DurationFormat" onSelect="toggleSettings('DurationFormat', 'Settings_TopLevel')">
                 <label>{{TEXT(Duration Format)}}</label>
                 <rightLabel>{{SETTING(durationformat)}}</rightLabel>
               </oneLineMenuItem>
-          
+
                </items>
           </menuSection>
-          
+
         </sections>
       </menu>
     </itemCollectionWithImageHeader>

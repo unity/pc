@@ -18,12 +18,12 @@
               'font'         : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'   : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor' : "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'       : ["PlexSubList{{VAL($listtint::On=Text|Off=)}}"]\
+              'layers'       : ["PlexSubList"]\
             })}})}})}}
           </image>
         </imageHeader>
       </header>
-      
+
       <preview>
         <keyedPreview>
           <title>&#x00AD;<!--soft-hyphen--></title>
@@ -47,10 +47,10 @@
           <image>{{URL(:/thumbnails/Plex/images/PlexConnectLogo.png)}}</image>
         </keyedPreview>
       </preview>
-      
+
       <menu>
         <sections>
-          
+
           <menuSection>
             <items>
               <oneLineMenuItem id="TranscoderAction" onSelect="toggleSettings('TranscoderAction', 'Settings_Transcoder')">
@@ -72,7 +72,7 @@
               <oneLineMenuItem id="SubtitleRenderer" onSelect="toggleSettings('SubtitleRenderer', 'Settings_Transcoder')">
                 <label>{{TEXT(Subtitle Renderer)}}</label>
                 <rightLabel>{{SETTING(subtitlerenderer)}}</rightLabel>
-              </oneLineMenuItem>              
+              </oneLineMenuItem>
               <oneLineMenuItem id="SubtitleSize" onSelect="toggleSettings('SubtitleSize', 'Settings_Transcoder')">
                 <label>{{TEXT(Subtitle Size %)}}</label>
                 <rightLabel>{{SETTING(subtitlesize)}}</rightLabel>
@@ -83,7 +83,7 @@
               </oneLineMenuItem>
             </items>
           </menuSection>
-      
+
         </sections>
       </menu>
     </itemCollectionWithImageHeader>

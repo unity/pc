@@ -19,12 +19,12 @@
               'font'         : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'   : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor' : "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'       : ["PlexSubList{{VAL($listtint::On=Text|Off=)}}"]\
+              'layers'       : ["PlexSubList"]\
             })}})}})}}
           </image>
         </imageHeader>
       </header>
-      
+
       <preview>
         <keyedPreview>
           <title>&#x00AD;<!--soft-hyphen--></title>
@@ -58,30 +58,30 @@
               </horizontalDivider>
             </header>
             <items>
-            
+
               <oneLineMenuItem id="MenuBackground" onSelect="toggleTemplateSettings('MenuBackground', 'Settings_Theme')">
                 <label>{{TEXT(Menu Background)}}</label>
                 <rightLabel>{{SETTING(menubackground)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="GridTint" onSelect="toggleSettings('GridTint', 'Settings_Theme')">
                 <label>{{TEXT(Grid Tint)}}</label>
                 <rightLabel>{{SETTING(gridtint)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="ListTint" onSelect="toggleTemplateSettings('ListTint', 'Settings_Theme')">
                 <label>{{TEXT(List Tint)}}</label>
                 <rightLabel>{{SETTING(listtint)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="ParadeListTint" onSelect="toggleSettings('ParadeListTint', 'Settings_Theme')">
                 <label>{{TEXT(Parade List Tint)}}</label>
                 <rightLabel>{{SETTING(paradelisttint)}}</rightLabel>
               </oneLineMenuItem>
-              
+
                </items>
           </menuSection>
-          
+
           <menuSection>
             <header>
               <horizontalDivider alignment="left">
@@ -89,30 +89,30 @@
               </horizontalDivider>
             </header>
             <items>
-            
+
              <oneLineMenuItem id="TitleColor" onSelect="toggleTemplateSettings('TitleColor', 'Settings_Theme')">
                 <label>{{TEXT(Title Color)}}</label>
                 <rightLabel>{{SETTING(titlecolor)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="SubtitleColor" onSelect="toggleTemplateSettings('SubtitleColor', 'Settings_Theme')">
                 <label>{{TEXT(Subtitle Color)}}</label>
                 <rightLabel>{{SETTING(subtitlecolor)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="TableTitleColor" onSelect="toggleTemplateSettings('TableTitleColor', 'Settings_Theme')">
                 <label>{{TEXT(Tabletitle Color)}}</label>
                 <rightLabel>{{SETTING(tabletitlecolor)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="MetadataColor" onSelect="toggleTemplateSettings('MetadataColor', 'Settings_Theme')">
                 <label>{{TEXT(Metadata Color)}}</label>
                 <rightLabel>{{SETTING(metadatacolor)}}</rightLabel>
               </oneLineMenuItem>
-              
+
               </items>
           </menuSection>
-          
+
         </sections>
       </menu>
     </itemCollectionWithImageHeader>

@@ -2,7 +2,7 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
   </head>
-  
+
 <body>
     <itemCollectionWithImageHeader id="MovieList" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=Movie_ByFolder)}}')">
       <header>
@@ -17,7 +17,7 @@
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexSubList{{VAL($paradelisttint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexSubList"]\
               })}})}})}}
               </image>
 	    </imageHeader>
@@ -40,7 +40,7 @@
                   </crossFadePreview>
                 </preview>
               </twoLineEnhancedMenuItem>
-              
+
               <twoLineMenuItem id="{{VAL(key)}}"
                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                              onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay)}}')"
@@ -64,7 +64,7 @@
       </menu>
     </itemCollectionWithImageHeader>
   </body>{{CUT($movieview::Detailed=CUT|List=|Artwork=CUT)}}
-  
+
   <body>
     <itemCollectionWithImageHeader id="Movie_DetailedList" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=Movie_ByFolder)}}')">
       <header>
@@ -102,7 +102,7 @@
                   </crossFadePreview>
                 </preview>
               </twoLineEnhancedMenuItem>
-            
+
               <oneLineMenuItem id="{{VAL(key)}}"
                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                              onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay)}}')"
@@ -158,12 +158,12 @@
               'layers'      : ["PlexSubGrid{{VAL($gridtint::On=Text|Off=)}}"]\
               })}})}})}}
 	      </image>
-	    </imageHeader>      
+	    </imageHeader>
 	    </header>
       <items>
         <grid columnCount="5" id="grid_0">
           <items>
-            <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}" 
+            <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=Movie_ByFolder)}}')"
                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=Movie_ByFolder)}}')">
               {{COPY(Directory)}}
@@ -172,7 +172,7 @@
               <image>{{URL(:/thumbnails/Folder.png)}}</image>
               <defaultImage>resource://Poster.png</defaultImage>
             </goldenPoster>
-            
+
             <goldenPoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                           onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                           onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay)}}')"

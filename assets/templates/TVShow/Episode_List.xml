@@ -8,16 +8,16 @@
   {{VAR(title1:title1)}}
   {{VAR(title2:title2)}}
   {{VAR(artwork:art)}}
-  
+
   <body>
-  
+
     <itemCollectionWithImageHeader id="com.sample.menu-items-with-sections" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=TVShow_Episode_List)}}')">
-    
+
         <styles>
           <color name="titleColor">#fafafa</color>
           <color name="metadataColor">#fafafa</color>
         </styles>
-        
+
 	<header>
         <imageHeader>
           <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=552|1080=835)}}, 0" required="true">
@@ -36,17 +36,17 @@
           </image>
         </imageHeader>
       </header>
-      
+
       {{VAR(parentThumb:thumb)}}
-      <menu>      
+      <menu>
         <sections>
           <menuSection>
             <items>
               <twoLineEnhancedMenuItem id="{{VAL(ratingKey)}}"
                                          onPlay="atv.loadURL('{{URL(:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')"
                                          onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_PrePlay)}}')"
-                                         onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuTVOnDeck)}}')">
-                                         
+                                         onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
+
                 {{COPY(Video:index::=|0 =COPY)}}
                 <label>{{VAL(title)}}</label>
                 <ordinal>{{VAL(index)}}</ordinal>
@@ -81,11 +81,11 @@
                    </starRating>{{CUT(userRating:CUT:0=)}}
                       <starRating>
                         <percentage>{{EVAL({{VAL(rating:0)}} * 10)}}</percentage>
-                      </starRating>{{CUT(userRating::0=CUT)}}             
+                      </starRating>{{CUT(userRating::0=CUT)}}
                     </metadata>
                   </longDescriptionPreview>
                 </preview>
-                
+
               </twoLineEnhancedMenuItem>{{CUT(Video/title:CUT:=)}}
 
               <oneLineMenuItem id="none">

@@ -19,7 +19,7 @@
               'font' : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor' : "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexSubList{{VAL($listtint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexSubList"]\
             })}})}})}}
           </image>
         </imageHeader>
@@ -78,7 +78,7 @@
                   <checkMark/>
                 </accessories>{{CUT($homevideos_navbar_ondeck::unchecked=CUT|checked=)}}
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="HomeVideos_NavBar_Unwatched" onSelect="toggleSettings('HomeVideos_NavBar_Unwatched', 'Settings/HomeVideos')">
                 <label>{{TEXT(Unwatched)}}</label>
                 <accessories>
@@ -92,7 +92,7 @@
                   <checkMark/>
                 </accessories>{{CUT($homevideos_navbar_byfolder::unchecked=CUT|checked=)}}
               </oneLineMenuItem>
-              
+
               <oneLineMenuItem id="HomeVideos_NavBar_Genres" onSelect="toggleSettings('HomeVideos_NavBar_Genres', 'Settings/HomeVideos')">
                 <label>{{TEXT(Genres)}}</label>
                 <accessories>
