@@ -63,7 +63,7 @@
                   <selected>{{VAL(selected:0)}}</selected>
                 </stream>
               </stash>
-              
+
               <items>
                 <actionButton id="play" onSelect="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(Video/ratingKey)}})}}')"
                                         onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(Video/ratingKey)}})}}')">

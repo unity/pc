@@ -2,7 +2,7 @@
   <head>
     <script src="{{URL(:/js/utils.js)}}" />
   </head>
-  
+
   <body>
     <scroller id="HomeVideo_Grid" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=HomeVideo_ByFolder)}}')">
       <header>
@@ -17,7 +17,7 @@
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexSubGrid{{VAL($gridtint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexSubGrid"]\
               })}})}})}}
 	      </image>
 	    </imageHeader>
@@ -25,7 +25,7 @@
       <items>
         <grid columnCount="5" id="grid_0">
           <items>
-            <moviePoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}" 
+            <moviePoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=HomeVideo_ByFolder)}}')"
                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=HomeVideo_ByFolder)}}')">
               {{COPY(Directory)}}
@@ -34,7 +34,7 @@
               <image>{{URL(:/thumbnails/Plex/images/Folder.png)}}</image>
               <defaultImage>resource://Poster.png</defaultImage>
             </moviePoster>
-            
+
             <sixteenByNinePoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=HomeVideo_PrePlay)}}')">
@@ -49,8 +49,8 @@
       </items>
     </scroller>
   </body>{{CUT($homevideoview::Detailed=CUT|Grid=|List=CUT)}}
-  
-  
+
+
 <body>
     <itemCollectionWithImageHeader id="HomeVideoList" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=HomeVideo_ByFolder)}}')">
     <header>
@@ -88,7 +88,7 @@
                   </crossFadePreview>
                 </preview>
               </twoLineEnhancedMenuItem>
-              
+
               <twoLineMenuItem id="{{VAL(key)}}"
                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=PlayVideo&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=HomeVideo_PrePlay)}}')"
@@ -112,7 +112,7 @@
       </menu>
     </itemCollectionWithImageHeader>
   </body>{{CUT($homevideoview::Detailed=CUT|Grid=CUT|List=)}}
-  
+
   <body>
     <itemCollectionWithImageHeader id="HomeVideo_DetailedList" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=HomeVideo_ByFolder)}}')">
       <header>
@@ -150,7 +150,7 @@
                   </crossFadePreview>
                 </preview>
               </twoLineEnhancedMenuItem>
-            
+
               <oneLineMenuItem id="{{VAL(key)}}"
                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=HomeVideo_PrePlay)}}')"
