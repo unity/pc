@@ -47,7 +47,7 @@
         </grid>
       </items>
     </scroller>
-  </body>{{CUT($showview::List=CUT|Artwork=)}}
+  </body>{{CUT($showview::List=CUT|Grid=)}}
 
   <body>
     <itemCollectionWithImageHeader id="Show_List">
@@ -93,6 +93,6 @@
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-  </body>{{CUT($showview::List=|Artwork=CUT)}}
+  </body>{{CUT($showview::List=|Grid=CUT)}}
 
 </atv>

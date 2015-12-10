@@ -10,20 +10,20 @@
       {{VAR(ix::{{VAL($libraryview::=1|Hide={{VAL($sharedlibrariesview::=1|Hide=0|Hide =1)}}|Hide =1)}})}}  <!--1 if library or shared library to be shown-->
       <navigation currentIndex="{{VAL($playlistsview::={{VAL(#ix)}}|Hide=0|Hide ={{VAL(#ix)}})}}">
 
-        <navigationItem id="Discover">
-          <title>{{TEXT(Discover)}}</title>
-          <url>{{URL(:/PMS(owned)/library/sections::PlexConnect=Library_Discover)}}</url>
-        </navigationItem>{{CUT($discoverview:CUT:=|Hide=CUT|Show=)}}
-
         <navigationItem id="Playlists">
           <title>{{TEXT(Playlists)}}</title>
           <url>{{URL(:/PMS(all)/playlists::PlexConnect=Playlists_View)}}</url>
         </navigationItem>{{CUT($playlistsview:CUT:=|Hide=CUT|Hide =)}}
 
+        <navigationItem id="Discover">
+          <title>{{TEXT(Discover)}}</title>
+          <url>{{URL(:/PMS(owned)/library/sections::PlexConnect=Library_Discover)}}</url>
+        </navigationItem>{{CUT($libraryview:CUT:=|Hide=|Hide =CUT)}}{{CUT($discoverview:CUT:=|Hide=CUT|Show=)}}
+
         <navigationItem id="Library">
           <title>{{TEXT(Library)}}</title>
           <url>{{URL(:/PMS(owned)/library/sections::PlexConnect=Library_View)}}</url>
-        </navigationItem>{{CUT($libraryview:CUT:=|Hide=CUT|Hide =)}}
+        </navigationItem>{{CUT($discoverview:CUT:=|Hide=|Show=CUT)}}{{CUT($libraryview:CUT:=|Hide=CUT|Hide =)}}
 
         <navigationItem id="Channels">
           <title>{{TEXT(Channels)}}</title>

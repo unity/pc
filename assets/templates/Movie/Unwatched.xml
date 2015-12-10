@@ -49,7 +49,7 @@
       <title>PlexConnect</title>
       <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
     </dialog>
-  </body>{{CUT($movieview::Detailed=CUT|List=CUT|Artwork=)}}
+  </body>{{CUT($movieview::Detailed=CUT|List=CUT|Grid=)}}
 
   <body>
     <itemCollectionWithImageHeader id="Movie_List">
@@ -110,7 +110,7 @@
       <title>PlexConnect</title>
       <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
     </dialog>
-  </body>{{CUT($movieview::Detailed=CUT|List=|Artwork=CUT)}}
+  </body>{{CUT($movieview::Detailed=CUT|List=|Grid=CUT)}}
 
   <body>
     <itemCollectionWithImageHeader id="Movie_DetailedList">
@@ -179,6 +179,6 @@
       <title>PlexConnect</title>
       <description>{{TEXT(Plex Media Server: No Items Available)}}</description>
     </dialog>
-  </body>{{CUT($movieview::Detailed=|List=CUT|Artwork=CUT)}}
+  </body>{{CUT($movieview::Detailed=|List=CUT|Grid=CUT)}}
 
 </atv>

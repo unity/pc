@@ -10,15 +10,15 @@ from Debug import *  # dprint()
 
 
 options = { \
-    'playlistsview'                     :('List', 'Tabbed List', 'Hide'), \
+    'playlistsview'                     :('List', 'Grid', 'Hide'), \
     'libraryview'                       :('Grid', 'List', 'Hide'), \
     'discoverview'                      :('Show', 'Hide'), \
     'sharedlibrariesview'               :('List', 'Grid', 'Hide'), \
-    'channelview'                       :('Grid', 'List', 'Tabbed List', 'Bookcase', 'Hide'), \
-    'sharedchannelsview'                :('Grid', 'List', 'Tabbed List', 'Bookcase', 'Hide'), \
-    'movieview'                         :('Artwork', 'List', 'Detailed List'), \
+    'channelview'                       :('Grid', 'List', 'Bookcase', 'Hide'), \
+    'sharedchannelsview'                :('Grid', 'List', 'Bookcase', 'Hide'), \
+    'movieview'                         :('Grid', 'List', 'Detailed List'), \
     'homevideoview'                     :('Grid', 'List', 'Detailed List'), \
-    'showview'                          :('Artwork', 'List'), \
+    'showview'                          :('Grid', 'List'), \
     'shows_artwork'                     :('On Deck', 'Recently Added', 'Recently Released'), \
     'movies_artwork'                    :('Recently Added', 'On Deck', 'Recently Released'), \
     'globalsearch'                      :('Show', 'Hide'), \
