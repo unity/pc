@@ -58,6 +58,10 @@
               </horizontalDivider>
             </header>
             <items>
+              <oneLineMenuItem id="DiscoverView" onSelect="toggleSettings('DiscoverView', 'Settings_TopLevel')">
+                <label>{{TEXT(Discover)}}</label>
+                <rightLabel>{{SETTING(discoverview)}}</rightLabel>
+              </oneLineMenuItem>
               <oneLineMenuItem id="PlayListsView" onSelect="toggleSettings('PlayListsView', 'Settings_TopLevel')">
                 <label>{{TEXT(Playlists)}}</label>
                 <rightLabel>{{SETTING(playlistsview)}}</rightLabel>

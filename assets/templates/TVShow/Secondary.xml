@@ -33,7 +33,7 @@
                 <preview>
                   <link>{{URL(key::/unwatched:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($tv_navbar_unwatched::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($tv_navbar_unwatched::Show=CUT|Hide=)}}
 
 
               <oneLineMenuItem id="genres" onPlay="atv.loadURL('{{URL(key::/genre:PlexConnect=TVShow_DirectoryWithPreview)}}')"
@@ -42,7 +42,7 @@
                 <preview>
                   <link>{{URL(key::/genres:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($tv_navbar_genres::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($tv_navbar_genres::Show=CUT|Hide=)}}
 
 
               <oneLineMenuItem id="recentlyViewedShows" onPlay="atv.loadURL('{{URL(key::/recentlyViewedShows:PlexConnect=TVShow_{{EVAL('{{VAL($showview)}}'.replace(' ', ''))}})}}')"

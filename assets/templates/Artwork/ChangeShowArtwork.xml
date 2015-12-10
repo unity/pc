@@ -6,20 +6,31 @@
   <body>
     <scroller id="Show_Bookcase">
       <header>
-        <simpleHeader>
-          <title>{{VAL(title2)}}</title>
-          <subtitle>{{TEXT(Select Posters)}}</subtitle>
-        </simpleHeader>
+        <imageHeader>
+         <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=550|1080=825)}}, 0" required="true">
+        {{URL(:/fanartcache/{{getBackground({{EVAL({\
+            'template'    : 'Plex',\
+            'title'       : "{{EVAL(quote_plus("{{VAL(title2)}}"))}}",\
+            'subtitle'    : "{{EVAL(quote_plus("{{TEXT(Select Poster)}}"))}}",\
+            'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
+            'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
+            'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
+            'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+            'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
+            'layers'      : ["PlexSubGrid"]\
+            })}})}})}}
+        </image>
+        </imageHeader>
       </header>
-      
+
       <items>
         <collectionDivider alignment="left" accessibilityLabel="Show_Bookcase_Divider">
           <title>Main Show Art</title>
         </collectionDivider>
-        
+
         {{ADDXML(showPosters::/library/metadata/{{VAL(key)}}/posters)}}
         {{VAR(key:key)}}
-        
+
         <shelf id="Main_Show_Art" columnCount="7">
           <sections>
             <shelfSection>
@@ -35,7 +46,7 @@
             </shelfSection>
           </sections>
         </shelf>
-        
+
         <__COPY__>
           {{COPY(Directory:title:COPY:=COPY|All Episodes=|S=COPY)}}
           <collectionDivider alignment="left" accessibilityLabel="Show_Bookcase_Divider">

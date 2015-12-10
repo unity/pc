@@ -17,7 +17,7 @@
           'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
           'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
           'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-          'layers'      : ["PlexList{{VAL($paradelisttint::On=Text|Off=)}}"]\
+          'layers'      : ["PlexList"]\
           })}})}})}}
 	      </image>
         </imageHeader>
@@ -113,7 +113,7 @@
                   </crossFadePreview>
                 </preview>
               </oneLineMenuItem>
-              
+
             </items>
           </menuSection>
           <menuSection>
@@ -180,7 +180,7 @@
                   </crossFadePreview>
                 </preview>
               </oneLineMenuItem>
-              
+
             </items>
           </menuSection>
           <menuSection>
@@ -295,8 +295,8 @@
           {{CUT(Directory/key:CUT:=)}}
             <items>
               <!-- channel directories -->
-              <twoLineEnhancedMenuItem id="{{VAL(key)}}" 
-                                       onPlay="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Channels_Audio')" 
+              <twoLineEnhancedMenuItem id="{{VAL(key)}}"
+                                       onPlay="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Channels_Audio')"
                                        onSelect="atv.loadURL('{{URL(key)}}&amp;PlexConnect=Channels_Audio')">
                 {{COPY(Directory:search:COPY:=COPY|1=)}}
                 <label>{{VAL(title)}}</label>
@@ -309,7 +309,7 @@
               </twoLineEnhancedMenuItem>
             </items>
           </menuSection>
-          
+
         </sections>
       </menu>
     </itemCollectionWithImageHeader>

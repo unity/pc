@@ -12,6 +12,7 @@ from Debug import *  # dprint()
 options = { \
     'playlistsview'                     :('List', 'Tabbed List', 'Hide'), \
     'libraryview'                       :('Grid', 'List', 'Hide'), \
+    'discoverview'                      :('Show', 'Hide'), \
     'sharedlibrariesview'               :('List', 'Grid', 'Hide'), \
     'channelview'                       :('Grid', 'List', 'Tabbed List', 'Bookcase', 'Hide'), \
     'sharedchannelsview'                :('Grid', 'List', 'Tabbed List', 'Bookcase', 'Hide'), \
@@ -32,43 +33,37 @@ options = { \
     'library_search'                    :('Hide', 'Show'), \
     'libraryremote_search'              :('Hide', 'Show'), \
     'library_ondeck'                    :('Show', 'Hide'), \
-    'ondeck'                            :('Combined', 'Separated'), \
-    'library_continuewatch'             :('Show', 'Hide'), \
-    'continuewatch_position'            :('Top', 'Center'), \
     'library_recentlyadded'             :('Show', 'Hide'), \
-    'recentlyadded'                     :('Combined', 'Separated'), \
-    'sharedlibrary_ondeck'              :('checked', 'unchecked'), \
-    'sharedlibrary_recentlyadded'       :('checked', 'unchecked'), \
     'showtitles_library'                :('Show All', 'Highlighted Only'), \
     'actorview'                         :('Movies', 'Portrait'), \
     'flattenseason'                     :('False', 'True'), \
     'durationformat'                    :('Hours/Minutes', 'Minutes'), \
     'postertitles'                      :('Show All', 'Highlighted Only'), \
-    'movies_navbar_ondeck'              :('unchecked', 'checked'), \
-    'movies_navbar_overview'            :('checked', 'unchecked'), \
-    'movies_navbar_unwatched'           :('checked', 'unchecked'), \
-    'movies_navbar_byfolder'            :('unchecked', 'checked'), \
-    'movies_navbar_collections'         :('unchecked', 'checked'), \
-    'movies_navbar_genres'              :('unchecked', 'checked'), \
-    'movies_navbar_decades'             :('unchecked', 'checked'), \
-    'movies_navbar_directors'           :('unchecked', 'checked'), \
-    'movies_navbar_actors'              :('unchecked', 'checked'), \
-    'movies_navbar_more'                :('checked', 'unchecked'), \
-    'homevideos_navbar_ondeck'          :('unchecked', 'checked'), \
-    'homevideos_navbar_unwatched'       :('unchecked', 'checked'), \
-    'homevideos_navbar_byfolder'        :('unchecked', 'checked'), \
-    'homevideos_navbar_collections'     :('unchecked', 'checked'), \
-    'homevideos_navbar_genres'          :('unchecked', 'checked'), \
-    'music_navbar_recentlyadded'        :('unchecked', 'checked'), \
-    'music_navbar_genre'                :('checked', 'unchecked'), \
-    'music_navbar_decade'               :('unchecked', 'checked'), \
-    'music_navbar_year'                 :('unchecked', 'checked'), \
-    'music_navbar_more'                 :('checked', 'unchecked'), \
-    'tv_navbar_ondeck'                  :('unchecked', 'checked'), \
-    'tv_navbar_overview'                :('checked', 'unchecked'), \
-    'tv_navbar_unwatched'               :('checked', 'unchecked'), \
-    'tv_navbar_genres'                  :('unchecked', 'checked'), \
-    'tv_navbar_more'                    :('checked', 'unchecked'), \
+    'movies_navbar_ondeck'              :('Hide', 'Show'), \
+    'movies_navbar_overview'            :('Show', 'Hide'), \
+    'movies_navbar_unwatched'           :('Show', 'Hide'), \
+    'movies_navbar_byfolder'            :('Hide', 'Show'), \
+    'movies_navbar_collections'         :('Hide', 'Show'), \
+    'movies_navbar_genres'              :('Hide', 'Show'), \
+    'movies_navbar_decades'             :('Hide', 'Show'), \
+    'movies_navbar_directors'           :('Hide', 'Show'), \
+    'movies_navbar_actors'              :('Hide', 'Show'), \
+    'movies_navbar_more'                :('Show', 'Hide'), \
+    'homevideos_navbar_ondeck'          :('Hide', 'Show'), \
+    'homevideos_navbar_unwatched'       :('Hide', 'Show'), \
+    'homevideos_navbar_byfolder'        :('Hide', 'Show'), \
+    'homevideos_navbar_collections'     :('Hide', 'Show'), \
+    'homevideos_navbar_genres'          :('Hide', 'Show'), \
+    'music_navbar_recentlyadded'        :('Hide', 'Show'), \
+    'music_navbar_genre'                :('Show', 'Hide'), \
+    'music_navbar_decade'               :('Hide', 'Show'), \
+    'music_navbar_year'                 :('Hide', 'Show'), \
+    'music_navbar_more'                 :('Show', 'Hide'), \
+    'tv_navbar_ondeck'                  :('Hide', 'Show'), \
+    'tv_navbar_overview'                :('Show', 'Hide'), \
+    'tv_navbar_unwatched'               :('Show', 'Hide'), \
+    'tv_navbar_genres'                  :('Hide', 'Show'), \
+    'tv_navbar_more'                    :('Show', 'Hide'), \
     'transcodequality'                  :('1080p 40.0Mbps', \
                                           '480p 2.0Mbps', \
                                           '720p 3.0Mbps', '720p 4.0Mbps', \

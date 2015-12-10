@@ -74,37 +74,27 @@
 
               <oneLineMenuItem id="Music_NavBar_RecentlyAdded" onSelect="toggleSettings('Music_NavBar_RecentlyAdded', 'Settings_Music')">
                 <label>{{TEXT(Recently Added)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($music_navbar_recentlyadded::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(music_navbar_recentlyadded)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="Music_NavBar_Genre" onSelect="toggleSettings('Music_NavBar_Genre', 'Settings_Music')">
                 <label>{{TEXT(Genre)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($music_navbar_genre::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(music_navbar_genre)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="Music_NavBar_Decade" onSelect="toggleSettings('Music_NavBar_Decade', 'Settings_Music')">
                 <label>{{TEXT(Decade)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($music_navbar_decade::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(music_navbar_decade)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="Music_NavBar_Year" onSelect="toggleSettings('Music_NavBar_Year', 'Settings_Music')">
                 <label>{{TEXT(Year)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($music_navbar_year::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(music_navbar_year)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="Music_NavBar_More" onSelect="toggleSettings('Music_NavBar_More', 'Settings_Music')">
                 <label>{{TEXT(More...)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($music_navbar_more::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(music_navbar_more)}}</rightLabel>
               </oneLineMenuItem>
             </items>
           </menuSection>

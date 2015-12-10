@@ -7,9 +7,9 @@
     {{ADDXML(VideoChannels::/video)}}
     {{ADDXML(AudioChannels::/music)}}
     {{ADDXML(PhotoChannels::/photos)}}
-    
+
     {{VAR(channels:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
-    
+
     <!--Channels Grid-->
     <scroller id="Channels_Grid">
       <header>
@@ -23,12 +23,12 @@
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexGrid{{VAL($gridtint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexGrid"]\
               })}})}})}}
                         </image>
 	    </imageHeader>
       </header>
-      
+
       <items>
         <!-- video channels: owned servers -->
         <__COPY__>
@@ -37,11 +37,11 @@
             <title>{{TEXT(Video)}}</title>{{CUT(@VideoChannels/size::1=|2=CUT)}}
             <title>{{TEXT(Video)}} - {{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>{{CUT(@VideoChannels/size:CUT:1=CUT|2=)}}
           </collectionDivider>
-          
+
           <shelf id="Channels_Bookscase_Video_{{VAL(name)}}" columnCount="6">
             <sections>
               <shelfSection>
-                
+
                 <items>
                   <!-- video channels per server -->
                   <squarePoster id="Video_{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
@@ -54,14 +54,14 @@
                     <defaultImage>resource://Square.png</defaultImage>
                     <!--badgeCount></badgeCount-->
                   </squarePoster>
-                
+
                 </items>
-                
+
               </shelfSection>
             </sections>
           </shelf>
         </__COPY__>
-          
+
         <!-- audio channels: owned servers -->
         <__COPY__>
         {{COPY(@AudioChannels/Server:size::0=|1=COPY)}}
@@ -69,11 +69,11 @@
             <title>{{TEXT(Audio)}}</title>{{CUT(@AudioChannels/size::1=|2=CUT)}}
             <title>{{TEXT(Audio)}} - {{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>{{CUT(@AudioChannels/size:CUT:1=CUT|2=)}}
           </collectionDivider>
-          
+
           <shelf id="Channels_Bookcase_Audio_{{VAL(name)}}" columnCount="6">
             <sections>
               <shelfSection>
-                
+
                 <items>
                   <!-- audio channels per server -->
                   <squarePoster id="Audio_{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
@@ -86,14 +86,14 @@
                     <defaultImage>resource://Square.png</defaultImage>
                     <!--badgeCount></badgeCount-->
                   </squarePoster>
-                
+
                 </items>
-                
+
               </shelfSection>
             </sections>
           </shelf>
         </__COPY__>
-        
+
         <!-- photo channels: owned servers -->
         <__COPY__>
         {{COPY(@PhotoChannels/Server:size::0=|1=COPY)}}
@@ -101,11 +101,11 @@
             <title>{{TEXT(Photo)}}</title>{{CUT(@PhotoChannels/size::1=|2=CUT)}}
             <title>{{TEXT(Photo)}} - {{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>{{CUT(@PhotoChannels/size:CUT:1=CUT|2=)}}
           </collectionDivider>
-          
+
           <shelf id="Channels_Bookcase_Photo_{{VAL(name)}}" columnCount="6">
             <sections>
               <shelfSection>
-                
+
                 <items>
                   <!-- video channels per server -->
                   <squarePoster id="Photo_{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
@@ -118,24 +118,24 @@
                     <defaultImage>resource://Square.png</defaultImage>
                     <!--badgeCount></badgeCount-->
                   </squarePoster>
-                
+
                 </items>
-                
+
               </shelfSection>
             </sections>
           </shelf>
         </__COPY__>
-        
+
       </items>
     </scroller>
     {{CUT(#channels::FALSE=CUT|TRUE=)}}  <!--CUT if no channel added-->
-    
+
     <!--No Channels Available-->
     <dialog id="com.sample.error-dialog">
     {{CUT(#channels::FALSE=|TRUE=CUT)}}
       <title>PlexConnect</title>
       <description>{{TEXT(No Plex Channels Available)}}</description>
     </dialog>
-    
+
   </body>
 </atv>

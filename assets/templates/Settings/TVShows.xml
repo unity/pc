@@ -100,37 +100,27 @@
 
             <oneLineMenuItem id="TV_NavBar_Overview" onSelect="toggleSettings('TV_NavBar_Overview', 'Settings_TVShows')">
                 <label>{{TEXT(Overview)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($tv_navbar_overview::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(tv_navbar_overview)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="TV_NavBar_OnDeck" onSelect="toggleSettings('TV_NavBar_OnDeck', 'Settings_TVShows')">
                 <label>{{TEXT(On Deck)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($tv_navbar_ondeck::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(tv_navbar_ondeck)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="TV_NavBar_Unwatched" onSelect="toggleSettings('TV_NavBar_Unwatched', 'Settings_TVShows')">
                 <label>{{TEXT(Unwatched)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($tv_navbar_unwatched::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(tv_navbar_unwatched)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="TV_NavBar_Genres" onSelect="toggleSettings('TV_NavBar_Genres', 'Settings_TVShows')">
                 <label>{{TEXT(Genres)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($tv_navbar_genres::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(tv_navbar_genres)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="TV_NavBar_More" onSelect="toggleSettings('TV_NavBar_More', 'Settings_TVShows')">
                 <label>{{TEXT(More...)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($tv_navbar_more::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(tv_navbar_more)}}</rightLabel>
               </oneLineMenuItem>
 
             </items>

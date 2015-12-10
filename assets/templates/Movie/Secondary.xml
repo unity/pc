@@ -33,7 +33,7 @@
                 <preview>
                   <link>{{URL(key::/unwatched:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($movies_navbar_unwatched::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($movies_navbar_unwatched::Show=CUT|Hide=)}}
 
 
               <oneLineMenuItem id="collection" onPlay="atv.loadURL('{{URL(key::/collection:PlexConnect=Movie_DirectoryWithPreview)}}')"
@@ -42,7 +42,7 @@
                 <preview>
                   <link>{{URL(key::/collection:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($movies_navbar_collections::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($movies_navbar_collections::Show=CUT|Hide=)}}
 
 
               <oneLineMenuItem id="genres" onPlay="atv.loadURL('{{URL(key::/genre:PlexConnect=Movie_DirectoryWithPreview)}}')"
@@ -51,7 +51,7 @@
                 <preview>
                   <link>{{URL(key::/genres:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($movies_navbar_genres::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($movies_navbar_genres::Show=CUT|Hide=)}}
 
 
               <oneLineMenuItem id="decades" onPlay="atv.loadURL('{{URL(key::/decade:PlexConnect=Movie_DirectoryWithPreview)}}')"
@@ -60,7 +60,7 @@
                 <preview>
                   <link>{{URL(key::/decade:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($movies_navbar_decades::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($movies_navbar_decades::Show=CUT|Hide=)}}
 
 
               <oneLineMenuItem id="directors" onPlay="atv.loadURL('{{URL(key::/director:PlexConnect=Movie_DirectoryWithPreview)}}')"
@@ -69,7 +69,7 @@
                 <preview>
                   <link>{{URL(key::/director:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($movies_navbar_directors::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($movies_navbar_directors::Show=CUT|Hide=)}}
 
 
               <oneLineMenuItem id="actors" onPlay="atv.loadURL('{{URL(key::/actor:PlexConnect=Movie_DirectoryWithPreview)}}')"
@@ -78,7 +78,7 @@
                 <preview>
                   <link>{{URL(key::/actor:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($movies_navbar_actors::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($movies_navbar_actors::Show=CUT|Hide=)}}
 
 
               <oneLineMenuItem id="recentlyViewed" onPlay="atv.loadURL('{{URL(key::/recentlyViewed:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}')"
@@ -150,7 +150,7 @@
                 <preview>
                   <link>{{URL(key::/folder:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($movies_navbar_byfolder::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($movies_navbar_byfolder::Show=CUT|Hide=)}}
 
             </items>
           </menuSection>

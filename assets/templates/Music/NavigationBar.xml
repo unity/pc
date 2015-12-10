@@ -11,7 +11,7 @@
 					<title>{{TEXT(Albums)}}</title>
 					<url>{{URL(key::/albums:PlexConnect=Music_Directory)}}</url>
 				</navigationItem>
-        
+
 				<navigationItem id="Artists">
 					<title>{{TEXT(Artists)}}</title>
 					<url>{{URL(key::/all:PlexConnect=Music_Directory)}}</url>
@@ -20,27 +20,27 @@
 				<navigationItem id="RecentlyAdded">
 					<title>{{TEXT(Recently Added)}}</title>
 					<url>{{URL(key::/recentlyAdded:PlexConnect=Music_Directory)}}</url>
-				</navigationItem>{{CUT($music_navbar_recentlyadded::unchecked=CUT|checked=)}}
+				</navigationItem>{{CUT($music_navbar_recentlyadded::Hide=CUT|Show=)}}
 
 				<navigationItem id="Genre">
 					<title>{{TEXT(Genre)}}</title>
 					<url>{{URL(key::/genre:PlexConnect=Music_Directory)}}</url>
-				</navigationItem>{{CUT($music_navbar_genre::unchecked=CUT|checked=)}}
+				</navigationItem>{{CUT($music_navbar_genre::Hide=CUT|Show=)}}
 
 				<navigationItem id="Decade">
 					<title>{{TEXT(Decade)}}</title>
 					<url>{{URL(key::/decade:PlexConnect=Music_Directory)}}</url>
-				</navigationItem>{{CUT($music_navbar_decade::unchecked=CUT|checked=)}}
+				</navigationItem>{{CUT($music_navbar_decade::Hide=CUT|Show=)}}
 
 				<navigationItem id="Year">
 					<title>{{TEXT(Year)}}</title>
 					<url>{{URL(key::/year:PlexConnect=Music_Directory)}}</url>
-				</navigationItem>{{CUT($music_navbar_year::unchecked=CUT|checked=)}}
-        
+				</navigationItem>{{CUT($music_navbar_year::Hide=CUT|Show=)}}
+
 				<navigationItem id="More...">
 					<title>{{TEXT(More...)}}</title>
 					<url>{{URL(key:::PlexConnect=Music_Secondary)}}</url>
-				</navigationItem>{{CUT($music_navbar_more::unchecked=CUT|checked=)}}
+				</navigationItem>{{CUT($music_navbar_more::Hide=CUT|Show=)}}
 
 			</navigation>
 		</viewWithNavigationBar>

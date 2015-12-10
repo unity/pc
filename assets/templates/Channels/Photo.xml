@@ -5,7 +5,7 @@
   </head>
 
   {{VAR(foundDirectories:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
-  
+
   <body>
     <!-- list Photo directories -->
     <itemCollectionWithImageHeader id="com.sample.menu-items-with-sections">
@@ -20,17 +20,17 @@
               'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'layers'      : ["PlexSubList{{VAL($paradelisttint::On=Text|Off=)}}"]\
+              'layers'      : ["PlexSubList"]\
               })}})}})}}
               </image>
 	    </imageHeader>
       </header>
-      
+
       <menu>
         <sections>
           <menuSection>
             <items>
-              
+
               <!-- link to photos from current directories -->
               <oneLineMenuItem id="{{VAL(key)}}" onPlay="atv.loadURL('{{URL(key:::PlexConnect=Photo_Browser)}}')"
                                                  onSelect="atv.loadURL('{{URL(key:::PlexConnect=Photo_Browser)}}')">
@@ -40,7 +40,7 @@
                   <link>{{URL(key:::X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview-photo)}}</link>
                 </preview>
               </oneLineMenuItem>{{CUT(Photo/title:CUT:=)}}
-              
+
               <!-- link to lower directory -->
               <oneLineMenuItem id="{{VAL(key)}}" onPlay="atv.loadURL('{{URL(key:::PlexConnect=Channels_Photo)}}')"
                                                 onSelect="atv.loadURL('{{URL(key:::PlexConnect=Channels_Photo)}}')">
@@ -51,15 +51,15 @@
                   <link>{{URL(key:::X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview-photo)}}</link>
                 </preview>
               </oneLineMenuItem>
-              
+
             </items>
           </menuSection>
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
   </body>{{CUT(#foundDirectories::FALSE=CUT|TRUE=)}}  <!--CUT if no directories found-->
-  
+
   <!--  ONLY PHOTOS   -->
   <redirect template="Photo/Browser.xml" />{{CUT(#foundDirectories:CUT:FALSE=|TRUE=CUT)}}  <!--CUT if directories found-->
-  
+
 </atv>

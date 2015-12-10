@@ -7,9 +7,9 @@
     {{ADDXML(VideoChannels::/video)}}
     {{ADDXML(AudioChannels::/music)}}
     {{ADDXML(PhotoChannels::/photos)}}
-    
+
     {{VAR(channels:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
-    
+
     <!--Channels List-->
     <itemCollectionWithImageHeader id="com.sample.menu-items-with-sections">
       <header>
@@ -22,25 +22,25 @@
           'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
           'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
           'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-          'layers'      : ["PlexList{{VAL($paradelisttint::On=Text|Off=)}}"]\
+          'layers'      : ["PlexList"]\
           })}})}})}}
 	      </image>
         </imageHeader>
         </header>
       <menu>
         <sections>
-          
+
           <!-- video channels: local servers -->
           <menuSection>
           {{COPY(@VideoChannels/Server:size::0=|1=COPY)}}
-            
+
             <header>
               <horizontalDivider alignment="left">
                 <title>{{TEXT(Video)}}</title>{{CUT(@VideoChannels/size::1=|2=CUT)}}
                 <title>{{TEXT(Video)}} - {{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>{{CUT(@VideoChannels/size:CUT:1=CUT|2=)}}
               </horizontalDivider>
             </header>
-            
+
             <items>
               <!-- video channels per server -->
               <twoLineEnhancedMenuItem id="Video_{{VAL(key)}}"
@@ -57,20 +57,20 @@
                 </preview>
               </twoLineEnhancedMenuItem>
             </items>
-            
+
           </menuSection>
-          
+
           <!-- audio channels: local servers -->
           <menuSection>
           {{COPY(@AudioChannels/Server:size::0=|1=COPY)}}
-            
+
             <header>
               <horizontalDivider alignment="left">
                 <title>{{TEXT(Audio)}}</title>{{CUT(@AudioChannels/size::1=|2=CUT)}}
                 <title>{{TEXT(Audio)}} - {{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>{{CUT(@AudioChannels/size:CUT:1=CUT|2=)}}
               </horizontalDivider>
             </header>
-            
+
             <items>
               <!-- audio channels per server -->
               <twoLineEnhancedMenuItem id="Audio_{{VAL(key)}}"
@@ -88,18 +88,18 @@
               </twoLineEnhancedMenuItem>
             </items>
           </menuSection>
-          
+
           <!-- photo channels: local servers -->
           <menuSection>
           {{COPY(@PhotoChannels/Server:size::0=|1=COPY)}}
-            
+
             <header>
               <horizontalDivider alignment="left">
                 <title>{{TEXT(Photo)}}</title>{{CUT(@PhotoChannels/size::1=|2=CUT)}}
                 <title>{{TEXT(Photo)}} - {{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>{{CUT(@PhotoChannels/size:CUT:1=CUT|2=)}}
               </horizontalDivider>
             </header>
-            
+
             <items>
               <!-- photo channels per server -->
               <twoLineEnhancedMenuItem id="Photo_{{VAL(key)}}"
@@ -117,18 +117,18 @@
               </twoLineEnhancedMenuItem>
             </items>
           </menuSection>
-          
+
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
     {{CUT(#channels::FALSE=CUT|TRUE=)}}  <!--CUT if no channel added-->
-    
+
     <!--No Channels Available-->
     <dialog id="com.sample.error-dialog">
     {{CUT(#channels::FALSE=|TRUE=CUT)}}
       <title>PlexConnect</title>
       <description>{{TEXT(No Plex Channels Available)}}</description>
     </dialog>
-    
+
   </body>
 </atv>

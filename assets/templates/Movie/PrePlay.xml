@@ -110,7 +110,7 @@
       </table>
 
       <centerShelf>
-        <shelf id="centerShelf" columnCount="4" center="true">
+        <shelf id="centerShelf" columnCount="3" center="true">
           <sections>
             <shelfSection>
               {{VAR(AudioStreams:NoKey:0)}}
@@ -157,7 +157,6 @@
 
                 <actionButton id="selectAudioAndSubs"
                               onSelect="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')"
-                              onHoldSelect="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')"
                               onPlay="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')">
                 {{VAR(SelectAudioAndSubs:NoKey:{{EVAL( {{VAL(#AudioStreams)}}>1 or {{VAL(#SubtitleStreams)}}>0 )}})}}
                 {{CUT(#SelectAudioAndSubs:CUT:False=CUT|True=)}}
@@ -166,8 +165,9 @@
                   <focusedImage>resource://QueueFocused.png</focusedImage>
                 </actionButton>
 
-                <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings_Main')">
-                  <title>{{TEXT(Settings)}}</title>
+                <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings_Transcoder')"
+                                            onPlay="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings_Transcoder')">
+                  <title>{{TEXT(Quality)}}</title>
                   <image>resource://WishList.png</image>
                   <focusedImage>resource://WishListFocused.png</focusedImage>
                 </actionButton>{{CUT($moviepreplay_settings::Hide=CUT|Show=)}}

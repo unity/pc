@@ -32,7 +32,7 @@
                 <preview>
                   <link>{{URL(key::/recentlyAdded:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($music_navbar_recentlyadded::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($music_navbar_recentlyadded::Show=CUT|Hide=)}}
 
               <oneLineMenuItem id="genre" onPlay="atv.loadURL('{{URL(key::/genre:PlexConnect=Music_Directory)}}')"
 																					onSelect="atv.loadURL('{{URL(key::/genre:PlexConnect=Music_Directory)}}')">
@@ -40,7 +40,7 @@
                 <preview>
                   <link>{{URL(key::/genre:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($music_navbar_genre::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($music_navbar_genre::Show=CUT|Hide=)}}
 
               <oneLineMenuItem id="decade" onPlay="atv.loadURL('{{URL(key::/decade:PlexConnect=Music_Directory)}}')"
 																					onSelect="atv.loadURL('{{URL(key::/decade:PlexConnect=Music_Directory)}}')">
@@ -48,7 +48,7 @@
                 <preview>
                   <link>{{URL(key::/decade:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($music_navbar_decade::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($music_navbar_decade::Show=CUT|Hide=)}}
 
               <oneLineMenuItem id="year" onPlay="atv.loadURL('{{URL(key::/year:PlexConnect=Music_Directory)}}')"
 																				onSelect="atv.loadURL('{{URL(key::/year:PlexConnect=Music_Directory)}}')">
@@ -56,7 +56,7 @@
                 <preview>
                   <link>{{URL(key::/year:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
-              </oneLineMenuItem>{{CUT($music_navbar_year::checked=CUT|unchecked=)}}
+              </oneLineMenuItem>{{CUT($music_navbar_year::Show=CUT|Hide=)}}
 
             </items>
           </menuSection>

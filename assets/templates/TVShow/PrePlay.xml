@@ -34,17 +34,17 @@
               'offsetY'     : '20',\
               'lineheight'  : '175',\
               'layers': ["PlexPrePlay{{VAL($fanarttint::On=Text|Off=)}}","PlexPrePlayLineTV"]\
-              })}})}})}}	      
+              })}})}})}}
 	    </image>
 	    </imageHeader>
 	  </header>
-	  
+
       <rating>{{contentRating(Video/contentRating)}}</rating>
       <summary>{{VAL(Video/summary)}}</summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
       <summary>{{VAL(Video/summary)}}</summary>{{CUT(Video/viewCount:CUT:=)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
       <summary>{{TEXT(Synopsis hidden.)}}</summary>{{CUT(Video/viewCount)}}{{CUT($showsynopsis::Show=CUT|Hide=)}}
       <image style="moviePoster">{{IMAGEURL(Video/parentThumb::768)}}</image>
-      
+
 
       <table>
         <columnDefinitions>
@@ -78,9 +78,9 @@
             <label>{{VAL(Video/Media/videoResolution:Unknown:1080=1080p|720=720p|576=SD|480=SD|sd=SD)}} {{VAL(Video/Media/audioCodec:Unknown:ac3=AC3|aac=AAC|mp3=MP3|dca=DTS|drms=DRMS)}} {{VAL(Video/Media/audioChannels:Unknown:2=Stereo|6=5.1|8=7.1)}}</label>{{CUT(^aTVFirmwareVersion:CUT:=|6=CUT)}}
             <mediaBadges />{{MEDIABADGES(Video/Media)}}{{CUT(^aTVFirmwareVersion::=CUT|6=)}}
             <label>{{VAL(Video/Director[4]/tag)}}</label>
-            <label>{{VAL(Video/Writer[4]/tag)}}</label>           
+            <label>{{VAL(Video/Writer[4]/tag)}}</label>
           </row>
-          
+
           <row>
           <starRating hasUserSetRating="true">
               <percentage>{{EVAL({{VAL(Video/userRating:0)}} * 10)}}</percentage>
@@ -91,7 +91,7 @@
             <label>{{VAL(Video/Director[5]/tag)}}</label>
             <label>{{VAL(Video/Writer[5]/tag)}}</label>
           </row>
-          
+
           <row>
           <progressBar percentage="0"/>{{CUT(Video/viewCount)}}{{CUT(Video/viewOffset)}}
           <progressBar percentage="{{EVAL({{VAL(Video/viewOffset:0)}} * 100 / {{VAL(Video/duration:1)}})}}"/>{{CUT(Video/viewOffset:CUT:=)}}
@@ -132,7 +132,7 @@
                   <selected>{{VAL(selected:0)}}</selected>
                 </stream>
               </stash>
-              
+
               <items>
                 <actionButton id="play" onSelect="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(Video/ratingKey)}})}}')"
                                         onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(Video/ratingKey)}})}}')">
@@ -140,31 +140,37 @@
                   <image>resource://Play.png</image>
                   <focusedImage>resource://PlayFocused.png</focusedImage>
                 </actionButton>
-                <actionButton id="scrobbleMenu" 
-                				onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=Scrobble_WatchStatus')">
+
+                <actionButton id="scrobbleMenu" onHoldSelect="scrobbleMenu('{{URL(key)}}&amp;PlexConnect=Scrobble_WatchStatus')">
                   <title>{{TEXT(Watch Status)}}</title>
                   <image>resource://More.png</image>
                   <focusedImage>resource://MoreFocused.png</focusedImage>
                   <!--<badge></badge>-->
                 </actionButton>
-                
-                <actionButton id="selectAudioAndSubs"
-                              onHoldSelect="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')"
-                              onSelect="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')"
-                              onPlay="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')">
+
+                <actionButton id="goToShow" onSelect="atv.loadURL('{{URL(Video/grandparentKey::/children:PlexConnect=TVShow_Season)}}')"
+                                            onPlay="atv.loadURL('{{URL(Video/grandparentKey::/children:PlexConnect=TVShow_Season)}}')">
+                  <title>{{TEXT(Go to Show)}}</title>
+                  <image>resource://Preview.png</image>
+                  <focusedImage>resource://PreviewFocused.png</focusedImage>
+                </actionButton>
+
+                <actionButton id="selectAudioAndSubs" onSelect="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')"
+                                                      onPlay="selectAudioAndSubs('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/Media/Part/id)}}')">
                 {{VAR(SelectAudioAndSubs:NoKey:{{EVAL( {{VAL(#AudioStreams)}}>1 or {{VAL(#SubtitleStreams)}}>0 )}})}}
                 {{CUT(#SelectAudioAndSubs:CUT:False=CUT|True=)}}
                   <title>{{TEXT(Audio/Subs)}}</title>
                   <image>resource://Queue.png</image>
                   <focusedImage>resource://QueueFocused.png</focusedImage>
                 </actionButton>
-                
-               <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings_Main')">
-                  <title>{{TEXT(Settings)}}</title>
+
+               <actionButton id="Settings" onSelect="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings_Transcoder')"
+                                           onPlay="atv.loadURL('{{URL(:/)}}&amp;PlexConnect=Settings_Transcoder')">
+                  <title>{{TEXT(Quality)}}</title>
                   <image>resource://WishList.png</image>
                   <focusedImage>resource://WishListFocused.png</focusedImage>
                 </actionButton>{{CUT($showpreplay_settings::Hide=CUT|Show=)}}
-                
+
               </items>
             </shelfSection>
           </sections>
@@ -184,7 +190,7 @@
           <sections>
             <shelfSection>
               <items>
-                <sixteenByNinePoster related="true" alwaysShowTitles="true" id="{{URL(ratingKey)}}" 
+                <sixteenByNinePoster related="true" alwaysShowTitles="true" id="{{URL(ratingKey)}}"
                                      onSelect="atv.loadAndSwapURL('{{URL(key:::PlexConnect=TVShow_PrePlay)}}')"
                                      onPlay="atv.loadURL('{{URL(:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')">
                   {{COPY(@parentEpisodes/Video)}}

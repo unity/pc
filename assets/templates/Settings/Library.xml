@@ -66,10 +66,6 @@
                 <label>{{TEXT(Library Icons)}}</label>
                 <rightLabel>{{SETTING(sectionicons)}}</rightLabel>
               </oneLineMenuItem>
-              <oneLineMenuItem id="LibraryFanart" onSelect="toggleSettings('LibraryFanart', 'Settings_Library')">
-                <label>{{TEXT(Library Fanart)}}</label>
-                <rightLabel>{{SETTING(libraryfanart)}}</rightLabel>
-              </oneLineMenuItem>
               </items>
           </menuSection>
 
@@ -80,38 +76,17 @@
               </horizontalDivider>
             </header>
             <items>
-              <oneLineMenuItem id="Library_ContinueWatch" onSelect="toggleSettings('Library_ContinueWatch', 'Settings_Library')">
-                <label>{{TEXT("Continue Watching")}}</label>
-                <rightLabel>{{SETTING(library_continuewatch)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="ContinueWatch_Position" onSelect="toggleSettings('ContinueWatch_Position', 'Settings_Library')">
-                <label>{{TEXT("Continue Watching" Position)}}</label>
-                <rightLabel>{{SETTING(continuewatch_position)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="Library_OnDeck" onSelect="toggleSettings('Library_OnDeck', 'Settings_Library');atv.unloadPage();">
+
+              <oneLineMenuItem id="Library_OnDeck" onSelect="toggleSettings('Library_OnDeck', 'Settings_Library')">
                 <label>{{TEXT(On Deck)}}</label>
                 <rightLabel>{{SETTING(library_ondeck)}}</rightLabel>
               </oneLineMenuItem>
-              <oneLineMenuItem id="OnDeck" dimmed="true">{{CUT($library_ondeck::Hide=|Show=CUT)}}
-                <label>{{TEXT(On Deck View)}}</label>
-                <rightLabel></rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="OnDeck" onSelect="toggleSettings('OnDeck', 'Settings_Library')">{{CUT($library_ondeck::Hide=CUT|Show=)}}
-                <label>{{TEXT(On Deck View)}}</label>
-                <rightLabel>{{SETTING(ondeck)}}</rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="Library_RecentlyAdded" onSelect="toggleSettings('Library_RecentlyAdded', 'Settings_Library');atv.unloadPage();">
+
+              <oneLineMenuItem id="Library_RecentlyAdded" onSelect="toggleSettings('Library_RecentlyAdded', 'Settings_Library')">
                 <label>{{TEXT(Recently Added)}}</label>
                 <rightLabel>{{SETTING(library_recentlyadded)}}</rightLabel>
               </oneLineMenuItem>
-              <oneLineMenuItem id="RecentlyAddded" dimmed="true">{{CUT($library_recentlyadded::Hide=|Show=CUT)}}
-                <label>{{TEXT(Recently Added View)}}</label>
-                <rightLabel></rightLabel>
-              </oneLineMenuItem>
-              <oneLineMenuItem id="RecentlyAdded" onSelect="toggleSettings('RecentlyAdded', 'Settings_Library')">{{CUT($library_recentlyadded::Hide=CUT|Show=)}}
-                <label>{{TEXT(Recently Added View)}}</label>
-                <rightLabel>{{SETTING(recentlyadded)}}</rightLabel>
-              </oneLineMenuItem>
+
             </items>
           </menuSection>
 
@@ -140,13 +115,13 @@
                 <label>{{TEXT(On Deck)}}</label>
                 <accessories>
                   <checkMark/>
-                </accessories>{{CUT($sharedlibrary_ondeck::unchecked=CUT|checked=)}}
+                </accessories>{{CUT($sharedlibrary_ondeck::Hide=CUT|Show=)}}
               </oneLineMenuItem>
               <oneLineMenuItem id="SharedLibrary_RecentlyAdded" onSelect="toggleSettings('SharedLibrary_RecentlyAdded', 'Settings_Library')">
                 <label>{{TEXT(Recently Added)}}</label>
                 <accessories>
                   <checkMark/>
-                </accessories>{{CUT($sharedlibrary_recentlyadded::unchecked=CUT|checked=)}}
+                </accessories>{{CUT($sharedlibrary_recentlyadded::Hide=CUT|Show=)}}
               </oneLineMenuItem>
             </items>
           </menuSection>-->

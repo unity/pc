@@ -74,37 +74,27 @@
 
               <oneLineMenuItem id="HomeVideos_NavBar_OnDeck" onSelect="toggleSettings('HomeVideos_NavBar_OnDeck', 'Settings_HomeVideos')">
                 <label>{{TEXT(On Deck)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($homevideos_navbar_ondeck::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(homevideos_navbar_ondeck)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="HomeVideos_NavBar_Unwatched" onSelect="toggleSettings('HomeVideos_NavBar_Unwatched', 'Settings_HomeVideos')">
                 <label>{{TEXT(Unwatched)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($homevideos_navbar_unwatched::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(homevideos_navbar_unwatched)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="HomeVideos_NavBar_ByFolder" onSelect="toggleSettings('HomeVideos_NavBar_ByFolder', 'Settings_HomeVideos')">
                 <label>{{TEXT(By Folder)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($homevideos_navbar_byfolder::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(homevideos_navbar_byfolder)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="HomeVideos_NavBar_Genres" onSelect="toggleSettings('HomeVideos_NavBar_Genres', 'Settings_HomeVideos')">
                 <label>{{TEXT(Genres)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($homevideos_navbar_genres::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(homevideos_navbar_genres)}}</rightLabel>
               </oneLineMenuItem>
 
               <oneLineMenuItem id="HomeVideos_NavBar_Collections" onSelect="toggleSettings('HomeVideos_NavBar_Collections', 'Settings_HomeVideos')">
                 <label>{{TEXT(Collections)}}</label>
-                <accessories>
-                  <checkMark/>
-                </accessories>{{CUT($homevideos_navbar_collections::unchecked=CUT|checked=)}}
+                <rightLabel>{{SETTING(homevideos_navbar_collections)}}</rightLabel>
               </oneLineMenuItem>
 
             </items>
