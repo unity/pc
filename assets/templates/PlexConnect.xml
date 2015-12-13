@@ -17,13 +17,13 @@
 
         <navigationItem id="Discover">
           <title>{{TEXT(Discover)}}</title>
-          <url>{{URL(:/PMS(owned)/library/sections::PlexConnect=Library_Discover)}}</url>
-        </navigationItem>{{CUT($libraryview:CUT:=|Hide=|Hide =CUT)}}{{CUT($discoverview:CUT:=|Hide=CUT|Show=)}}
+          <url>{{URL(:/PMS(owned)/library/sections::PlexConnect=Library_View)}}</url>
+        </navigationItem>{{CUT($libraryview::List=CUT|Grid=CUT|Discover=)}}
 
         <navigationItem id="Library">
           <title>{{TEXT(Library)}}</title>
           <url>{{URL(:/PMS(owned)/library/sections::PlexConnect=Library_View)}}</url>
-        </navigationItem>{{CUT($discoverview:CUT:=|Hide=|Show=CUT)}}{{CUT($libraryview:CUT:=|Hide=CUT|Hide =)}}
+        </navigationItem>{{CUT($libraryview:CUT:=|Hide=CUT|Hide =)}}{{CUT($libraryview::List=|Grid=|Discover=CUT)}}
 
         <navigationItem id="Channels">
           <title>{{TEXT(Channels)}}</title>
