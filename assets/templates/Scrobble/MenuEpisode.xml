@@ -23,6 +23,11 @@
             </header>
 
             <items>
+
+              <oneLineMenuItem id="item1" onSelect="atv.loadURL('{{URL(Video/grandparentKey::/children:PlexConnect=TVShow_Season)}}')">
+                <label>{{TEXT(Go to Show)}}</label>
+              </oneLineMenuItem>
+
               <oneLineMenuItem id="item2" onSelect="markItem('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/ratingKey)}}', 'scrobble');atv.unloadPage();">
                 <label>{{TEXT(Mark as Watched)}}</label>
               </oneLineMenuItem>
@@ -47,6 +52,11 @@
       <sections>
         <menuSection>
           <items>
+
+            <oneLineMenuItem id="item1" onSelect="atv.loadURL('{{URL(Video/grandparentKey::/children:PlexConnect=TVShow_Season)}}')">
+              <label>{{TEXT(Go to Show)}}</label>
+            </oneLineMenuItem>
+
             <oneLineMenuItem id="item2" onSelect="markItem('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/ratingKey)}}', 'scrobble');updateContextXML();">
               <label>{{TEXT(Mark as Watched)}}</label>
             </oneLineMenuItem>
@@ -58,6 +68,7 @@
             <oneLineMenuItem id="item4" onSelect="atv.loadURL('{{URL(Video/key:::PlexConnect=Artwork_ChangeSingleArtworkVideo)}}')">
               <label>{{TEXT(Change Poster)}}</label>
             </oneLineMenuItem>
+
           </items>
         </menuSection>
       </sections>

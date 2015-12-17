@@ -75,6 +75,7 @@
               {{CUT(type::episode=CUT|movie=)}}
               {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                 <label>{{VAL(title)}}</label>
+                <label2>{{VAL(year)}} / {{VAL(studio)}}</label2>
                 <image>{{IMAGEURL(thumb::384)}}</image>
                 <preview>
                   <keyedPreview>
@@ -105,9 +106,7 @@
               {{CUT(type::episode=|movie=CUT)}}
               {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                 <label>{{VAL(title)}}</label>
-                <label2>{{VAL(grandparentTitle)}}</label2>
-                <ordinal>{{VAL(index)}}</ordinal>
-                <maxOrdinalDigits>2</maxOrdinalDigits>
+                <label2>{{VAL(grandparentTitle)}} / {{TEXT(S)}}{{VAL(parentIndex)}} - {{TEXT(E)}}{{VAL(index)}} </label2>
                 <image>{{IMAGEURL(thumb::384)}}</image>
                 <preview>
                   <keyedPreview>

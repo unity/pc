@@ -21,6 +21,7 @@
             })}})}})}}
         </image>
         </imageHeader>
+      </header>
 
       {{ADDXML(posters::/library/metadata/{{VAL(key)}}/posters)}}
       {{VAR(key:key)}}

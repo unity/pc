@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<atv> 
+<atv>
   <head>{{CUT(^aTVFirmwareVersion:CUT:4.0=|6.0=CUT)}}
-    <script src="{{URL(:/js/utils.js)}}"/> 
-  </head> 
-  
+    <script src="{{URL(:/js/utils.js)}}"/>
+  </head>
+
   <body>{{CUT(^aTVFirmwareVersion:CUT:4.0=|6.0=CUT)}}
     <optionDialog id="scrobble.optionDialog">
       <header>
@@ -11,8 +11,8 @@
           <title>{{VAL(Video/title)}}</title>
           <subtitle>{{VAL(Video/grandparentTitle)}}</subtitle>
         </simpleHeader>
-      </header> 
-      
+      </header>
+
       <menu>
         <sections>
           <menuSection>
@@ -21,17 +21,17 @@
                 <title></title>
               </horizontalDivider>
             </header>
-            
+
             <items>
-            
+
               <oneLineMenuItem id="item2" onSelect="markItem('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/ratingKey)}}', 'scrobble');atv.unloadPage();">
                 <label>{{TEXT(Mark as Watched)}}</label>
               </oneLineMenuItem>
-        
+
               <oneLineMenuItem id="item3" onSelect="markItem('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/ratingKey)}}', 'unscrobble');atv.unloadPage();">
                 <label>{{TEXT(Mark as Unwatched)}}</label>
               </oneLineMenuItem>
-        
+
            </items>
           </menuSection>
         </sections>
@@ -47,15 +47,15 @@
             <oneLineMenuItem id="item2" onSelect="markItem('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/ratingKey)}}', 'scrobble');updateContextXML();">
               <label>{{TEXT(Mark as Watched)}}</label>
             </oneLineMenuItem>
-        
+
             <oneLineMenuItem id="item3" onSelect="markItem('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(Video/ratingKey)}}', 'unscrobble');updateContextXML();">
               <label>{{TEXT(Mark as Unwatched)}}</label>
             </oneLineMenuItem>
-            
-            
+
+
           </items>
         </menuSection>
-      </sections> 
+      </sections>
     </popUpMenu>
   </body>
 </atv>

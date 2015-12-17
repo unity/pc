@@ -3,30 +3,28 @@
     <videoPlayer id="com.sample.video-player">
       <httpFileVideoAsset id="{{VAL(^PlexConnectRatingKey)}}">
       {{COPY(Video:ratingKey::=|{{VAL_QUOTED(^PlexConnectRatingKey)}}=COPY|{{VAL_QUOTED(^PlexConnectRatingKey)}} =)}}
-        
+
         <mediaURL>{{VIDEOURL()}}</mediaURL>
         <title>{{VAL(title)}} ({{VAL(year)}}) </title>{{CUT(type:CUT:episode=CUT|movie=)}}
-        <title>{{VAL(grandparentTitle)}} / {{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} </title>{{CUT(type::episode=|movie=CUT)}}      
+        <title>{{VAL(grandparentTitle)}} / {{TEXT(S)}}{{VAL(parentIndex)}} - {{TEXT(E)}}{{VAL(index)}} </title>{{CUT(type::episode=|movie=CUT)}}
         <description>{{VAL(title)}} : {{VAL(summary)}}</description>{{CUT(type::episode=|movie=CUT)}}
         <description>{{VAL(summary)}}</description>{{CUT(type:CUT:episode=CUT|movie=)}}
         <bookmarkTime>{{EVAL({{VAL(viewOffset:0)}} / 1000)}}</bookmarkTime>
         <image>{{IMAGEURL({{VAL(type::movie=thumb|episode=parentThumb)}}::384)}}</image>
-        
+
         <videoPlayerSettings>
             <!-- PMS, OSD settings, ... -->
             <baseURL>{{VAL(%baseURL)}}</baseURL>
             <accessToken>{{VAL(%accesstoken)}}</accessToken>
-            
             <showInfos>True</showInfos>
             <showClock>{{VAL($showplayerclock)}}</showClock>
             <timeFormat>{{VAL($timeformat)}}</timeFormat>
             <clockPosition>{{VAL($clockposition)}}</clockPosition>
             <overscanAdjust>{{VAL($overscanadjust)}}</overscanAdjust>
             <showEndtime>{{VAL($showendtime)}}</showEndtime>
-             
             <subtitleSize>{{VAL($subtitlesize)}}</subtitleSize>
         </videoPlayerSettings>
-        
+
         <myMetadata>
             <key>{{VAL(key)}}</key>
             <ratingKey>{{VAL(ratingKey)}}</ratingKey>
@@ -34,11 +32,11 @@
             <partDuration>{{VAL(Media/Part/duration)}}</partDuration>
             <videoSubtitle>{{VAL(title)}}</videoSubtitle>{{CUT(type:CUT:episode=CUT|movie=)}}
             <videoSubtitle>{{VAL(title)}}</videoSubtitle>{{CUT(type:CUT:episode=|movie=CUT)}}
-            <videoTitle>{{VAL(studio)}} ({{VAL(year)}}) </videoTitle>{{CUT(type:CUT:episode=CUT|movie=)}}
+            <videoTitle>{{VAL(year)}} - {{VAL(studio)}} </videoTitle>{{CUT(type:CUT:episode=CUT|movie=)}}
             <videoTitle>{{VAL(grandparentTitle)}} / {{TEXT(Season)}} {{VAL(parentIndex)}} - {{TEXT(Episode)}} {{VAL(index)}} </videoTitle>{{CUT(type::episode=|movie=CUT)}}
             <poster>{{IMAGEURL({{VAL(type::movie=thumb|episode=parentThumb)}}::384)}}</poster>
-            
-            
+
+
             <!-- subtitle -->
             <__COPY__><!--needed as {{COPY}} doesn't work completely clean. Todo: ExpandTree needs to "finish" current element...-->
             {{COPY(Media/Part/Stream:streamType::=|3=COPY|3 =)}}
@@ -48,11 +46,11 @@
               </subtitleURL>
             </__COPY__>
         </myMetadata>
-        
+
         <playlistData>
         <__COPY__>
         {{COPY_PLAYLIST(@main/Video:^PlexConnectPlayType:Single:^PlexConnectRatingKey::ratingKey:)}}
-            
+
             <httpFileVideoAsset id="{{VAL(key)}}">
             {{VAR(partIndex::-1)}}  <!--dirty hack: VAR is evaluated before VAL, VIDEOURL; so #partIndex is +1-->
             {{COPY(Media/Part)}}  <!-- stacked media -->
@@ -62,18 +60,18 @@
                 <description>{{VAL(@copy_Video/summary)}}</description>
                 <!--bookmarkTime>{{EVAL({{VAL(@main/Video/viewOffset:0)}} / 1000)}}</bookmarkTime-->
                 <image>{{IMAGEURL(@copy_Video/thumb::384)}}</image>
-                
+
                 <myMetadata>
                     <key>{{VAL(@copy_Video/key)}}</key>
                     <ratingKey>{{VAL(@copy_Video/ratingKey)}}</ratingKey>
                     <duration>{{VAL(@copy_Video/duration)}}</duration>
                     <partDuration>{{VAL(duration)}}</partDuration>
                 </myMetadata>
-                
+
             </httpFileVideoAsset>
         </__COPY__>
         </playlistData>
-        
+
       </httpFileVideoAsset>
     </videoPlayer>
 </body>

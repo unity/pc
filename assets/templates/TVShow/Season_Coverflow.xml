@@ -32,7 +32,7 @@
                 <goldenPoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
 								onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')"
                                 onSelect="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Episode_List)}}')"
-                                onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_Menu)}}')">
+                                onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuSeason)}}')">
                   {{COPY(Directory)}}
                   <title>{{VAL(title)}}</title>
                   <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}

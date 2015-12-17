@@ -47,13 +47,13 @@
       <items>
         <grid id="fanart" columnCount="4">
               <items>
-                <sixteenByNinePoster related="true" id="{{VAL(key)}}" alwaysShowTitles="true"
+                <moviePoster related="true" id="{{VAL(key)}}" alwaysShowTitles="true"
                               onSelect="changeArtwork('{{VAL(%baseURL)}}', '{{VAL(%accesstoken)}}', '{{VAL(#key)}}', '{{VAL(key)}}', 'fanart');atv.unloadPage();">
                   {{COPY(@fanart/Photo)}}
                   <title>{{VAL(selected::0=|1=Selected)}}</title>
-                  <image>{{IMAGEURL(thumb::768)}}</image>
+                  <image>{{IMAGEURL(thumb::784)}}</image>
                   <defaultImage>resource://16x9.png</defaultImage>
-                </sixteenByNinePoster>
+                </moviePoster>
               </items>
         </grid>
       </items>
