@@ -44,6 +44,7 @@
       <summary>{{VAL(Video/summary)}}</summary>
       <image style="moviePoster">{{IMAGEURL(Video/thumb::768)}}</image>
       <defaultImage>resource://Poster.png</defaultImage>
+      <footnote>{{VAL(Video/tagline)}}</footnote>
 
       <table>
         <columnDefinitions>

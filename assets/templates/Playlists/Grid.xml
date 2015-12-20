@@ -41,7 +41,7 @@
                 <items>
                 {{VAR(items_section:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
               <!-- video channels per server -->
-              <fourByThreePoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
+              <moviePoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                            onPlay="atv.loadURL('{{URL(key:::PlexConnect=Playlists_Video)}}')"
                            onSelect="atv.loadURL('{{URL(key:::PlexConnect=Playlists_Video)}}')">
               {{COPY(Playlist:playlistType::=|video=COPY|video =)}}
@@ -51,7 +51,7 @@
                 <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>
                 <image>{{IMAGEURL(composite::768)}}</image>
                 <defaultImage>resource://Poster.png</defaultImage>
-              </fourByThreePoster>
+              </moviePoster>
             </items>
           </shelfSection>
         </sections>
@@ -74,7 +74,7 @@
                 <items>
                 {{VAR(items_section:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
               <!-- audio channels per server -->
-              <fourByThreePoster id="{{VAL(key)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
+              <moviePoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                            onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Audio&amp;PlexConnectCopyIx=0&amp;PlexConnectPlayType=Shuffle)}}')"
                            onSelect="atv.loadURL('{{URL(key:::PlexConnect=Playlists_Audio)}}')">
               {{COPY(Playlist:playlistType::=|audio=COPY|audio =)}}
@@ -85,7 +85,7 @@
                 <image>{{IMAGEURL(composite::384)}}</image>
                 <defaultImage>resource://Poster.png</defaultImage>
                 <!--badgeCount></badgeCount-->
-              </fourByThreePoster>
+              </moviePoster>
             </items>
           </shelfSection>
         </sections>

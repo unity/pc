@@ -51,9 +51,6 @@
                   </shelfSection>
               </sections>
           </shelf>{{CUT($shows_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}
-          <collectionDivider alignment="left" accessibilityLabel="On Deck">
-              <title></title>
-          </collectionDivider>{{CUT(@OnDeck/size:CUT:0=CUT|1=)}}{{CUT($shows_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}
 
                 <collectionDivider alignment="left" accessibilityLabel="Recently Added">
                     <title>{{TEXT(Recently Added)}}</title>
@@ -79,9 +76,6 @@
                         </shelfSection>
                     </sections>
                 </shelf>{{CUT($shows_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
-                <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-                    <title></title>
-                </collectionDivider>{{CUT(@recentlyAdded/size:CUT:0=CUT|1=)}}{{CUT($shows_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
 
                 <collectionDivider alignment="left" accessibilityLabel="Recently Released">
                     <title>{{TEXT(Recently Released)}}</title>
@@ -107,9 +101,6 @@
                         </shelfSection>
                     </sections>
                 </shelf>{{CUT($shows_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
-                <collectionDivider alignment="left" accessibilityLabel="Recently Released">
-                    <title></title>
-                </collectionDivider>{{CUT(@newest/size:CUT:0=CUT|1=)}}{{CUT($shows_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
 
           <collectionDivider alignment="left" accessibilityLabel="TV Shows">
               <title>All TV Shows</title>

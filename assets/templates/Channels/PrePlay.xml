@@ -11,20 +11,20 @@
                 {{URL(:/fanartcache/{{getBackground({{EVAL({\
                 'template'    : 'Plex',\
                 'title'       : "{{EVAL(quote_plus("{{VAL(Video/title)}}"))}}",\
-                'subtitle'    : "{{EVAL(quote_plus("{{VAL(title2)}}"))}}",\
-                'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
+                'subtitle'    : "{{EVAL(quote_plus("{{VAL(Video/studio)}}"))}}",\
+                'image'       : "{{IMAGEURL(Video/art:::)}}",\
                 'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
                 'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
                 'imageBlur'   : "{{VAL($fanartblur::1=1|2=2|3=3|0=)}}",\
-                'titleSize' : '50',\
-                'subtitleSize' : '30',\
+                'titleSize'   : '50',\
+                'subtitleSize' : '27',\
                 'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                 'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-                'anchorX' : 'right',\
-                'anchorY' : 'top',\
-                'offsetX' : '50',\
-                'offsetY' : '20',\
-                'lineheight' : '175',\
+                'anchorX'     : 'right',\
+                'anchorY'     : 'top',\
+                'offsetX'     : '50',\
+                'offsetY'     : '20',\
+                'lineheight'  : '175',\
                 'layers': ["PlexPrePlay{{VAL($fanarttint::On=Text|Off=)}}","PlexPrePlayLine"]\
                 })}})}})}}
 
@@ -33,7 +33,7 @@
 	    </header>
 		<rating>{{contentRating(Video/contentRating)}}</rating>
 		<summary>{{VAL(Video/summary)}}</summary>
-		<image style="squarePoster">{{IMAGEURL(Video/thumb::384)}}</image>
+		<image style="moviePoster">{{IMAGEURL(Video/thumb::768)}}</image>
 		<defaultImage>resource://Poster.png</defaultImage>
 
 		<centerShelf>
