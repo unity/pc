@@ -8,7 +8,6 @@
       {{ADDXML(OnDeck::/library/onDeck?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=40)}}
       {{ADDXML(OnDeckWatch::/library/onDeck?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=3)}}
       {{ADDXML(RecentlyAdded::/library/recentlyAdded?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=40)}}
-      {{ADDXML(RecentlyAddedMusic::/library/recentlyAdded?X-Plex-Container-Start=0&amp;X-Plex-Container-Size=60)}}
       {{VAR(sections:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
       {{VAR(items:NoKey:FALSE)}}
 
@@ -203,40 +202,6 @@
          </sections>
        </shelf>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
        </__COPY__>
-
-       <collectionDivider alignment="left" accessibilityLabel="Library">
-       <title></title>
-      </collectionDivider>
-
-        <__COPY__>
-        {{COPY(@RecentlyAddedMusic/Server:size::0=|1=COPY)}}
-
-        <collectionDivider alignment="left" accessibilityLabel="Recently Added">
-          <title>{{TEXT(Recently Added Music)}}</title>
-        </collectionDivider>{{CUT(@RecentlyAddedMusic/Server/size:CUT:0=CUT|1=)}}
-
-        <shelf id="shelf_2" columnCount="5">
-          <sections>
-            <shelfSection>
-              <items>
-                <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
-                            onPlay="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Music_Track)}}')"
-                            onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Music_Track)}}')"
-                            onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Music_TrackPopUp)}}')">
-                  {{COPY(Directory:type::album=COPY|season=)}}
-                  {{VAR(items:NoKey:TRUE)}} <!--within COPY this sets the var to TRUE-->
-                  <title>{{VAL(parentTitle)}}</title>
-                  <subtitle>{{VAL(title)}}</subtitle>
-                  <image>{{IMAGEURL(thumb::384)}}</image>
-                  <defaultImage>resource://Poster.png</defaultImage>
-                </moviePoster>
-              </items>
-            </shelfSection>
-          </sections>
-        </shelf>{{CUT(@RecentlyAddedMusic/Server/size:CUT:0=CUT|1=)}}
-        </__COPY__>
-
-
 
     </items>
     </scroller>{{CUT(#sections::FALSE=CUT|TRUE=)}}
