@@ -27,7 +27,7 @@ options = { \
     'showpreplay_settings'              :('Show', 'Hide'), \
     'moviepreplay_bottomshelf'          :('Extras', 'Related Movies'), \
     'seasonview'                        :('Coverflow', 'List'), \
-    'sectionicons'                      :('Basic', 'Fanart', 'Custom'), \
+    'sectionicons'                      :('Basic','Plex', 'Fanart', 'Custom'), \
     'shared_sectionicons'               :('Basic', 'Fanart'), \
     'libraryfanart'                     :('Hide', 'Show'), \
     'library_search'                    :('Hide', 'Show'), \

@@ -48,7 +48,7 @@
                   {{COPY(@OnDeck/Video,7,1)}}
                   {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                   <title>{{VAL(title)}}</title>
-                  <subtitle>{{episodestring(parentIndex:0:index:0)}}</subtitle>
+                  <subtitle>{{TEXT(S)}}{{VAL(parentIndex)}} · {{TEXT(E)}}{{VAL(index)}}</subtitle>
                   <image>{{IMAGEURL(grandparentThumb::768)}}</image>
                   <defaultImage>resource://Poster.png</defaultImage>
                 </goldenPoster>
@@ -76,7 +76,7 @@
                   {{COPY(@RecentlyAired/Video,7,1)}}
                   {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                   <title>{{VAL(title)}}</title>
-                  <subtitle>{{episodestring(parentIndex:0:index:0)}}</subtitle>
+                  <subtitle>{{TEXT(S)}}{{VAL(parentIndex)}} · {{TEXT(E)}}{{VAL(index)}}</subtitle>
                   <image>{{IMAGEURL(grandparentThumb::768)}}</image>
                   <defaultImage>resource://Poster.png</defaultImage>
                 </goldenPoster>
@@ -104,7 +104,7 @@
                   {{COPY(@RecentlyAdded/Video,7,1)}}
                   {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                   <title>{{VAL(title)}}</title>
-                  <subtitle>{{episodestring(parentIndex:0:index:0)}}</subtitle>
+                  <subtitle>{{TEXT(S)}}{{VAL(parentIndex)}} · {{TEXT(E)}}{{VAL(index)}}</subtitle>
                   <image>{{IMAGEURL(parentThumb::768)}}</image>
                   <defaultImage>resource://Poster.png</defaultImage>
                 </goldenPoster>
@@ -129,7 +129,7 @@
                   {{COPY(@RecentlyViewedEpisodes/Video,7,1)}}
                   {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                   <title>{{VAL(title)}}</title>
-                  <subtitle>{{episodestring(parentIndex:0:index:0)}}</subtitle>
+                  <subtitle>{{TEXT(S)}}{{VAL(parentIndex)}} · {{TEXT(E)}}{{VAL(index)}}</subtitle>
                   <image>{{IMAGEURL(grandparentThumb::384)}}</image>
                   <defaultImage>resource://Poster.png</defaultImage>
                 </goldenPoster>

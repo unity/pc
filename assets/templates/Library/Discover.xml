@@ -11,7 +11,7 @@
       {{VAR(sections:NoKey:FALSE)}}  <!--this sets the var to FALSE-->
       {{VAR(items:NoKey:FALSE)}}
 
-    <scroller id="Library_Discover">
+    <scroller id="Library_Discover" volatile="true">
       <header>
          <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=630|1080=945)}}, 0" required="true">
@@ -34,10 +34,6 @@
 
       <items>
 
-        <collectionDivider alignment="left" accessibilityLabel="Library">
-        <title></title>
-       </collectionDivider>
-
         <!-- servers -->
         <__COPY__>
         {{COPY(Server:@main/size::0=|1=COPY)}}
@@ -53,29 +49,24 @@
                         <!-- /library/sections -->
                   {{VAR(serverName:name)}}
                   {{VAR(searchKey:searchKey)}}
-                  <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true"
-                               alwaysShowTitles="true"
+                  <moviePoster id="{{VAL(key)}}" showOutline="false" alwaysShowTitles="true" featured="{{VAL($sectionicons::Plex=false|Basic=true|Fanart=false|Custom=true)}}"
                                onPlay="atv.loadURL('{{URL(key:::PlexConnect={{EVAL('{{VAL(scanner)}}'.replace(' ', '_'))}})}}')"
                                onSelect="atv.loadURL('{{URL(key:::PlexConnect={{EVAL('{{VAL(scanner)}}'.replace(' ', '_'))}})}}')"
                                onHoldSelect="sectionHoldSelect('{{VAL(key)}}', '{{URL(#searchKey)}}', '{{VAL(#serverName)}}', '{{URL(refreshKey)}}', '{{VAL(title)}}')">
                   {{COPY(Directory)}}
                   {{VAR(sections:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
-
                     <title>{{VAL(title)}}</title>
-                    <image>{{URL(:/thumbnails/Plex/images/top/{{VAL(type)}}.png)}}</image>{{CUT($sectionicons::Basic=|Fanart=CUT|Custom=)}}
-                    <image>{{URL(:/thumbnails/Plex/images/top/{{VAL(type)}}-plex.png)}}</image>{{CUT($sectionicons::Basic=CUT|Fanart=|Custom=CUT)}}
-                    <defaultImage>resource://16X9.png</defaultImage>
+                    <subtitle>&#x00AD;</subtitle><!--bugfix to prevent different poster sizes-->
+                    <image>{{URL(:/thumbnails/Plex/images/top/{{VAL(type)}}.png)}}</image>{{CUT($sectionicons::Basic=|Plex=CUT|Fanart=CUT|Custom=)}}
+                    <image>{{IMAGEURL(thumb::768)}}</image>{{CUT($sectionicons::Basic=CUT|Plex=|Fanart=CUT|Custom=CUT)}}
+                    <image>{{IMAGEURL(art::768)}}</image>{{CUT($sectionicons::Basic=CUT|Plex=CUT|Fanart=|Custom=CUT)}}
+                    <defaultImage>resource://{{VAL($sectionicons::Plex=Square|Basic=16X9|Fanart=16X9|Custom=16X9)}},png</defaultImage>
                   </moviePoster>
-
                 </items>
               </shelfSection>
             </sections>
           </shelf>
         </__COPY__>
-
-        <collectionDivider alignment="left" accessibilityLabel="Library">
-        <title></title>
-       </collectionDivider>
 
  <!--Continue Watching-->
        <__COPY__>
@@ -97,7 +88,7 @@
                    {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                    <title>{{VAL(title)}}</title>{{CUT(type:CUT:episode=CUT|movie=)}}
                    <title>{{VAL(index)}}. {{VAL(title)}}</title>{{CUT(type::episode=|movie=CUT)}}
-                   <subtitle>{{VAL(type::movie={{VAL(year)}} - {{VAL(studio)}}|episode={{VAL(grandparentTitle)}} - {{TEXT(Season)}} {{VAL(parentIndex)}})}}</subtitle>
+                   <subtitle>{{VAL(type::movie={{VAL(year)}} · {{VAL(studio)}}|episode={{VAL(grandparentTitle)}} · {{TEXT(Season)}} {{VAL(parentIndex)}})}}</subtitle>
                    <image>{{IMAGEURL({{VAL(type::movie=art|episode=art)}}::800)}}</image>
                    <defaultImage>resource://Poster.png</defaultImage>
                  </moviePoster>
@@ -127,7 +118,7 @@
                   {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                   <title>{{VAL(title)}}</title>{{CUT(type:CUT:episode=CUT|movie=)}}
                   <title>{{VAL(grandparentTitle)}}</title>{{CUT(type::episode=|movie=CUT)}}
-                  <subtitle>{{VAL(type::movie={{VAL(year)}}|episode={{episodestring(parentIndex:0:index:0)}})}}</subtitle>
+                  <subtitle>{{VAL(type::movie={{VAL(year)}}|episode={{TEXT(S)}}{{VAL(parentIndex)}} · {{TEXT(E)}}{{VAL(index)}} )}}</subtitle>
                   <image>{{IMAGEURL({{VAL(type::movie=thumb|episode=grandparentThumb)}}::384)}}</image>
                   <defaultImage>resource://Poster.png</defaultImage>
                 </goldenPoster>
