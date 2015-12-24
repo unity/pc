@@ -24,7 +24,7 @@ try:
 except ImportError:
     dprint(__name__, 0, "No PIL/Pillow installation found.")
     __isPILinstalled = False
-    
+
 from Version import __VERSION__  # for {{EVAL()}}, display in settings page
 import Settings, ATVSettings
 import PlexAPI
@@ -39,13 +39,13 @@ class ImageBackground():
         'template' : 'Plex',\
         'title' : '',\
         'subtitle' : '',\
-        'image' : 'blank.jpg',\
+        'image' : 'backgrounds/plexdefault.png',\
         'resolution' : '1080',\
         'font' : 'fonts/OpenSans/OpenSans-Light.ttf',\
         'titleSize' : '35',\
         'subtitleSize' : '25',\
-        'titleColor' : 'ffffff',\
-        'subtitleColor' : 'ffffff',\
+        'titleColor' : 'fafafa',\
+        'subtitleColor' : '878787',\
         'anchorX' : 'right',\
         'anchorY' : 'top',\
         'offsetX' : '50',\
@@ -54,10 +54,10 @@ class ImageBackground():
         'imageBlur' : None,\
         'layers' : []\
     }
-    
+
     cfg = {}
-    
-    
+
+
     def __init__(self,opts):
         for opt in self.options:
             self.cfg[opt] = self.options[opt]
@@ -66,12 +66,12 @@ class ImageBackground():
             if self.cfg[opt] != opts[opt]:
                 self.cfg[opt] = opts[opt]
 
-                          
+
     def setOptions(self,opts):
         for opt in opts:
             if self.cfg[opt] != opts[opt]:
                 self.cfg[opt] = opts[opt]
-                
+
     def getRendersize(self, res):
         if str(res)=="poster":
             renderwidth = 512
@@ -89,21 +89,21 @@ class ImageBackground():
             renderwidth = 1280
             renderheight = 720
         return renderwidth, renderheight
-        
+
     def fullHDtext(self,number):
         number = int(number)*1080/720
         return number
-    
+
     def createFileHandle(self):
         cachefileStyle = normalizeString(self.cfg['template'])
         cachefileTitle = normalizeString(self.cfg['title'])
         cachefileSubtitle = normalizeString(self.cfg['subtitle'])
         cachefileRes = normalizeString(self.cfg['resolution'])
-        
+
         sourcefile = remove_junk(str(self.cfg['image']))
         sourcefile = remove_junk(str(sourcefile))
 
-        
+
         t1s = normalizeString(self.cfg['titleSize'])
         t1c = normalizeString(self.cfg['titleColor'])
         tax = normalizeString(self.cfg['anchorX'])
@@ -114,19 +114,19 @@ class ImageBackground():
         t2c = normalizeString(self.cfg['subtitleColor'])
         lh = normalizeString(self.cfg['lineheight'])
         ib = normalizeString(self.cfg['imageBlur'])
-        
+
         # add layers
         layerrange = range(0, len(self.cfg['layers']))
         cachefileLayers = ""
         for layercounter in layerrange:
             if self.cfg['layers'][layercounter] != None:
                 cachefileLayers = cachefileLayers+"+"+normalizeString(self.cfg['layers'][layercounter])
-                
+
         # fix for extra long subtitles
         if len(cachefileSubtitle) > 30:
             cachefileSubtitle = cachefileSubtitle[0:30]
         cachefile = cachefileStyle+cachefileLayers+"+"+sourcefile+"+"+cachefileTitle+"+"+t1s+"+"+t1c+"+"+tax+"+"+tay+"+"+tox+"+"+toy+"+"+cachefileSubtitle+"+"+t2s+"+"+t2c+"+"+lh+"+"+ib+"+"+cachefileRes
-        
+
         return cachefile
 
 
@@ -145,10 +145,10 @@ class ImageBackground():
         else:
             width = renderwidth
             height = renderheight
-            
+
         im = Image.new("RGB", (width, height), "black")
         background = background.resize((width, height), Image.ANTIALIAS)
-    
+
         # Blur BG
         if self.cfg['imageBlur'] != None and self.cfg['imageBlur'] != "" and self.cfg['imageBlur'] > 0:
             for i in range(0,int(self.cfg['imageBlur'])):
@@ -161,7 +161,7 @@ class ImageBackground():
                 layer = Image.open(stylepath+"/images/layers/"+self.cfg['layers'][layercounter]+".png")
                 layer = layer.resize((width, height), Image.ANTIALIAS)
                 im.paste(layer, ( 0, 0),layer)
-    
+
         if isatv2>0:
             im = im.resize((1280, 720), Image.ANTIALIAS)
         return im
@@ -172,7 +172,7 @@ class ImageBackground():
                 fontsize = int(self.cfg['titleSize'])
             else:
                 fontsize = int(params[4]) / 24
-            
+
             if self.cfg['titleColor'] != None and self.cfg['titleColor'] != "":
                 if is_hex(str(self.cfg['titleColor'])):
                     textcolor = self.cfg['titleColor']
@@ -181,15 +181,15 @@ class ImageBackground():
                     textcolor = self.cfg['titleColor']
             else: # Default Color
                 textcolor = (255, 255, 255)
-            
+
             text = unicode(urllib.unquote(self.cfg['title']), 'utf-8').replace('+',' ').strip()
-                                
+
         elif index == 2:
             if self.cfg['subtitleSize'] != None and self.cfg['subtitleSize'] != "":
                 fontsize = int(self.cfg['subtitleSize'])
             else:
                 fontsize = int(params[4]) / 36
-                
+
             if self.cfg['subtitleColor'] != None and self.cfg['subtitleColor'] != "":
                 if is_hex(str(self.cfg['subtitleColor'])):
                     textcolor = self.cfg['subtitleColor']
@@ -198,9 +198,9 @@ class ImageBackground():
                     textcolor = self.cfg['subtitleColor']
             else: # Default Color
                 textcolor = (255, 255, 255)
-                
+
             text = unicode(urllib.unquote(self.cfg['subtitle']), 'utf-8').replace('+',' ').strip()
-                
+
         # TypeSpace
         draw = ImageDraw.Draw(im)
         font = stylepath+"/"+self.cfg['font']
@@ -230,7 +230,7 @@ class ImageBackground():
             else:
                 offsety = 80
             # Subtitle
-            
+
             if index > 1 and ( self.cfg['title'] != None and self.cfg['title'] != "" ):
                 if self.cfg['titleSize'] != None or self.cfg['titleSize'] != "":
                     titlefontsize = int(self.cfg['titleSize'])
@@ -247,17 +247,17 @@ class ImageBackground():
             fontsize = self.fullHDtext(fontsize)
             offsetx = self.fullHDtext(offsetx)
             offsety = self.fullHDtext(offsety)
-        # Write    
+        # Write
         draw.text((int(offsetx), int(offsety)), text , font=ImageFont.truetype(font, int(fontsize)), fill=textcolor)
         return im
 
     def generate(self):
-    
+
     # Catch the Params
         cachepath = sys.path[0]+"/assets/fanartcache"
         stylepath = sys.path[0]+"/assets/thumbnails/"+self.cfg['template']
         cachefile = self.createFileHandle()
-        
+
         dprint(__name__, 1, 'Check for Cachefile.')  # Debug
         # Already created?
         if os.path.isfile(cachepath+"/"+cachefile+".png"):
@@ -283,7 +283,7 @@ class ImageBackground():
                     output.write(bgfile.read())
                     output.close()
                     background = Image.open(cachepath+"/tmp.png")
-                
+
             # Set Resolution and Merge Layers
             #if params[4] == "720":
             dprint(__name__, 1, 'Merging Layers.')  # Debug
@@ -298,7 +298,7 @@ class ImageBackground():
             if self.cfg['subtitle'] != None and self.cfg['subtitle'] != "":
                 im = self.textToImage (im, stylepath, 2)
             # Save to Cache
-            im.save(cachepath+"/"+cachefile+".png")  
+            im.save(cachepath+"/"+cachefile+".png")
             dprint(__name__, 1, 'Cachefile  generated.')  # Debug
             return cachefile+".png"
 
@@ -315,15 +315,15 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         cachefile = urllib.quote_plus(PMS_uuid +"_"+ id['ratingKey'] +"_"+ id['fileId'] +"_"+ resolution +"_"+ blurRadius) + titleText + subtitleText + gradientTemplate + ".png"
     else:
         fileid = posixpath.basename(urlparse.urlparse(url).path)
-        cachefile = urllib.quote_plus(PMS_uuid +"_"+ fileid +"_"+ resolution +"_"+ blurRadius) + titleText + subtitleText + gradientTemplate + ".png"  
+        cachefile = urllib.quote_plus(PMS_uuid +"_"+ fileid +"_"+ resolution +"_"+ blurRadius) + titleText + subtitleText + gradientTemplate + ".png"
         # quote: just to make sure...
-    
+
     # Already created?
     dprint(__name__, 1, 'Check for Cachefile.')  # Debug
     if os.path.isfile(cachepath+"/"+cachefile):
         dprint(__name__, 1, 'Cachefile  found.')  # Debug
         return "/fanartcache/"+cachefile
-    
+
     # No! Request Background from PMS
     dprint(__name__, 1, 'No Cachefile found. Generating Background.')  # Debug
     try:
@@ -343,9 +343,9 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
     except IOError as e:
         dprint(__name__, 0, 'IOError: {0} // url: {1}', str(e), url)
         return "/thumbnails/Plex/images/layers/blank.png"
-    
+
     blurRadius = int(blurRadius)
-    
+
     # Get gradient template
     dprint(__name__, 1, 'Merging Layers.')  # Debug
     if resolution == '1080':
@@ -355,7 +355,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         blurEnd = (1080/100) * int(blurEnd)
         blurRegion = (0, blurStart, 1920, blurEnd)
         # FT: get Background based on last Parameter
-        layer = Image.open(stylepath + "/images/layers/" + gradientTemplate + "_1080.png")
+        layer = Image.open(stylepath + "/images/layers/PlexOverview.png")
     else:
         width = 1280
         height = 720
@@ -363,18 +363,18 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         blurEnd = (720/100) * int(blurEnd)
         blurRegion = (0, blurStart, 1280, blurEnd)
         blurRadius = int(blurRadius / 1.5)
-        layer = Image.open(stylepath + "/images/layers/" + gradientTemplate + "_720.png")
-    
+        layer = Image.open(stylepath + "/images/layers/PlexOverview.png")
+
     # Set background resolution and merge layers
     try:
         bgWidth, bgHeight = background.size
         dprint(__name__,1 ,"Background size: {0}, {1}", bgWidth, bgHeight)
         dprint(__name__,1 , "aTV Height: {0}, {1}", width, height)
-    
+
         if bgHeight != height:
             background = background.resize((width, height), Image.ANTIALIAS)
             dprint(__name__,1 , "Resizing background")
-        
+
         if blurRadius != 0:
             dprint(__name__,1 , "Blurring Lower Region")
             imgBlur = background.crop(blurRegion)
@@ -385,7 +385,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
 
     except:
         dprint(__name__, 0, 'Error - Failed to modify image')
-        return "/thumbnails/Plex/images/layers/Background_blank_" + resolution + ".png"
+        return "/thumbnails/Plex/images/layers/blank.png"
 
     background = textToImage(stylepath, background, resolution, titleText, titleSize, textColor, align, valign, offsetx, offsety)
 
@@ -394,7 +394,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         background = textToImage(stylepath, background, resolution, subtitleText, subtitleSize, textColor, align, valign, offsetx, offsety)
 
     # Handle 1080 / atv3 Text
-    
+
     statusSize = 25
     statusX = 35
     statusY = 15
@@ -403,7 +403,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         statusSize = fullHDtext(statusSize)
         statusX = fullHDtext(statusX)
         statusY = fullHDtext(statusY)
-    
+
     if statusText != "":
             background = textToImage(stylepath, background, resolution, statusText, statusSize, textColor, "right", "top", statusX, statusY)
 
@@ -413,8 +413,8 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         background.save(cachepath+"/"+cachefile)
     except:
         dprint(__name__, 0, 'Error - Failed to save image file')
-        return "/thumbnails/Plex/images/layers/Background_blank_" + resolution + ".png"
-    
+        return "/thumbnails/Plex/images/layers/blank.png"
+
     dprint(__name__, 1, 'Cachefile  generated.')  # Debug
     return "/fanartcache/"+cachefile
 
@@ -441,19 +441,19 @@ def purgeFanart():
 def normalizeString(text):
     text = urllib.unquote(str(text)).replace(' ','+')
     text = unicodedata.normalize('NFKD',unicode(text,"utf8")).encode("ascii","ignore")  # Only ASCII CHARS
-    text = re.sub(r'\W+', '+', text) # No Special Chars  
+    text = re.sub(r'\W+', '+', text) # No Special Chars
     return text
 
 
 def textToImage(stylepath, im, resolution, textToWrite, fontsize, color, align, valign, offsetX, offsetY):
     # Set Font
-    font = stylepath + "/fonts/font.ttf"
+    font = stylepath + "/fonts/OpenSans/OpenSans-Light.ttf"
 
     # Set Color From Hex Value
     if is_hex(color):
         textcolor = color
         textcolor = tuple(int(textcolor[i:i+len(textcolor)/3], 16) for i in range(0, len(textcolor), len(textcolor)/3))
-    
+
     else: # Default Color
         textcolor = (255, 255, 255)
 
@@ -515,7 +515,7 @@ def is_hex(s):
             return False
     return True
 
-    
+
 def fullHDtext(number):
     number = int(number)*1080/720
     return number
@@ -526,14 +526,14 @@ def is_hex(s):
         if not (char in hex_digits):
             return False
     return True
-    
+
 def remove_junk(url):
     temp = urllib.unquote(str(url))
     temp = temp.split('/')[-1]
     temp = temp.split('?')[0]
     temp = temp.split('&')[0]
     return temp
-    
+
 
 
 

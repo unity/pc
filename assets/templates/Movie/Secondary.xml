@@ -9,14 +9,10 @@
 	    <imageHeader>
 	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=552|1080=828)}}, 0" required="true">
            {{URL(:/fanartcache/{{getBackground({{EVAL({\
-              'template'    : 'Plex',\
               'title'       : "{{TEXT(More...)}}",\
               'subtitle'    : "{{EVAL(quote_plus("{{VAL(title1)}}"))}}",\
-              'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
               'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
-              'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
-              'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'layers'      : ["PlexSubList"]\
               })}})}})}}
 	      </image>
@@ -34,6 +30,14 @@
                   <link>{{URL(key::/unwatched:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
               </oneLineMenuItem>{{CUT($movies_navbar_unwatched::Show=CUT|Hide=)}}
+
+              <oneLineMenuItem id="recentlyViewed" onPlay="atv.loadURL('{{URL(key::/recentlyViewed:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}')"
+											       onSelect="atv.loadURL('{{URL(key::/recentlyViewed:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}')">
+                <label>{{TEXT(Recently Viewed Movies)}}</label>
+                <preview>
+                  <link>{{URL(key::/recentlyViewed:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
+                </preview>
+              </oneLineMenuItem>
 
 
               <oneLineMenuItem id="collection" onPlay="atv.loadURL('{{URL(key::/collection:PlexConnect=Movie_DirectoryWithPreview)}}')"
@@ -79,15 +83,6 @@
                   <link>{{URL(key::/actor:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
                 </preview>
               </oneLineMenuItem>{{CUT($movies_navbar_actors::Show=CUT|Hide=)}}
-
-
-              <oneLineMenuItem id="recentlyViewed" onPlay="atv.loadURL('{{URL(key::/recentlyViewed:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}')"
-											       onSelect="atv.loadURL('{{URL(key::/recentlyViewed:PlexConnect=Movie_{{EVAL('{{VAL($movieview)}}'.replace(' ', ''))}})}}')">
-                <label>{{TEXT(Recently Viewed Movies)}}</label>
-                <preview>
-                  <link>{{URL(key::/recentlyViewedMovies:X-Plex-Container-Start=0&amp;X-Plex-Container-Size=25&amp;PlexConnect=Main_SectionPreview)}}</link>
-                </preview>
-              </oneLineMenuItem>
 
 
               <oneLineMenuItem id="year" onPlay="atv.loadURL('{{URL(key::/year:PlexConnect=Movie_DirectoryWithPreview)}}')"

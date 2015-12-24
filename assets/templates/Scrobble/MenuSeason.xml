@@ -63,7 +63,7 @@
               <label>{{TEXT(Change Poster)}}</label>
             </oneLineMenuItem>
 
-            <oneLineMenuItem id="item4" onSelect="atv.loadURL('{{URL(key:::PlexConnect=Artwork_ChangeFanart)}}')">
+            <oneLineMenuItem id="item4" onSelect="atv.loadURL('{{URL(key:::PlexConnect=Artwork_ChangeFanArtSeason)}}')">
               <label>{{TEXT(Change Fanart)}}</label>
             </oneLineMenuItem>
           </items>

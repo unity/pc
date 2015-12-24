@@ -16,16 +16,11 @@
          <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=630|1080=945)}}, 0" required="true">
                {{URL(:/fanartcache/{{getBackground({{EVAL({\
-               'template'    : 'Plex',\
                'title'       : "{{SETTING(plexhome_user)}}",\
-               'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
                'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
-               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
                'titleSize'   : '20',\
-               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                'offsetX'     : '70',\
                'offsetY'     : '35',\
-               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                'layers'      : ["PlexGridUser"]\
                })}})}})}}
            </image>
@@ -57,7 +52,7 @@
                   {{VAR(sections:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                     <title>{{VAL(title)}}</title>
                     <subtitle>&#x00AD;</subtitle><!--bugfix to prevent different poster sizes-->
-                    <image>{{URL(:/thumbnails/Plex/images/top/{{VAL(type)}}.png)}}</image>{{CUT($sectionicons::Basic=|Plex=CUT|Fanart=CUT|Custom=)}}
+                    <image>{{URL(:/thumbnails/Plex/images/icons/grid/{{VAL(type)}}.png)}}</image>{{CUT($sectionicons::Basic=|Plex=CUT|Fanart=CUT|Custom=)}}
                     <image>{{IMAGEURL(thumb::768)}}</image>{{CUT($sectionicons::Basic=CUT|Plex=|Fanart=CUT|Custom=CUT)}}
                     <image>{{IMAGEURL(art::768)}}</image>{{CUT($sectionicons::Basic=CUT|Plex=CUT|Fanart=|Custom=CUT)}}
                     <defaultImage>resource://{{VAL($sectionicons::Plex=Square|Basic=16X9|Fanart=16X9|Custom=16X9)}},png</defaultImage>

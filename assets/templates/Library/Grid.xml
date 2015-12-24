@@ -18,16 +18,11 @@
          <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=630|1080=945)}}, 0" required="true">
                {{URL(:/fanartcache/{{getBackground({{EVAL({\
-               'template'    : 'Plex',\
                'title'       : "{{SETTING(plexhome_user)}}",\
-               'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
                'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
-               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
                'titleSize'   : '20',\
-               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                'offsetX'     : '70',\
                'offsetY'     : '35',\
-               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                'layers'      : ["PlexGridUser"]\
                })}})}})}}
            </image>
@@ -36,13 +31,9 @@
           <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=630|1080=905)}}, 0" required="true">
                {{URL(:/fanartcache/{{getBackground({{EVAL({\
-               'template'    : 'Plex',\
                'title'       : "{{SETTING(plexhome_user)}}",\
-               'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
                'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
-               'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
                'titleSize'   : '20',\
-               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                'offsetX'     : '70',\
                'offsetY'     : '35',\
                'layers'      : ["PlexGridUser"]\
@@ -74,57 +65,21 @@
             {{VAR(items:NoKey:TRUE)}}
             <image>
                  {{URL(:/fanartcache/{{getBackground({{EVAL({\
-                 'template'    : 'Plex',\
                  'title'       : "{{VAL(title)}}",\
-                 'image'       : "flow/{{VAL(type)}}-flow.png",\
+                 'image'       : "{{VAL($sectionicons::Plex=icons/flow/{{VAL(type)}}-flow.png|Basic=icons/flow/{{VAL(type)}}-flow.png|Fanart=icons/flow/{{VAL(type)}}-flow-plex.png|Custom=icons/custom/flow/{{EVAL("{{VAL(title)}}".replace(' ', ''))}}-flow.png)}}",\
                  'resolution'  : "flow",\
-                 'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
                  'titleSize'   : "40",\
                  'anchorX'     : "center",\
                  'anchorY'     : "bottom",\
                  'offsetX'     : "0",\
                  'offsetY'     : "50",\
-                 'layers'      : ["FlowIconFanart"]\
+                 'layers'      : ["PlexFlowIcon"]\
                  })}})}})}}
-            </image>{{CUT($sectionicons::Basic=|Fanart=CUT|Custom=CUT)}}
-
-            <image>
-                 {{URL(:/fanartcache/{{getBackground({{EVAL({\
-                 'template'    : 'Plex',\
-                 'title'       : "{{VAL(title)}}",\
-                 'image'       : "flow/{{VAL(type)}}-flow-plex.png",\
-                 'resolution'  : "flow",\
-                 'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
-                 'titleSize'   : "40",\
-                 'anchorX'     : "center",\
-                 'anchorY'     : "bottom",\
-                 'offsetX'     : "0",\
-                 'offsetY'     : "50",\
-                 'layers'      : ["FlowIconFanart"]\
-                 })}})}})}}
-            </image>{{CUT($sectionicons::Basic=CUT|Fanart=|Custom=CUT)}}
-             <image>
-                 {{URL(:/fanartcache/{{getBackground({{EVAL({\
-                 'template'    : 'Plex',\
-                 'title'       : "{{VAL(title)}}",\
-                 'image'       : "custom/flow/{{EVAL("{{VAL(title)}}".replace(' ', ''))}}-flow.png",\
-                 'resolution'  : "flow",\
-                 'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
-                 'titleSize'   : "40",\
-                 'anchorX'     : "center",\
-                 'anchorY'     : "bottom",\
-                 'offsetX'     : "0",\
-                 'offsetY'     : "50",\
-                 'layers'      : ["FlowIconCostum"]\
-                 })}})}})}}
-            </image>{{CUT($sectionicons::Basic=CUT|Fanart=CUT|Custom=)}}
-
-
-            <defaultImage>resource://Poster.png</defaultImage>
-          </showcasePoster>
-
-        </items>
-      </showcase>{{CUT(@main/size:CUT:0=CUT|1=|1 =CUT)}}
+            </image>
+          <defaultImage>resource://Poster.png</defaultImage>
+        </showcasePoster>
+      </items>
+    </showcase>{{CUT(@main/size:CUT:0=CUT|1=|1 =CUT)}}
 
 
         <!-- servers -->
@@ -174,7 +129,7 @@
       <title>{{TEXT(On Deck)}} - {{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>{{CUT(@main/size:CUT:1=CUT|2=)}}
       </collectionDivider>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}{{CUT($library_ondeck::Show=|Hide=CUT)}}
 
-      <shelf id="shelf_1" columnCount="6">
+      <shelf id="shelf_1" columnCount="7">
         <sections>
           <shelfSection>
             <items>
@@ -205,7 +160,7 @@
            <title>{{TEXT(Recently Added)}} - {{VAL(name)}}{{VAL(local::0= &lt;{{TEXT(remote)}}&gt;|0 =)}}</title>{{CUT(@main/size:CUT:1=CUT|2=)}}
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}{{CUT($library_recentlyadded::Show=|Hide=CUT)}}
 
-        <shelf id="shelf_2" columnCount="6">
+        <shelf id="shelf_2" columnCount="7">
           <sections>
             <shelfSection>
               <items>
