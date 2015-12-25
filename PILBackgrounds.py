@@ -36,12 +36,11 @@ from PIL import ImageFilter
 
 class ImageBackground():
     options = {\
-        'template' : 'Plex',\
         'title' : '',\
         'subtitle' : '',\
-        'image' : 'backgrounds/plexdefault.png',\
+        'image' : 'Backgrounds/PlexDefault.png',\
         'resolution' : '1080',\
-        'font' : 'fonts/OpenSans/OpenSans-Light.ttf',\
+        'font' : 'Fonts/OpenSans/OpenSans-Light.ttf',\
         'titleSize' : '35',\
         'subtitleSize' : '25',\
         'titleColor' : 'fafafa',\
@@ -95,7 +94,6 @@ class ImageBackground():
         return number
 
     def createFileHandle(self):
-        cachefileStyle = normalizeString(self.cfg['template'])
         cachefileTitle = normalizeString(self.cfg['title'])
         cachefileSubtitle = normalizeString(self.cfg['subtitle'])
         cachefileRes = normalizeString(self.cfg['resolution'])
@@ -125,7 +123,7 @@ class ImageBackground():
         # fix for extra long subtitles
         if len(cachefileSubtitle) > 30:
             cachefileSubtitle = cachefileSubtitle[0:30]
-        cachefile = cachefileStyle+cachefileLayers+"+"+sourcefile+"+"+cachefileTitle+"+"+t1s+"+"+t1c+"+"+tax+"+"+tay+"+"+tox+"+"+toy+"+"+cachefileSubtitle+"+"+t2s+"+"+t2c+"+"+lh+"+"+ib+"+"+cachefileRes
+        cachefile = cachefileLayers+"+"+sourcefile+"+"+cachefileTitle+"+"+t1s+"+"+t1c+"+"+tax+"+"+tay+"+"+tox+"+"+toy+"+"+cachefileSubtitle+"+"+t2s+"+"+t2c+"+"+lh+"+"+ib+"+"+cachefileRes
 
         return cachefile
 
@@ -158,7 +156,7 @@ class ImageBackground():
         layerrange = range(0, len(self.cfg['layers']))
         for layercounter in layerrange:
             if self.cfg['layers'][layercounter] != None:
-                layer = Image.open(stylepath+"/images/layers/"+self.cfg['layers'][layercounter]+".png")
+                layer = Image.open(stylepath+"/Graphics/Layers/"+self.cfg['layers'][layercounter]+".png")
                 layer = layer.resize((width, height), Image.ANTIALIAS)
                 im.paste(layer, ( 0, 0),layer)
 
@@ -255,7 +253,7 @@ class ImageBackground():
 
     # Catch the Params
         cachepath = sys.path[0]+"/assets/fanartcache"
-        stylepath = sys.path[0]+"/assets/thumbnails/"+self.cfg['template']
+        stylepath = sys.path[0]+"/assets/thumbnails"
         cachefile = self.createFileHandle()
 
         dprint(__name__, 1, 'Check for Cachefile.')  # Debug
@@ -268,15 +266,15 @@ class ImageBackground():
             dprint(__name__, 1, 'No Cachefile found. Generating Background.')  # Debug
             # Setup Background
             url = urllib.unquote(self.cfg['image'])
-            if os.path.isfile(stylepath+"/images/"+url):
+            if os.path.isfile(stylepath+"/Graphics/"+url):
                 dprint(__name__, 1, 'Fetching Template Image.'  )  # Debug
-                background = Image.open(stylepath+"/images/"+url)
+                background = Image.open(stylepath+"/Graphics/"+url)
             elif url[0][0] != "/":
                 try:
                     bgfile = urllib2.urlopen(url)
                 except urllib2.URLError, e:
                     dprint(__name__, 1, 'error: {0}', str(e.code)+" "+e.msg+" // url:"+ url )  # Debug
-                    background = Image.open(stylepath+"/images/layers/blank.png")
+                    background = Image.open(stylepath+"/Graphics/Layers/Blank.png")
                 else:
                     dprint(__name__, 1, 'Fetting Remote Image.')  # Debug
                     output = open(cachepath+"/tmp.png",'wb')
@@ -305,7 +303,7 @@ class ImageBackground():
     # OverView Background
 def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate, titleText, subtitleText, titleSize, subtitleSize, textColor, align, valign, offsetx, offsety, lineheight, blurStart, blurEnd, statusText):
     cachepath = sys.path[0]+"/assets/fanartcache"
-    stylepath = sys.path[0]+"/assets/thumbnails/Plex"
+    stylepath = sys.path[0]+"/assets/thumbnails"
 
     # Create cache filename
     id = re.search('/library/metadata/(?P<ratingKey>\S+)/art/(?P<fileId>\S+)', url)
@@ -336,13 +334,13 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         background = Image.open(io.BytesIO(response))
     except urllib2.URLError as e:
         dprint(__name__, 0, 'URLError: {0} // url: {1}', e.reason, url)
-        return "/thumbnails/Plex/images/layers/blank.png"
+        return "/thumbnails/Graphics/Layers/Blank.png"
     except urllib2.HTTPError as e:
         dprint(__name__, 0, 'HTTPError: {0} {1} // url: {2}', str(e.code), e.msg, url)
-        return "/thumbnails/Plex/images/layers/blank.png"
+        return "/thumbnails/Graphics/Layers/Blank.png"
     except IOError as e:
         dprint(__name__, 0, 'IOError: {0} // url: {1}', str(e), url)
-        return "/thumbnails/Plex/images/layers/blank.png"
+        return "/thumbnails/Graphics/Layers/Blank.png"
 
     blurRadius = int(blurRadius)
 
@@ -355,7 +353,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         blurEnd = (1080/100) * int(blurEnd)
         blurRegion = (0, blurStart, 1920, blurEnd)
         # FT: get Background based on last Parameter
-        layer = Image.open(stylepath + "/images/layers/PlexOverview.png")
+        layer = Image.open(stylepath + "/Graphics/Layers/PlexOverview.png")
     else:
         width = 1280
         height = 720
@@ -363,7 +361,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         blurEnd = (720/100) * int(blurEnd)
         blurRegion = (0, blurStart, 1280, blurEnd)
         blurRadius = int(blurRadius / 1.5)
-        layer = Image.open(stylepath + "/images/layers/PlexOverview.png")
+        layer = Image.open(stylepath + "/Graphics/Layers/PlexOverview.png")
 
     # Set background resolution and merge layers
     try:
@@ -385,7 +383,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
 
     except:
         dprint(__name__, 0, 'Error - Failed to modify image')
-        return "/thumbnails/Plex/images/layers/blank.png"
+        return "/thumbnails/Graphics/Layers/Blank.png"
 
     background = textToImage(stylepath, background, resolution, titleText, titleSize, textColor, align, valign, offsetx, offsety)
 
@@ -413,7 +411,7 @@ def generate(PMS_uuid, url, authtoken, resolution, blurRadius, gradientTemplate,
         background.save(cachepath+"/"+cachefile)
     except:
         dprint(__name__, 0, 'Error - Failed to save image file')
-        return "/thumbnails/Plex/images/layers/blank.png"
+        return "/thumbnails/Graphics/Layers/Blank.png"
 
     dprint(__name__, 1, 'Cachefile  generated.')  # Debug
     return "/fanartcache/"+cachefile
@@ -447,7 +445,7 @@ def normalizeString(text):
 
 def textToImage(stylepath, im, resolution, textToWrite, fontsize, color, align, valign, offsetX, offsetY):
     # Set Font
-    font = stylepath + "/fonts/OpenSans/OpenSans-Light.ttf"
+    font = stylepath + "/Fonts/OpenSans/OpenSans-Light.ttf"
 
     # Set Color From Hex Value
     if is_hex(color):

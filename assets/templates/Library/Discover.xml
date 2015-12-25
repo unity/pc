@@ -44,7 +44,7 @@
                         <!-- /library/sections -->
                   {{VAR(serverName:name)}}
                   {{VAR(searchKey:searchKey)}}
-                  <moviePoster id="{{VAL(key)}}" showOutline="false" alwaysShowTitles="true" featured="{{VAL($sectionicons::Plex=false|Basic=true|Fanart=false|Custom=true)}}"
+                  <moviePoster id="{{VAL(key)}}" showOutline="{{VAL($sectionicons::Plex=false|Basic=true|Fanart=true|Custom=true)}}" alwaysShowTitles="true" featured="{{VAL($sectionicons::Plex=false|Basic=true|Fanart=true|Custom=true)}}"
                                onPlay="atv.loadURL('{{URL(key:::PlexConnect={{EVAL('{{VAL(scanner)}}'.replace(' ', '_'))}})}}')"
                                onSelect="atv.loadURL('{{URL(key:::PlexConnect={{EVAL('{{VAL(scanner)}}'.replace(' ', '_'))}})}}')"
                                onHoldSelect="sectionHoldSelect('{{VAL(key)}}', '{{URL(#searchKey)}}', '{{VAL(#serverName)}}', '{{URL(refreshKey)}}', '{{VAL(title)}}')">
@@ -52,16 +52,17 @@
                   {{VAR(sections:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                     <title>{{VAL(title)}}</title>
                     <subtitle>&#x00AD;</subtitle><!--bugfix to prevent different poster sizes-->
-                    <image>{{URL(:/thumbnails/Plex/images/icons/grid/{{VAL(type)}}.png)}}</image>{{CUT($sectionicons::Basic=|Plex=CUT|Fanart=CUT|Custom=)}}
+                    <image>{{URL(:/thumbnails/Graphics/Icons/grid/{{VAL(type)}}.png)}}</image>{{CUT($sectionicons::Basic=|Plex=CUT|Fanart=CUT|Custom=)}}
                     <image>{{IMAGEURL(thumb::768)}}</image>{{CUT($sectionicons::Basic=CUT|Plex=|Fanart=CUT|Custom=CUT)}}
                     <image>{{IMAGEURL(art::768)}}</image>{{CUT($sectionicons::Basic=CUT|Plex=CUT|Fanart=|Custom=CUT)}}
-                    <defaultImage>resource://{{VAL($sectionicons::Plex=Square|Basic=16X9|Fanart=16X9|Custom=16X9)}},png</defaultImage>
+                    <defaultImage>resource://{{VAL($sectionicons::Plex=Square|Basic=16X9|Fanart=16X9|Custom=16X9)}}.png</defaultImage>
                   </moviePoster>
                 </items>
               </shelfSection>
             </sections>
           </shelf>
         </__COPY__>
+
 
  <!--Continue Watching-->
        <__COPY__>
@@ -123,9 +124,6 @@
         </shelf>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}
       </__COPY__>
 
-      <collectionDivider alignment="left" accessibilityLabel="Library">
-      <title></title>
-     </collectionDivider>
 
 <!--Recently Added-->
         <__COPY__>
@@ -156,9 +154,6 @@
         </shelf>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
         </__COPY__>
 
-        <collectionDivider alignment="left" accessibilityLabel="Library">
-        <title></title>
-       </collectionDivider>
 
         <__COPY__>
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
