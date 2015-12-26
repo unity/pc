@@ -81,7 +81,7 @@
                 <rightLabel>{{SETTING(plexhome_user)}}</rightLabel>{{CUT($plexhome_enable:CUT:False=CUT|True=)}}{{CUT($plexhome_auth:CUT:=CUT| =)}}
               </oneLineMenuItem>
               <oneLineMenuItem id="TrancoderView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Transcoder)}}')">
-                <label>{{TEXT(PMS Transcoder Options)}}</label>
+                <label>{{TEXT(Transcoder Options)}}</label>
                 <accessories>
                   <arrow/>
                 </accessories>
@@ -95,24 +95,55 @@
               </horizontalDivider>
             </header>
               <items>
+
               <oneLineMenuItem id="Precache" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_TopLevel)}}')">
                 <label>{{TEXT(General Appearance)}}</label>
                 <accessories>
                   <arrow/>
                 </accessories>
               </oneLineMenuItem>
-              <oneLineMenuItem id="Precache" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Sections)}}')">
-                <label>{{TEXT(Section Options)}}</label>
+
+              <oneLineMenuItem id="LibraryView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Library)}}')">
+                <label>{{TEXT(Library Options)}}</label>
                 <accessories>
                   <arrow/>
                 </accessories>
               </oneLineMenuItem>
-              <!--<oneLineMenuItem id="Precache" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Theme)}}')">
-                <label>{{TEXT(Theme Options)}}</label>
+
+              <oneLineMenuItem id="MovieView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Movies)}}')">
+                <label>{{TEXT(Movie Options)}}</label>
                 <accessories>
                   <arrow/>
                 </accessories>
-              </oneLineMenuItem>-->
+              </oneLineMenuItem>
+
+              <oneLineMenuItem id="MusicView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_Music)}}')">
+                <label>{{TEXT(Music Options)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>
+              </oneLineMenuItem>
+
+              <oneLineMenuItem id="ShowView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_TVShows)}}')">
+                <label>{{TEXT(TV Show Options)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>
+              </oneLineMenuItem>
+
+              <oneLineMenuItem id="HomevideoView" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_HomeVideos)}}')">
+                <label>{{TEXT(Home Video Options)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>
+              </oneLineMenuItem>
+
+              <oneLineMenuItem id="VideoOSD" onSelect="atv.loadURL('{{URL(:/::PlexConnect=Settings_VideoOSD)}}')">
+                <label>{{TEXT(Video Player OSD)}}</label>
+                <accessories>
+                  <arrow/>
+                </accessories>
+              </oneLineMenuItem>
 
             </items>
           </menuSection>

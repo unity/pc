@@ -100,6 +100,11 @@
                 <rightLabel>{{SETTING(fanartblur)}}</rightLabel>
               </oneLineMenuItem>
 
+              <oneLineMenuItem id="Fanart_Blur" onSelect="toggleSettings('Fanart_Blur', 'Settings_TopLevel')">
+                <label>{{TEXT(Overview Fanart Blur)}}</label>
+                <rightLabel>{{SETTING(fanart_blur)}}</rightLabel>
+              </oneLineMenuItem>
+
               <oneLineMenuItem id="FanartTint" onSelect="toggleSettings('FanartTint', 'Settings_TopLevel')">
                 <label>{{TEXT(Fanart Tint)}}</label>
                 <rightLabel>{{SETTING(fanarttint)}}</rightLabel>

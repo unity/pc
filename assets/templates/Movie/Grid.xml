@@ -9,7 +9,7 @@
     <scroller id="Movie_Grid">
       <header>
           <imageHeader>
-           <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=550|1080=825)}}, 0" required="true">
+           <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=600|1080=900)}}, 0" required="true">
           {{URL(:/fanartcache/{{getBackground({{EVAL({\
               'title'       : "{{EVAL(quote_plus("{{VAL(title1)}}"))}}",\
               'resolution'  : "{{VAL(^aTVScreenResolution)}}",\

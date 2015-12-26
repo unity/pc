@@ -11,8 +11,7 @@ from Debug import *  # dprint()
 
 options = { \
     'playlistsview'                     :('List', 'Grid', 'Hide'), \
-    'libraryview'                       :('Grid', 'Discover', 'List', 'Hide'), \
-    'discoverview'                      :('Show', 'Hide'), \
+    'libraryview'                       :('Discover', 'Grid', 'List', 'Hide'), \
     'sharedlibrariesview'               :('List', 'Grid', 'Hide'), \
     'channelview'                       :('Grid', 'List', 'Bookcase', 'Hide'), \
     'sharedchannelsview'                :('Grid', 'List', 'Bookcase', 'Hide'), \
@@ -23,18 +22,11 @@ options = { \
     'movies_artwork'                    :('Recently Added', 'On Deck', 'Recently Released'), \
     'globalsearch'                      :('Show', 'Hide'), \
     'movie_extras'                      :('Show', 'Hide'), \
-    'moviepreplay_settings'             :('Show', 'Hide'), \
-    'showpreplay_settings'              :('Show', 'Hide'), \
     'moviepreplay_bottomshelf'          :('Extras', 'Related Movies'), \
     'seasonview'                        :('Coverflow', 'List'), \
     'sectionicons'                      :('Basic','Plex', 'Fanart', 'Custom'), \
-    'shared_sectionicons'               :('Basic', 'Fanart'), \
-    'libraryfanart'                     :('Hide', 'Show'), \
-    'library_search'                    :('Hide', 'Show'), \
-    'libraryremote_search'              :('Hide', 'Show'), \
     'library_ondeck'                    :('Show', 'Hide'), \
     'library_recentlyadded'             :('Show', 'Hide'), \
-    'showtitles_library'                :('Show All', 'Highlighted Only'), \
     'actorview'                         :('Movies', 'Portrait'), \
     'flattenseason'                     :('False', 'True'), \
     'durationformat'                    :('Hours/Minutes', 'Minutes'), \
