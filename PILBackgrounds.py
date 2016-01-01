@@ -40,7 +40,7 @@ class ImageBackground():
         'subtitle' : '',\
         'image' : 'Backgrounds/PlexDefault.png',\
         'resolution' : '1080',\
-        'font' : 'Fonts/OpenSans/OpenSans-Light.ttf',\
+        'font' : 'fonts/SanFrancisco/SanFranciscoRegular.ttf',\
         'titleSize' : '35',\
         'subtitleSize' : '25',\
         'titleColor' : 'fafafa',\

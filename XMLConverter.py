@@ -389,6 +389,10 @@ def XML_PMS2aTV(PMS_address, path, options):
     dprint(__name__, 1, "---------------------------------------------")
 
     PMSroot = None
+    if path == '/library/sections/1/unwatched' :
+        path = '/library/sections/1/all?sort=addedAt:desc&unwatched=1'
+        # all?sort=addedAt:desc&unwatched=1
+
     while True:
         # request PMS-XML
         if not path=='' and not PMSroot and PMS_address:

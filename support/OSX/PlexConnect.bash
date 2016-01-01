@@ -39,4 +39,4 @@ done
 
 
 # Start PlexConnect
-./${APPNAME}
+/usr/local/bin/python ./${APPNAME}

@@ -103,8 +103,7 @@
           <collectionDivider alignment="left" accessibilityLabel="Movies">
               <title>{{TEXT(All Movies)}} ({{VAL(size)}})</title>
           </collectionDivider>
-
-          <grid columnCount="5" id="movie_grid_1">
+          <grid columnCount="7" id="grid_0">
               <items>
                   <goldenPoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                       onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
@@ -114,7 +113,7 @@
                       <title>{{VAL(title)}} ({{VAL(year:&#x00AD;)}})</title>
                       <image>{{IMAGEURL(thumb::768)}}</image>
                       <defaultImage>resource://Poster.png</defaultImage>
-                  </goldenPoster>
+                  </moviePoster>
               </items>
           </grid>
       </items>

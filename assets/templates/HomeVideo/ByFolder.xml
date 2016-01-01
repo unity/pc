@@ -18,7 +18,7 @@
 	    </imageHeader>
       </header>
       <items>
-        <grid columnCount="5" id="grid_0">
+        <grid columnCount="7" id="grid_0">
           <items>
             <moviePoster id="{{VAL(key)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                              onPlay="atv.loadURL('{{URL(key:::PlexConnect=HomeVideo_ByFolder)}}')"
@@ -57,7 +57,7 @@
                 'subtitle'    : "{{EVAL(quote_plus("{{VAL(title2)}}"))}}",\
                 'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
                 'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
-                'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
+                'font'        : "fonts/SanFrancisco/SanFranciscoRegular.ttf",\
                 'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                 'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
                 'layers'      : ["PlexSubList{{VAL($paradelisttint::On=Text|Off=)}}"]\
@@ -119,7 +119,7 @@
               'subtitle'    : "{{EVAL(quote_plus("{{VAL(title2)}}"))}}",\
               'image'       : "backgrounds/plex{{VAL($menubackground::Default Black=default|PHT Grey=grey|Plex Orange=orange|Apple Blue=blue|Android Green=green)}}.png",\
               'resolution'  : "{{VAL(^aTVScreenResolution)}}",\
-              'font'        : "fonts/OpenSans/OpenSans-Light.ttf",\
+              'font'        : "fonts/SanFrancisco/SanFranciscoRegular.ttf",\
               'titleColor'  : "{{VAL($titlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'subtitleColor': "{{VAL($subtitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}",\
               'layers'      : ["PlexSubList{{VAL($listtint::On=Text|Off=)}}"]\
