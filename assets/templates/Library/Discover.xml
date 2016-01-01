@@ -132,6 +132,10 @@
         </shelf>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}
       </__COPY__>
 
+      <collectionDivider alignment="left" accessibilityLabel="TV Shows">
+          <title></title>
+      </collectionDivider>
+
 
 <!--Recently Added-->
         <__COPY__>
@@ -161,6 +165,10 @@
           </sections>
         </shelf>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
         </__COPY__>
+
+        <collectionDivider alignment="left" accessibilityLabel="TV Shows">
+            <title></title>
+        </collectionDivider>
 
 
         <__COPY__>

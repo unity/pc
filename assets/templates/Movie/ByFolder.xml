@@ -7,7 +7,7 @@
     <itemCollectionWithImageHeader id="MovieList" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=Movie_ByFolder)}}')">
       <header>
         <imageHeader>
-	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=670|1080=1005)}}, 0" required="true">
+	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=552|1080=828)}}, 0" required="true">
 	    {{URL(:/fanartcache/{{getBackground({{EVAL({\
               'title'       : "{{EVAL(quote_plus("{{VAL(title2)}}"))}}",\
               'subtitle'    : "{{EVAL(quote_plus("{{VAL(title1)}}"))}}",\
@@ -27,11 +27,11 @@
                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=Movie_ByFolder)}}')">
                 {{COPY(Directory)}}
                 <label>{{VAL(title)}}</label>
-                <image>{{URL(:/thumbnails/Plex/images/icons/Folder.png)}}</image>
+                <image>{{URL(:/thumbnails/Graphics/Icons/Folder.png)}}</image>
                 <defaultImage>resource://Poster.png</defaultImage>
                 <preview>
                   <crossFadePreview>
-                    <image>{{URL(:/thumbnails/Plex/images/icons/Folder.png)}}</image>
+                    <image>{{URL(:/thumbnails/Graphics/Icons/Folder.png)}}</image>
                   </crossFadePreview>
                 </preview>
               </twoLineEnhancedMenuItem>
@@ -44,21 +44,23 @@
                 <label>{{VAL(title)}}</label>
                 <label2>{{durationToString(NoKey:Video:duration)}}</label2>
                 <accessories>
-                  <unplayedDot/>{{CUT(viewOffset)}}
-                  <partiallyPlayedDot/>
-                </accessories>{{CUT(viewCount)}}
-                <preview>
-                  <crossFadePreview>
-                    <image>{{IMAGEURL(thumb::384)}}</image>
-                  </crossFadePreview>
-                </preview>
+                  <unplayedDot/>{{CUT(viewCount)}}{{CUT(viewOffset)}}
+                  <partiallyPlayedDot/>{{CUT(viewOffset:CUT:=)}}
+                </accessories>{{CUT(^aTVFirmwareVersion::=|6.0=CUT)}}
+                <accessories>
+                  <progressBar percentage="0"/>{{CUT(Video/viewCount)}}{{CUT(Video/viewOffset)}}
+                  <progressBar percentage="{{EVAL({{VAL(Video/viewOffset:0)}} * 100 / {{VAL(Video/duration:1)}})}}"/>{{CUT(Video/viewOffset:CUT:=)}}
+                  <progressBar percentage="100"/>{{CUT(Video/viewCount:CUT:=)}}{{CUT(Video/viewOffset)}}
+                </accessories>{{CUT(^aTVFirmwareVersion:CUT:=CUT|6.0=)}}
+                <image>{{IMAGEURL(thumb::384)}}</image>
+                <defaultImage>resource://Poster.png</defaultImage>
               </twoLineMenuItem>
             </items>
           </menuSection>
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-  </body>{{CUT($movieview::Detailed=CUT|List=|Artwork=CUT)}}
+  </body>{{CUT($movieview::Detailed=CUT|List=|Grid=CUT)}}
 
   <body>
     <itemCollectionWithImageHeader id="Movie_DetailedList" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=Movie_ByFolder)}}')">
@@ -84,11 +86,11 @@
                              onSelect="atv.loadURL('{{URL(key:::PlexConnect=Movie_ByFolder)}}')">
                 {{COPY(Directory)}}
                 <label>{{VAL(title)}}</label>
-                <image>{{URL(:/thumbnails/Plex/images/icons/Folder.png)}}</image>
+                <image>{{URL(:/thumbnails/Grpahics/Icons/Folder.png)}}</image>
                 <defaultImage>resource://Poster.png</defaultImage>
                 <preview>
                   <crossFadePreview>
-                    <image>{{URL(:/thumbnails/images/icons/Folder.png)}}</image>
+                    <image>{{URL(:/thumbnails/Grpahics/Icons/Folder.png)}}</image>
                   </crossFadePreview>
                 </preview>
               </twoLineEnhancedMenuItem>
@@ -128,7 +130,7 @@
         </sections>
       </menu>
     </itemCollectionWithImageHeader>
-  </body>{{CUT($movieview::Detailed=|List=CUT|Artwork=CUT)}}
+  </body>{{CUT($movieview::Detailed=|List=CUT|Grid=CUT)}}
 
 
    <body>
@@ -154,7 +156,7 @@
               {{COPY(Directory)}}
               <title>{{VAL(title)}}</title>
               <subtitle>{{VAL(year:&#x00AD;)}}</subtitle>
-              <image>{{URL(:/thumbnails/Plex/images/icons/Folder.png)}}</image>
+              <image>{{URL(:/thumbnails/Grpahics/Icons/Folder.png)}}</image>
               <defaultImage>resource://Poster.png</defaultImage>
             </goldenPoster>
 
@@ -168,8 +170,7 @@
               <defaultImage>resource://Poster.png</defaultImage>
             </goldenPoster>
           </items>
-        </grid>
       </items>
     </scroller>
-  </body>{{CUT($movieview::Detailed=CUT|List=CUT|Artwork=)}}
+  </body>{{CUT($movieview::Detailed=CUT|List=CUT|Grid=)}}
 </atv>

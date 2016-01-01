@@ -27,9 +27,9 @@
                   <partiallyPlayedDot/>{{CUT(viewOffset:CUT:=)}}
                 </accessories>{{CUT(^aTVFirmwareVersion::=|6.0=CUT)}}
                 <accessories>
-                <HD/>{{CUT(Media/videoResolution:CUT:480=CUT|576=CUT|720=|1080=|SD=CUT)}}{{CUT(viewCount)}}{{CUT(viewOffset)}}
-                <progressBar percentage="{{EVAL({{VAL(viewOffset:0)}} * 100 / {{VAL(duration:1)}})}}"/>{{CUT(viewOffset:CUT:=)}}
-                <HD/>{{CUT(Media/videoResolution:CUT:480=CUT|576=CUT|720=|1080=|SD=CUT)}}{{CUT(viewCount:CUT:=)}}{{CUT(viewOffset)}}
+                  <progressBar percentage="0"/>{{CUT(Video/viewCount)}}{{CUT(Video/viewOffset)}}
+                  <progressBar percentage="{{EVAL({{VAL(Video/viewOffset:0)}} * 100 / {{VAL(Video/duration:1)}})}}"/>{{CUT(Video/viewOffset:CUT:=)}}
+                  <progressBar percentage="100"/>{{CUT(Video/viewCount:CUT:=)}}{{CUT(Video/viewOffset)}}
                 </accessories>{{CUT(^aTVFirmwareVersion:CUT:=CUT|6.0=)}}
                 <image>{{IMAGEURL(thumb::384)}}</image>
                 <defaultImage>resource://Poster.png</defaultImage>
