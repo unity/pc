@@ -98,10 +98,6 @@
           </shelf>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}
         </__COPY__>
 
-        <collectionDivider alignment="left" accessibilityLabel="Library">
-        <title></title>
-       </collectionDivider>{{CUT(@main/size:CUT:0=CUT|1=CUT|1 =)}}
-
 <!--On Deck-->
       <__COPY__>
       {{COPY(@OnDeck/Server:size::0=|1=COPY)}}
@@ -110,7 +106,7 @@
        <title>{{TEXT(On Deck)}}</title>
      </collectionDivider>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}
 
-      <shelf id="shelf_2" columnCount="6">
+      <shelf id="shelf_2" columnCount="5">
         <sections>
           <shelfSection>
             <items>
@@ -132,11 +128,6 @@
         </shelf>{{CUT(@OnDeck/Server/size:CUT:0=CUT|1=)}}
       </__COPY__>
 
-      <collectionDivider alignment="left" accessibilityLabel="TV Shows">
-          <title></title>
-      </collectionDivider>
-
-
 <!--Recently Added-->
         <__COPY__>
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
@@ -145,7 +136,7 @@
           <title>{{TEXT(Recently Added Movies)}}</title>
         </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
 
-        <shelf id="shelf_4" columnCount="6">
+        <shelf id="shelf_4" columnCount="5">
           <sections>
             <shelfSection>
               <items>
@@ -166,11 +157,6 @@
         </shelf>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
         </__COPY__>
 
-        <collectionDivider alignment="left" accessibilityLabel="TV Shows">
-            <title></title>
-        </collectionDivider>
-
-
         <__COPY__>
         {{COPY(@RecentlyAdded/Server:size::0=|1=COPY)}}
 
@@ -178,7 +164,7 @@
          <title>{{TEXT(Recently Added Television)}}</title>
        </collectionDivider>{{CUT(@RecentlyAdded/Server/size:CUT:0=CUT|1=)}}
 
-       <shelf id="shelf_3" columnCount="6">
+       <shelf id="shelf_3" columnCount="5">
          <sections>
            <shelfSection>
              <items>

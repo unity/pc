@@ -21,7 +21,7 @@
 
        <items>
          <collectionDivider alignment="left" accessibilityLabel="TV Shows">
-             <title>{{TEXT(All Movies)}} ({{VAL(size)}})</title>
+             <title>All Movies ({{VAL(size)}})</title>
          </collectionDivider>
 
           <grid columnCount="5" id="grid_0">

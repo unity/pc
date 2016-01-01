@@ -170,6 +170,7 @@
               <defaultImage>resource://Poster.png</defaultImage>
             </goldenPoster>
           </items>
+        </grid>
       </items>
     </scroller>
   </body>{{CUT($movieview::Detailed=CUT|List=CUT|Grid=)}}
