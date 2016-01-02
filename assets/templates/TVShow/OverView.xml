@@ -14,15 +14,15 @@
           <imageHeader>
            <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=620)}}, 0" required="true">
           {{BACKGROUNDURL(@OnDeck/Video/art::PlexOverview:{{EVAL(quote_plus("{{VAL(@OnDeck/Video/title)}}"))}}:{{EVAL(quote_plus("{{VAL(@OnDeck/Video/grandparentTitle)}} | {{TEXT(Season)}} {{VAL(@OnDeck/Video/parentIndex)}} - {{TEXT(Episode)}} {{VAL(@OnDeck/Video/index)}}"))}}:35:20:FFFFFF:left:bottom:70:500:-50:0:100:{{EVAL(quote_plus("{{VAL(title1)}}"))}})}}
-	       </image>{{CUT($shows_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}
+         </image>{{CUT($shows_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}
 
-	       <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=620)}}, 0" required="true">
+         <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=620)}}, 0" required="true">
           {{BACKGROUNDURL(@recentlyAdded/Video/art::PlexOverview:{{EVAL(quote_plus("{{VAL(@recentlyAdded/Video/title)}}"))}}:{{EVAL(quote_plus("{{VAL(@recentlyAdded/Video/grandparentTitle)}} | {{TEXT(Season)}} {{VAL(@OnDeck/Video/parentIndex)}} - {{TEXT(Episode)}} {{VAL(@OnDeck/Video/index)}}"))}}:35:20:FFFFFF:left:bottom:70:500:-50:0:100:{{EVAL(quote_plus("{{VAL(title1)}}"))}})}}
-	       </image>{{CUT($shows_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
+         </image>{{CUT($shows_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
 
-	       <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=620)}}, 0" required="true">
+         <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=620)}}, 0" required="true">
           {{BACKGROUNDURL(@newest/Video/art::PlexOverview:{{EVAL(quote_plus("{{VAL(@newest/Video/title)}}"))}}:{{EVAL(quote_plus("{{VAL(@newest/Video/grandparentTitle)}} | {{TEXT(Season)}} {{VAL(@OnDeck/Video/parentIndex)}} - {{TEXT(Episode)}} {{VAL(@OnDeck/Video/index)}}"))}}:35:20:FFFFFF:left:bottom:70:500:-50:0:100:{{EVAL(quote_plus("{{VAL(title1)}}"))}})}}
-	       </image>{{CUT($shows_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
+         </image>{{CUT($shows_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
           </imageHeader>
       </header>
 
@@ -105,7 +105,8 @@
           <collectionDivider alignment="left" accessibilityLabel="TV Shows">
               <title>{{TEXT(All TV Shows)}} ({{VAL(size)}})</title>
           </collectionDivider>
-        <grid columnCount="7" id="grid_0">
+
+        <grid columnCount="5" id="grid_0">
           <items>
             <goldenPoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
                         onPlay="atv.loadURL('{{URL(key:::PlexConnect=TVShow_Season)}}')"
@@ -116,12 +117,12 @@
               <image>{{IMAGEURL(thumb::768)}}</image>
               <defaultImage>resource://Poster.png</defaultImage>
               <badgeCount>{{unwatchedCountGrid(leafCount:0:viewedLeafCount:0)}}</badgeCount>{{CUT($showunwatched::False=CUT|True=)}}
-            </moviePoster>{{CUT(Directory/title:CUT:=)}}
+            </goldenPoster>{{CUT(Directory/title:CUT:=)}}
 
-            <moviePoster id="none">
+            <goldenPoster id="none">
               <title>{{TEXT(No Unwatched Shows)}}</title>
               <defaultImage>resource://Poster.png</defaultImage>
-            </moviePoster>{{CUT(Directory/title::=CUT)}}
+            </goldenPoster>{{CUT(Directory/title::=CUT)}}
           </items>
         </grid>
 
