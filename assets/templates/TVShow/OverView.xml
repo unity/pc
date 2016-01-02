@@ -36,10 +36,7 @@
               <sections>
                   <shelfSection>
                       <items>
-                          <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" alwaysShowTitles="{{VAL($showtitles_library::Highlighted Only=false|Show All=true)}}"
-                                  onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')"
-                                  onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=TVShow_PrePlay)}}')"
-                                  onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuTVOnDeck)}}')">
+                          <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}}&amp;PlexConnectPlayType=Continuous)}}')" onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=TVShow_PrePlay)}}')" onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuTVOnDeck)}}')">
                               {{COPY(@OnDeck/Video)}}
                               {{VAR(items:NoKey:TRUE)}}  <!--within COPY this sets the var to TRUE-->
                               <title>{{VAL(grandparentTitle)}}</title>
