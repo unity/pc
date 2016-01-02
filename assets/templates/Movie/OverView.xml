@@ -12,18 +12,18 @@
     <scroller id="Movie_Overview">
       <header>
           <imageHeader>
-           <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=635)}}, 0" required="true">
-              {{BACKGROUNDURL(@recentlyAdded/Video/art::PlexOverview:{{EVAL(quote_plus("{{VAL(@recentlyAdded/Video/title)}}"))}}:{{EVAL(quote_plus("{{VAL(@recentlyAdded/Video/year)}} / {{VAL(@recentlyAdded/Video/studio)}}"))}}:35:25:FFFFFF:left:bottom:70:500:-50:56:100:{{EVAL(quote_plus("{{VAL(title1)}}"))}})}}
-	       </image>{{CUT($movies_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
+          <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=635)}}, 0" required="true">
+            {{BACKGROUNDURL(@recentlyAdded/Video/art::PlexOverview:{{EVAL(quote_plus("{{VAL(@recentlyAdded/Video/title)}}"))}}:{{EVAL(quote_plus("{{VAL(@recentlyAdded/Video/year)}} / {{VAL(@recentlyAdded/Video/studio)}}"))}}:35:25:FFFFFF:left:bottom:70:500:-50:56:100:{{EVAL(quote_plus("{{VAL(title1)}}"))}})}}
+          </image>{{CUT($movies_artwork::On Deck=CUT|Recently Added=|Recently Released=CUT)}}
 
-	       <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=635)}}, 0" required="true">
-              {{BACKGROUNDURL(@OnDeck/Video/art::PlexOverview:{{EVAL(quote_plus("{{VAL(@OnDeck/Video/title)}}"))}}:{{EVAL(quote_plus("{{VAL(@OnDeck/Video/year)}} / {{VAL(@OnDeck/Video/studio)}}"))}}:35:25:FFFFFF:left:bottom:70:500:-50:56:100:{{EVAL(quote_plus("{{VAL(title1)}}"))}})}}
-	       </image>{{CUT($movies_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}
+          <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=635)}}, 0" required="true">
+            {{BACKGROUNDURL(@OnDeck/Video/art::PlexOverview:{{EVAL(quote_plus("{{VAL(@OnDeck/Video/title)}}"))}}:{{EVAL(quote_plus("{{VAL(@OnDeck/Video/year)}} / {{VAL(@OnDeck/Video/studio)}}"))}}:35:25:FFFFFF:left:bottom:70:500:-50:56:100:{{EVAL(quote_plus("{{VAL(title1)}}"))}})}}
+          </image>{{CUT($movies_artwork::On Deck=|Recently Added=CUT|Recently Released=CUT)}}
 
-	       <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=635)}}, 0" required="true">
+          <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=413|1080=635)}}, 0" required="true">
               {{BACKGROUNDURL(@newest/Video/art::PlexOverview:{{EVAL(quote_plus("{{VAL(@newest/Video/title)}}"))}}:{{EVAL(quote_plus("{{VAL(@newest/Video/year)}} / {{VAL(@newest/Video/studio)}}"))}}:35:25:FFFFFF:left:bottom:70:500:-50:56:100:{{EVAL(quote_plus("{{VAL(title1)}}"))}})}}
-	       </image>{{CUT($movies_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
-          </imageHeader>
+          </image>{{CUT($movies_artwork::On Deck=CUT|Recently Added=CUT|Recently Released=)}}
+        </imageHeader>
       </header>
 
        <items>
@@ -84,8 +84,7 @@
                     <sections>
                         <shelfSection>
                             <items>
-                                <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
-                                    onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
+                                <moviePoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" featured="true" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}" onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video_Pause&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
                            onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay)}}')"
                            onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
                                     {{COPY(@newest/Video)}}
@@ -105,10 +104,7 @@
           </collectionDivider>
           <grid columnCount="7" id="grid_0">
               <items>
-                  <goldenPoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}"
-                      onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')"
-                      onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay)}}')"
-                      onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
+                  <goldenPoster id="{{VAL(key)}}" accessibilityLabel="{{VAL(title)}}" alwaysShowTitles="{{VAL($postertitles::Highlighted Only=false|Show All=true)}}" onPlay="atv.loadURL('{{URL(key:::PlexConnect=Play_Video&amp;PlexConnectRatingKey={{VAL(ratingKey)}})}}')" onSelect="atv.loadURL('{{URL(key:::includeExtras=1&amp;PlexConnect=Movie_PrePlay)}}')" onHoldSelect="scrobbleMenu('{{URL(key:::PlexConnect=Scrobble_MenuVideo)}}')">
                       {{COPY(Video)}}
                       <title>{{VAL(title)}} ({{VAL(year:&#x00AD;)}})</title>
                       <image>{{IMAGEURL(thumb::768)}}</image>
