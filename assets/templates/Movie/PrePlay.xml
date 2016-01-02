@@ -10,14 +10,14 @@
 
   <body>
     <itemDetailWithImageHeader id="com.apple.trailer" volatile="true" onVolatileReload="atv.loadAndSwapURL('{{URL(:::PlexConnect=Movie_PrePlay)}}')">
-	  <styles>
+    <styles>
           <color name="titleColor">#{{VAL($tabletitlecolor::White=fafafa|Grey=878787|Plex Orange=ff8800|Apple Blue=1357d4)}}</color>
           <color name="metadataColor">#{{VAL($metadatacolor::White=fafafa|Grey=878787)}}</color>
         </styles>
-	   <header>
-	    <imageHeader>
-	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=690)}}, 0" required="true">
-	      {{URL(:/fanartcache/{{getBackground({{EVAL({\
+     <header>
+      <imageHeader>
+        <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=690)}}, 0" required="true">
+        {{URL(:/fanartcache/{{getBackground({{EVAL({\
               'title'       : "{{EVAL(quote_plus("{{VAL(Video/title)}}"))}}",\
               'subtitle'    : "{{EVAL(quote_plus("{{VAL(Video/year)}} · {{VAL(Video/studio)}}"))}}",\
               'image'       : "{{IMAGEURL(Video/art:::)}}",\
@@ -32,9 +32,9 @@
               'lineheight'  : '175',\
               'layers': ["PlexPrePlay{{VAL($fanarttint::On=Text|Off=)}}","PlexPrePlayLine"]\
               })}})}})}}
-	    </image>
-	    </imageHeader>
-	   </header>
+      </image>
+      </imageHeader>
+     </header>
 
       <rating>{{contentRating(Video/contentRating)}}</rating>
       <summary>{{VAL(Video/summary)}}</summary>

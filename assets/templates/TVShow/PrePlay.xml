@@ -14,9 +14,9 @@
           <color name="metadataColor">#{{VAL($metadatacolor::White=fafafa|Grey=878787)}}</color>
         </styles>
        <header>
-	    <imageHeader>
-	      <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=690)}}, 0" required="true">
-	      {{URL(:/fanartcache/{{getBackground({{EVAL({\
+      <imageHeader>
+        <image insets="0, 0, {{VAL(^aTVScreenResolution:1:720=440|1080=690)}}, 0" required="true">
+        {{URL(:/fanartcache/{{getBackground({{EVAL({\
               'title'       : "{{EVAL(quote_plus("{{VAL(Video/grandparentTitle)}}"))}}",\
               'subtitle'    : "{{EVAL(quote_plus("{{VAL(Video/index)}}. {{VAL(Video/title)}}"))}}",\
               'image'       : "{{IMAGEURL(Video/art:::)}}",\
@@ -31,9 +31,9 @@
               'lineheight'  : '175',\
               'layers': ["PlexPrePlay{{VAL($fanarttint::On=Text|Off=)}}","PlexPrePlayLineTV"]\
               })}})}})}}
-	    </image>
-	    </imageHeader>
-	  </header>
+      </image>
+      </imageHeader>
+    </header>
 
       <rating>{{contentRating(Video/contentRating)}}</rating>
       <summary>{{VAL(Video/summary)}}</summary>{{CUT($showsynopsis::Hide=CUT|Show=)}}
@@ -200,6 +200,6 @@
         </shelf>
       </bottomShelf>
 
-		</itemDetailWithImageHeader>
-	</body>
+    </itemDetailWithImageHeader>
+  </body>
 </atv>
